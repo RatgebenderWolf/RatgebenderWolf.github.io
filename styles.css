@@ -63,6 +63,19 @@ a{ color:inherit; }
 html.lang-en .lang-de{ display:none; }
 html.lang-en .lang-en{ display:revert; }
 
+/* test disclaimer banner --------------------------------------------------- */
+.disclaimer{
+  background:#b3261e;
+  color:#fdf3f2;
+  text-align:center;
+  padding:0.6rem 1rem;
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.78rem;
+  letter-spacing:0.03em;
+  border-bottom:1px solid #7d1a15;
+}
+.disclaimer strong{ text-transform:uppercase; }
+
 /* header ------------------------------------------------------------------ */
 header.site{
   border-bottom:1px solid var(--line);
