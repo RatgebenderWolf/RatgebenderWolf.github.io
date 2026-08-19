@@ -1,34 +1,162 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meine Website – Test</title>
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      background: #f4f4f4;
-      color: #222;
-      text-align: center;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    p {
-      font-size: 1.1rem;
-      color: #555;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vorname Nachname — Portfolio</title>
+<meta name="description" content="Ingenieur-Portfolio: Lebenslauf und Projekte rund um Automatisierung, Prozessanalyse und Künstliche Intelligenz.">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>🎉 Es funktioniert!</h1>
-  <p>GitHub Pages ist erfolgreich eingerichtet.</p>
+
+<header class="site">
+  <nav class="wrap nav">
+    <a href="index.html" class="nav-brand">Vorname Nachname</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active"><span class="nav-text lang-de">Home</span><span class="nav-text lang-en">Home</span></a></li>
+      <li><a href="projects.html"><span class="lang-de">Projekte</span><span class="lang-en">Projects</span></a></li>
+      <li><a href="#kontakt"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button data-lang="de">DE</button>
+      <button data-lang="en">EN</button>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow"><span class="lang-de">Portfolio — Ausgabe 2026</span><span class="lang-en">Portfolio — 2026 edition</span></p>
+      <h1><span class="lang-de">Vorname Nachname</span><span class="lang-en">Vorname Nachname</span></h1>
+      <p class="role">
+        <span class="lang-de">Ingenieur mit Fokus auf Automatisierung, Prozessanalyse und Künstliche Intelligenz in Produktion &amp; Bau.</span>
+        <span class="lang-en">Engineer focused on automation, process analysis and artificial intelligence in manufacturing &amp; construction.</span>
+      </p>
+      <p>
+        <span class="lang-de">Ich verbinde praktische Prozesskenntnis mit Methoden aus Machine Learning und Konstruktion, um reale Abläufe in der Fertigung messbar zu verbessern.</span>
+        <span class="lang-en">I combine hands-on process knowledge with methods from machine learning and mechanical design to measurably improve real-world manufacturing workflows.</span>
+      </p>
+      <div class="actions">
+        <a href="projects.html" class="btn primary">
+          <span class="lang-de">Projekte ansehen</span><span class="lang-en">View projects</span>
+        </a>
+        <a href="#kontakt" class="btn">
+          <span class="lang-de">Kontakt aufnehmen</span><span class="lang-en">Get in touch</span>
+        </a>
+      </div>
+    </div>
+    <div class="hero-frame bracket-frame">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+      <div class="id">
+        <strong>VN</strong>
+        <span class="lang-de">Foto / Porträt<br>hier einfügen</span>
+        <span class="lang-en">Insert photo /<br>portrait here</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lebenslauf">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow"><span class="lang-de">01 — Über mich</span><span class="lang-en">01 — About</span></p>
+      <h2><span class="lang-de">Lebenslauf</span><span class="lang-en">Résumé</span></h2>
+    </div>
+
+    <div class="stations">
+      <div class="station">
+        <div class="when mono">2023 — <span class="lang-de">laufend</span><span class="lang-en">present</span></div>
+        <div>
+          <h3><span class="lang-de">Bachelorstudium, Fachrichtung</span><span class="lang-en">Bachelor's degree, field of study</span></h3>
+          <div class="where"><span class="lang-de">Hochschule / Universität, Ort</span><span class="lang-en">University, location</span></div>
+          <p><span class="lang-de">Schwerpunkte: Automatisierung, Qualitätssicherung, Künstliche Intelligenz.</span><span class="lang-en">Focus areas: automation, quality assurance, artificial intelligence.</span></p>
+        </div>
+      </div>
+      <div class="station">
+        <div class="when mono">2020 — 2023</div>
+        <div>
+          <h3><span class="lang-de">Praxis- / Werkstudententätigkeit</span><span class="lang-en">Working student / practical experience</span></h3>
+          <div class="where">Doka</div>
+          <p><span class="lang-de">Prozessanalyse und technische Mitarbeit im Produktionsumfeld für Schalungssysteme.</span><span class="lang-en">Process analysis and technical work in the production environment for formwork systems.</span></p>
+        </div>
+      </div>
+      <div class="station">
+        <div class="when mono">2016 — 2021</div>
+        <div>
+          <h3><span class="lang-de">HTL / Diplomarbeit</span><span class="lang-en">Technical college / diploma thesis</span></h3>
+          <div class="where"><span class="lang-de">Höhere Technische Lehranstalt, Ort</span><span class="lang-en">Higher technical college, location</span></div>
+          <p><span class="lang-de">Entwicklung eines Endlos-3D-Druckers als Diplomarbeitsprojekt.</span><span class="lang-en">Development of a continuous 3D printer as a diploma thesis project.</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tags">
+      <span class="tag">Machine Learning</span>
+      <span class="tag mono lang-de">Prozessanalyse</span><span class="tag mono lang-en">Process Analysis</span>
+      <span class="tag mono">CAD / 3D-Druck</span>
+      <span class="tag mono lang-de">Qualitätssicherung</span><span class="tag mono lang-en">Quality Assurance</span>
+      <span class="tag mono">Python</span>
+      <span class="tag mono lang-de">Automatisierung</span><span class="tag mono lang-en">Automation</span>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow"><span class="lang-de">02 — Neueste Projekte</span><span class="lang-en">02 — Latest projects</span></p>
+      <h2><span class="lang-de">Aktuelle Arbeiten</span><span class="lang-en">Recent work</span></h2>
+    </div>
+    <div class="preview-grid">
+      <a href="projects/bachelorarbeit-ki-qualitaetssicherung.html" class="preview-card bracket-frame">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <span class="status ongoing"><span class="lang-de">Laufend</span><span class="lang-en">Ongoing</span></span>
+        <h3><span class="lang-de">Automatisierung der Qualitätssicherung bei Mietschalungen durch KI</span><span class="lang-en">Automating quality assurance for rental formwork using AI</span></h3>
+        <p><span class="lang-de">Bachelorarbeit — bildbasierte Fehlererkennung für Schalungspaneele.</span><span class="lang-en">Bachelor's thesis — image-based defect detection for formwork panels.</span></p>
+      </a>
+      <a href="projects/prozessanalyse-doka.html" class="preview-card bracket-frame">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <span class="status done"><span class="lang-de">Abgeschlossen</span><span class="lang-en">Completed</span></span>
+        <h3><span class="lang-de">Prozessanalyse einer Reinigungsstrecke</span><span class="lang-en">Process analysis of a cleaning line</span></h3>
+        <p><span class="lang-de">Doka — Durchlaufzeiten und Engpässe einer Reinigungsanlage untersucht.</span><span class="lang-en">Doka — investigated cycle times and bottlenecks of a cleaning line.</span></p>
+      </a>
+    </div>
+    <p style="margin-top:2rem;">
+      <a href="projects.html" class="btn"><span class="lang-de">Alle Projekte in der Zeitleiste</span><span class="lang-en">All projects on the timeline</span></a>
+    </p>
+  </div>
+</section>
+
+<section id="kontakt">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow"><span class="lang-de">03 — Kontakt</span><span class="lang-en">03 — Contact</span></p>
+      <h2><span class="lang-de">Sprechen wir</span><span class="lang-en">Let's talk</span></h2>
+    </div>
+    <p style="max-width:520px;">
+      <span class="lang-de">Fragen zu einem Projekt, Zusammenarbeit oder ein Praktikum? Schreib mir gerne.</span>
+      <span class="lang-en">Questions about a project, collaboration, or an internship? Feel free to reach out.</span>
+    </p>
+    <div class="actions">
+      <a href="mailto:name@example.com" class="btn primary">name@example.com</a>
+      <a href="https://github.com/dein-username" class="btn">GitHub</a>
+      <a href="https://linkedin.com/in/dein-profil" class="btn">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap footer-grid">
+    <span class="footer-note">© 2026 Vorname Nachname</span>
+    <ul class="footer-links">
+      <li><a href="index.html"><span class="lang-de">Home</span><span class="lang-en">Home</span></a></li>
+      <li><a href="projects.html"><span class="lang-de">Projekte</span><span class="lang-en">Projects</span></a></li>
+      <li><a href="#kontakt"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
