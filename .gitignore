@@ -1,0 +1,16 @@
+# Bild-Originale (20 MB pro Datei) gehoeren nicht ins Repo.
+# Sie sind die Quelle fuer tools/build-gallery.py; im Repo landen nur die
+# Ableitungen unter images/gallery/thumb/ und images/gallery/large/.
+# ACHTUNG: dieser Ordner wird nicht von Git gesichert -> eigenes Backup noetig.
+originals/
+
+__pycache__/
+*.pyc
+
+# Arbeitsnotizen mit internen Projektdaten (Zahlen, Prozessdetails).
+# Gehoeren nicht auf eine oeffentliche Seite und nicht ins Repo.
+Projekt_beschreibungen.txt
+
+# Lebenslauf mit Geburtsdatum, Geburtsort und Telefonnummer.
+# Nicht oeffentlich — eine bereinigte Fassung kann spaeter aufgenommen werden.
+cv-*.pdf

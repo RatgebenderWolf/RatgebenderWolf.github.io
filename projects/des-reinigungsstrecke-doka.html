@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="de" data-lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diskrete Event Simulation einer Bearbeitungsstrecke | Ralf Hörhager</title>
+<meta name="description" content="Duales Projekt bei der Doka GmbH: Prozessanalyse und Diskrete Event Simulation einer Bearbeitungsstrecke in AnyLogic. Ergebnisse unterliegen der Vertraulichkeit.">
+<meta name="author" content="Ralf Hörhager">
+<link rel="canonical" href="https://ratgebenderwolf.github.io/projects/des-reinigungsstrecke-doka.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Diskrete Event Simulation einer Bearbeitungsstrecke">
+<meta property="og:description" content="Prozessanalyse und Simulation einer Bearbeitungsstrecke in AnyLogic.">
+<meta property="og:url" content="https://ratgebenderwolf.github.io/projects/des-reinigungsstrecke-doka.html">
+<meta property="og:image" content="https://ratgebenderwolf.github.io/images/profile.jpg">
+<meta property="og:locale" content="de_AT">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<script>(function(){var l="de";try{if(localStorage.getItem("site-lang")==="en"){l="en";}}catch(e){}var d=document.documentElement;d.setAttribute("data-lang",l);d.setAttribute("lang",l);})();</script>
+<link rel="stylesheet" href="../fonts.css">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link"><span class="lang-de" lang="de">Zum Inhalt springen</span><span class="lang-en" lang="en">Skip to content</span></a>
+
+<div class="disclaimer" role="note">
+  <span class="lang-de" lang="de"><strong>Hinweis</strong> Diese Website befindet sich im Aufbau. Angaben können unvollständig, veraltet oder fehlerhaft sein.</span>
+  <span class="lang-en" lang="en"><strong>Note</strong> This website is still under construction. Information may be incomplete, outdated or incorrect.</span>
+</div>
+
+<header class="site">
+  <nav class="wrap nav" aria-label="Hauptnavigation">
+    <a href="../index.html" class="nav-brand">Ralf Hörhager</a>
+    <ul class="nav-links">
+      <li><a href="../index.html"><span class="lang-de" lang="de">Start</span><span class="lang-en" lang="en">Home</span></a></li>
+      <li><a href="../projects.html" class="active"><span class="lang-de" lang="de">Projekte</span><span class="lang-en" lang="en">Projects</span></a></li>
+      <li><a href="../gallery.html"><span class="lang-de" lang="de">Galerie</span><span class="lang-en" lang="en">Gallery</span></a></li>
+      <li><a href="../index.html#kontakt"><span class="lang-de" lang="de">Kontakt</span><span class="lang-en" lang="en">Contact</span></a></li>
+    </ul>
+    <div class="lang-toggle" role="group" aria-label="Sprache / Language">
+      <button type="button" data-lang="de" aria-pressed="true" aria-label="Deutsch">DE</button>
+      <button type="button" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+<section class="detail-top">
+  <div class="wrap detail-hero">
+    <a href="../projects.html" class="back-link">← <span class="lang-de" lang="de">Zurück zur Zeitleiste</span><span class="lang-en" lang="en">Back to timeline</span></a>
+    <p class="eyebrow"><span class="lang-de" lang="de">Duales Projekt — Doka GmbH</span><span class="lang-en" lang="en">Dual study project — Doka GmbH</span></p>
+    <h1><span class="lang-de" lang="de">Diskrete Event Simulation einer Bearbeitungsstrecke</span><span class="lang-en" lang="en">Discrete event simulation of a processing line</span></h1>
+    <div class="detail-meta">
+      <span class="status done"><span class="lang-de" lang="de">Abgeschlossen</span><span class="lang-en" lang="en">Completed</span></span>
+      <span class="when mono">15.08.2023 — 15.02.2024</span>
+    </div>
+  </div>
+</section>
+
+<section class="detail-main">
+  <div class="wrap">
+    <div class="detail-body">
+
+      <div class="notice">
+        <p>
+          <span class="lang-de" lang="de"><strong>Vertraulichkeit.</strong> Dieses Projekt entstand im laufenden Betrieb eines Unternehmens. Konkrete Prozess- und Leistungsdaten, der Aufbau der Anlage sowie die abgeleiteten Maßnahmen sind daher hier nicht wiedergegeben. Beschrieben wird ausschließlich mein methodisches Vorgehen.</span>
+          <span class="lang-en" lang="en"><strong>Confidentiality.</strong> This project was carried out within a company's live operations. Specific process and performance data, the layout of the line and the measures derived from the study are therefore not reproduced here. What follows describes only my methodological approach.</span>
+        </p>
+      </div>
+
+      <p class="eyebrow"><span class="lang-de" lang="de">Aufgabe</span><span class="lang-en" lang="en">Task</span></p>
+      <p>
+        <span class="lang-de" lang="de">Für eine Bearbeitungsstrecke, in der Schalungselemente nach dem Baustelleneinsatz wieder instand gesetzt werden, sollten die Betriebsdaten erhoben, der Ablauf analysiert und das Verhalten der Anlage mittels einer Diskreten Event Simulation bewertet werden. Ziel war es, Ansatzpunkte für eine bessere Kapazitätssteuerung zu finden.</span>
+        <span class="lang-en" lang="en">For a processing line that reconditions formwork elements after use on construction sites, the task was to collect operating data, analyse the workflow and evaluate the line's behaviour using a discrete event simulation. The aim was to identify starting points for better capacity control.</span>
+      </p>
+
+      <p class="eyebrow"><span class="lang-de" lang="de">Vorgehen</span><span class="lang-en" lang="en">Approach</span></p>
+      <ul>
+        <li><span class="lang-de" lang="de">Einarbeitung in die Abläufe vor Ort und Erstellung eines Wertstromdiagramms (Lucidchart), um die Strecke im Gesamtprozess einzuordnen.</span><span class="lang-en" lang="en">Familiarisation with the workflows on site and creation of a value stream map (Lucidchart) to place the line within the overall process.</span></li>
+        <li><span class="lang-de" lang="de">Auswertung von Vergangenheitsdaten und statistische Aufbereitung in Excel — Histogramme sowie Anpassung an eine geeignete Verteilung als Eingangsgröße für die Simulation.</span><span class="lang-en" lang="en">Analysis of historical data and statistical preparation in Excel — histograms and fitting to a suitable distribution as input for the simulation.</span></li>
+        <li><span class="lang-de" lang="de">Mehrtägige Datenaufnahme vor Ort: Erfassung der Prozesszeiten mit drei Kameras, anschließend Videoschnitt und Auswertung mit Shotcut.</span><span class="lang-en" lang="en">Several days of on-site data collection: recording process times with three cameras, followed by video editing and analysis in Shotcut.</span></li>
+        <li><span class="lang-de" lang="de">Aufbau der Diskreten Event Simulation in AnyLogic (Process Modeling Library) — beginnend mit einem einfachen Modell, iterativ erweitert und gegen die erhobenen Daten validiert.</span><span class="lang-en" lang="en">Building the discrete event simulation in AnyLogic (Process Modeling Library) — starting from a simple model, extended iteratively and validated against the collected data.</span></li>
+        <li><span class="lang-de" lang="de">Durchführung von Experimenten am Modell, um mögliche Verbesserungsmaßnahmen quantitativ gegeneinander abzuwägen, und Dokumentation der Ergebnisse für das Unternehmen.</span><span class="lang-en" lang="en">Running experiments on the model to weigh possible improvement measures against one another quantitatively, and documenting the results for the company.</span></li>
+      </ul>
+
+      <p class="eyebrow"><span class="lang-de" lang="de">Was ich mitgenommen habe</span><span class="lang-en" lang="en">What I took away</span></p>
+      <p>
+        <span class="lang-de" lang="de">Die Anlage ließ sich in AnyLogic so abbilden, dass das Modell das reale Verhalten belastbar wiedergab. Auf dieser Grundlage konnten mehrere Verbesserungsmaßnahmen gegeneinander abgewogen und dem Unternehmen begründet vorgeschlagen werden. Für mich war es der erste Fall, in dem eine Simulation nicht Selbstzweck war, sondern eine Entscheidung vorbereitet hat — und in dem die Qualität der Eingangsdaten wichtiger war als das Modell selbst.</span>
+        <span class="lang-en" lang="en">The line could be represented in AnyLogic well enough for the model to reproduce real behaviour reliably. On that basis, several improvement measures were weighed against one another and proposed to the company with supporting evidence. For me it was the first case where a simulation was not an end in itself but prepared a decision — and where the quality of the input data mattered more than the model itself.</span>
+      </p>
+
+      <ul class="spec-list">
+        <li><span class="lang-de" lang="de">Typ</span><span class="lang-en" lang="en">Type</span><span><span class="lang-de" lang="de">Praxisprojekt / Duales Projekt — BSc Smart Engineering, Semester 3 (Prozessanalyse)</span><span class="lang-en" lang="en">Practical / dual study project — BSc Smart Engineering, semester 3 (process analysis)</span></span></li>
+        <li><span class="lang-de" lang="de">Zeitraum</span><span class="lang-en" lang="en">Period</span><span>15.08.2023 — 15.02.2024 (WS 23/24)</span></li>
+        <li><span class="lang-de" lang="de">Unternehmen</span><span class="lang-en" lang="en">Company</span><span>Doka GmbH</span></li>
+        <li><span class="lang-de" lang="de">Bereich</span><span class="lang-en" lang="en">Field</span><span><span class="lang-de" lang="de">Prozessmanagement, Produktionsplanung, Diskrete Event Simulation, Kapazitätssteuerung</span><span class="lang-en" lang="en">Process management, production planning, discrete event simulation, capacity control</span></span></li>
+        <li><span class="lang-de" lang="de">Werkzeuge</span><span class="lang-en" lang="en">Tools</span><span><span class="lang-de" lang="de">AnyLogic, Lucidchart, Microsoft Excel &amp; Word, Shotcut, Industriekameras</span><span class="lang-en" lang="en">AnyLogic, Lucidchart, Microsoft Excel &amp; Word, Shotcut, industrial cameras</span></span></li>
+        <li><span class="lang-de" lang="de">Status</span><span class="lang-en" lang="en">Status</span><span><span class="lang-de" lang="de">Abgeschlossen — Ergebnisse vertraulich</span><span class="lang-en" lang="en">Completed — results confidential</span></span></li>
+      </ul>
+    </div>
+
+    <div class="detail-nav">
+      <a href="bachelorarbeit-ki-qualitaetssicherung.html">← <span class="lang-de" lang="de">Vorheriges Projekt</span><span class="lang-en" lang="en">Previous project</span></a>
+      <a href="diplomarbeit-3d-drucker.html"><span class="lang-de" lang="de">Nächstes Projekt</span><span class="lang-en" lang="en">Next project</span> →</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap footer-grid">
+    <span class="footer-note">© 2026 Ralf Hörhager</span>
+    <ul class="footer-links">
+      <li><a href="../index.html"><span class="lang-de" lang="de">Start</span><span class="lang-en" lang="en">Home</span></a></li>
+      <li><a href="../projects.html"><span class="lang-de" lang="de">Projekte</span><span class="lang-en" lang="en">Projects</span></a></li>
+      <li><a href="../index.html#kontakt"><span class="lang-de" lang="de">Kontakt</span><span class="lang-en" lang="en">Contact</span></a></li>
+      <li><a href="../gallery.html"><span class="lang-de" lang="de">Galerie</span><span class="lang-en" lang="en">Gallery</span></a></li>
+      <li><a href="https://github.com/RatgebenderWolf" rel="me noopener">GitHub</a></li>
+    </ul>
+  </div>
+  <div class="wrap footer-legal">
+    <a href="../impressum.html"><span class="lang-de" lang="de">Impressum</span><span class="lang-en" lang="en">Legal notice</span></a>
+    <a href="../datenschutz.html"><span class="lang-de" lang="de">Datenschutz</span><span class="lang-en" lang="en">Privacy</span></a>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

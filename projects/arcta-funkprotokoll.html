@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="de" data-lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARCTA — Funkprotokolle automatisiert auswerten | Ralf Hörhager</title>
+<meta name="description" content="ARCTA: Anwendung zur automatisierten Transkription, Strukturierung und Analyse von Feuerwehrfunk. Word Error Rate von 18,5 % auf 4,8 % gesenkt.">
+<meta name="author" content="Ralf Hörhager">
+<link rel="canonical" href="https://ratgebenderwolf.github.io/projects/arcta-funkprotokoll.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ARCTA — Funkprotokolle automatisiert auswerten">
+<meta property="og:description" content="Automatisierte Transkription und Analyse von Feuerwehrfunk mit Speech-to-Text und LLM-Nachkorrektur.">
+<meta property="og:url" content="https://ratgebenderwolf.github.io/projects/arcta-funkprotokoll.html">
+<meta property="og:image" content="https://ratgebenderwolf.github.io/images/profile.jpg">
+<meta property="og:locale" content="de_AT">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<script>(function(){var l="de";try{if(localStorage.getItem("site-lang")==="en"){l="en";}}catch(e){}var d=document.documentElement;d.setAttribute("data-lang",l);d.setAttribute("lang",l);})();</script>
+<link rel="stylesheet" href="../fonts.css">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link"><span class="lang-de" lang="de">Zum Inhalt springen</span><span class="lang-en" lang="en">Skip to content</span></a>
+
+<div class="disclaimer" role="note">
+  <span class="lang-de" lang="de"><strong>Hinweis</strong> Diese Website befindet sich im Aufbau. Angaben können unvollständig, veraltet oder fehlerhaft sein.</span>
+  <span class="lang-en" lang="en"><strong>Note</strong> This website is still under construction. Information may be incomplete, outdated or incorrect.</span>
+</div>
+
+<header class="site">
+  <nav class="wrap nav" aria-label="Hauptnavigation">
+    <a href="../index.html" class="nav-brand">Ralf Hörhager</a>
+    <ul class="nav-links">
+      <li><a href="../index.html"><span class="lang-de" lang="de">Start</span><span class="lang-en" lang="en">Home</span></a></li>
+      <li><a href="../projects.html" class="active"><span class="lang-de" lang="de">Projekte</span><span class="lang-en" lang="en">Projects</span></a></li>
+      <li><a href="../gallery.html"><span class="lang-de" lang="de">Galerie</span><span class="lang-en" lang="en">Gallery</span></a></li>
+      <li><a href="../index.html#kontakt"><span class="lang-de" lang="de">Kontakt</span><span class="lang-en" lang="en">Contact</span></a></li>
+    </ul>
+    <div class="lang-toggle" role="group" aria-label="Sprache / Language">
+      <button type="button" data-lang="de" aria-pressed="true" aria-label="Deutsch">DE</button>
+      <button type="button" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+<section class="detail-top">
+  <div class="wrap detail-hero">
+    <a href="../projects.html" class="back-link">← <span class="lang-de" lang="de">Zurück zur Zeitleiste</span><span class="lang-en" lang="en">Back to timeline</span></a>
+    <p class="eyebrow"><span class="lang-de" lang="de">Masterprojekt — Interactive Technologies</span><span class="lang-en" lang="en">Master's project — Interactive Technologies</span></p>
+    <h1>ARCTA — Automated Radio Communication Transcription &amp; Analysis</h1>
+    <div class="detail-meta">
+      <span class="status ongoing"><span class="lang-de" lang="de">Laufend</span><span class="lang-en" lang="en">Ongoing</span></span>
+      <span class="when mono">2026 — <span class="lang-de" lang="de">laufend</span><span class="lang-en" lang="en">present</span></span>
+    </div>
+  </div>
+</section>
+
+<section class="detail-main">
+  <div class="wrap">
+    <div class="detail-body">
+
+      <p class="eyebrow"><span class="lang-de" lang="de">Aufgabe</span><span class="lang-en" lang="en">Task</span></p>
+      <p>
+        <span class="lang-de" lang="de">Feuerwehr- und BOS-Sprechfunk wird im Einsatz gesprochen, nicht geschrieben — stark dialektbehaftet, unter Zeitdruck und oft mit gestörter Audioqualität. Die nachträgliche Protokollierung ist entsprechend aufwändig. Ziel von ARCTA ist eine Anwendung, die aus solchen Audioaufnahmen ein normiertes, hochdeutsches und strukturiertes Einsatzprotokoll erzeugt.</span>
+        <span class="lang-en" lang="en">Fire service and emergency radio traffic is spoken under pressure, not written — heavily dialect-coloured and often with degraded audio quality. Documenting it afterwards is correspondingly laborious. The goal of ARCTA is an application that turns such recordings into a normalised, standard-German, structured incident log.</span>
+      </p>
+      <p>
+        <span class="lang-de" lang="de">Hauptziele sind die automatische Transkription des Funkverkehrs (Speech-to-Text) und die Generierung eines strukturierten Funkprotokolls. Als Nebenziele kommen die Erkennung und Klassifikation einzelner Funksprüche, die Identifikation von Rufnamen, Keyword-Spotting sowie die Erkennung von Funkpausen, Unterbrechungen und Doppelbelegungen hinzu.</span>
+        <span class="lang-en" lang="en">The primary goals are automatic transcription of the radio traffic (speech-to-text) and generation of a structured radio log. Secondary goals include detecting and classifying individual transmissions, identifying call signs, keyword spotting, and detecting radio pauses, interruptions and channel collisions.</span>
+      </p>
+
+      <p class="eyebrow"><span class="lang-de" lang="de">Vorgehen</span><span class="lang-en" lang="en">Approach</span></p>
+      <p>
+        <span class="lang-de" lang="de">Nach der Festlegung der Anforderungen entstand eine Streamlit-Anwendung mit einer mehrstufigen Verarbeitungspipeline:</span>
+        <span class="lang-en" lang="en">After defining the requirements, a Streamlit application was built around a multi-stage processing pipeline:</span>
+      </p>
+      <ul>
+        <li><span class="lang-de" lang="de"><strong>Vorverarbeitung</strong> — Audio-Upload, Konvertierung auf Mono/16 kHz und Peak-Normalisierung.</span><span class="lang-en" lang="en"><strong>Pre-processing</strong> — audio upload, conversion to mono/16 kHz and peak normalisation.</span></li>
+        <li><span class="lang-de" lang="de"><strong>Segmentierung</strong> — Sprachaktivitätserkennung mit Silero-VAD trennt den Mitschnitt in einzelne Sprechabschnitte.</span><span class="lang-en" lang="en"><strong>Segmentation</strong> — voice activity detection with Silero-VAD splits the recording into individual speech segments.</span></li>
+        <li><span class="lang-de" lang="de"><strong>Transkription</strong> — jedes Segment wird per Speech-to-Text verarbeitet, wahlweise lokal über Whisper-REST oder online über OpenRouter.</span><span class="lang-en" lang="en"><strong>Transcription</strong> — each segment is processed via speech-to-text, either locally through Whisper-REST or online through OpenRouter.</span></li>
+        <li><span class="lang-de" lang="de"><strong>Veredelung durch LLM</strong> — Vorgruppierung zu Funkverkehren, Grenzprüfung, Dialektkorrektur, Sender-/Empfänger-Erkennung und Klassifikation, gestützt auf eine domänenspezifische Ontologie mit Funkregeln, Rufzeichen und Ortsdaten.</span><span class="lang-en" lang="en"><strong>LLM refinement</strong> — pre-grouping into exchanges, boundary checking, dialect correction, sender/receiver identification and classification, supported by a domain-specific ontology of radio procedure, call signs and location data.</span></li>
+        <li><span class="lang-de" lang="de"><strong>Human in the Loop</strong> — Korrektur in einer editierbaren Timeline, anschließend Export als JSON oder PDF.</span><span class="lang-en" lang="en"><strong>Human in the loop</strong> — correction in an editable timeline, followed by export as JSON or PDF.</span></li>
+      </ul>
+      <p>
+        <span class="lang-de" lang="de">Zur systematischen Bewertung unterschiedlicher STT- und LLM-Kombinationen entstand das eigene Auswertungswerkzeug <strong>EvalARCTA</strong> (auf Basis von jiwer). Es misst Word Error Rate (WER), Character Error Rate (CER), Zahlen-Accuracy, Real-Time-Factor (RTF) und Kosten — jeweils in zwei Normalisierungsmodi: „strict" und dem funkspezifischen Modus „radio".</span>
+        <span class="lang-en" lang="en">To systematically compare STT and LLM combinations, a dedicated evaluation tool <strong>EvalARCTA</strong> was developed (built on jiwer). It measures word error rate (WER), character error rate (CER), number accuracy, real-time factor (RTF) and cost — each in two normalisation modes: "strict" and the radio-specific mode "radio".</span>
+      </p>
+
+      <p class="eyebrow"><span class="lang-de" lang="de">Ergebnisse — Phase 1</span><span class="lang-en" lang="en">Results — phase 1</span></p>
+      <p>
+        <span class="lang-de" lang="de">Die erste Projektphase (PT1) ist am 08.07.2026 abgeschlossen worden: In der Masterklasse entstanden Programm und Verarbeitungspipeline, im Kurs TUN Forsch wurden die eingesetzten Modelle evaluiert. Datengrundlage der ersten Evaluierung war eine simulierte Hochwasser-Einsatzübung mit 791,6 Sekunden Audio.</span>
+        <span class="lang-en" lang="en">The first project phase (PT1) was completed on 8 July 2026: the application and processing pipeline were built in the master class, and the models were evaluated in the TUN Forsch course. The first evaluation was based on a simulated flood response exercise with 791.6 seconds of audio.</span>
+      </p>
+      <p>
+        <span class="lang-de" lang="de">Das zentrale Ergebnis: <strong>jede</strong> LLM-Nachkorrektur verbessert die rohe STT-Ausgabe deutlich. Im radio-Modus sank die Word Error Rate von 18,5 % auf bis zu 4,8 %. Die beste Kombination — STT-Modell <span class="mono">microsoft/mai-transcribe-1.5</span> mit dem Korrektur-LLM <span class="mono">gemini-3.5-flash:nitro</span> — wird für den untersuchten Anwendungsfall empfohlen.</span>
+        <span class="lang-en" lang="en">The key finding: <strong>every</strong> LLM post-correction improves the raw STT output substantially. In radio mode, the word error rate dropped from 18.5 % to as low as 4.8 %. The best combination — STT model <span class="mono">microsoft/mai-transcribe-1.5</span> with correction LLM <span class="mono">gemini-3.5-flash:nitro</span> — is recommended for the use case examined.</span>
+      </p>
+
+      <div class="figures">
+        <div>
+          <span class="num">4,8 %</span>
+          <span class="label"><span class="lang-de" lang="de">WER, bestes Modell<br>(roh: 18,5 %)</span><span class="lang-en" lang="en">WER, best model<br>(raw: 18.5 %)</span></span>
+        </div>
+        <div>
+          <span class="num">3,2 %</span>
+          <span class="label">CER</span>
+        </div>
+        <div>
+          <span class="num">100 %</span>
+          <span class="label"><span class="lang-de" lang="de">Zahlen-Accuracy</span><span class="lang-en" lang="en">Number accuracy</span></span>
+        </div>
+        <div>
+          <span class="num">0,43</span>
+          <span class="label"><span class="lang-de" lang="de">Real-Time-Factor<br>schneller als Echtzeit</span><span class="lang-en" lang="en">Real-time factor<br>faster than real time</span></span>
+        </div>
+        <div>
+          <span class="num">0,575 $</span>
+          <span class="label"><span class="lang-de" lang="de">Kosten pro Durchlauf</span><span class="lang-en" lang="en">Cost per run</span></span>
+        </div>
+      </div>
+
+      <p class="eyebrow"><span class="lang-de" lang="de">Lessons Learned</span><span class="lang-en" lang="en">Lessons learned</span></p>
+      <p>
+        <span class="lang-de" lang="de">Die rechtliche Verfügbarkeit echter Funkdaten ist in Österreich stark eingeschränkt — die Evaluierung musste deshalb auf einer simulierten Übung aufbauen. Mundart und undeutliche Aussprache bleiben die größte technische Hürde: Sie treffen die Speech-to-Text-Stufe direkt, und was dort verloren geht, kann auch ein nachgeschaltetes LLM nur teilweise rekonstruieren.</span>
+        <span class="lang-en" lang="en">The legal availability of real radio data is heavily restricted in Austria, so the evaluation had to be based on a simulated exercise. Dialect and unclear pronunciation remain the biggest technical hurdle: they hit the speech-to-text stage directly, and what is lost there can only be partly reconstructed by a downstream LLM.</span>
+      </p>
+
+      <p class="eyebrow"><span class="lang-de" lang="de">Wie es weitergeht</span><span class="lang-en" lang="en">What's next</span></p>
+      <p>
+        <span class="lang-de" lang="de">Das Gesamtprojekt läuft weiter. Geplant sind die Optimierung von Ontologie und Systemprompts, eine verbesserte Segmentierung, die Erweiterung auf einen kontinuierlichen Live-Audio-Feed, Tests mit echten Funkgeräten und SDR-Empfängern, Speech-to-Text für österreichischen Dialekt sowie die Themen Skalierbarkeit und Datenschutz. Die Evaluierung soll auf einen größeren Korpus ausgeweitet werden, um die Ergebnisse statistisch abzusichern. Eine Masterarbeit zu diesem Thema ist in Vorbereitung.</span>
+        <span class="lang-en" lang="en">The overall project continues. Planned next steps include optimising the ontology and system prompts, improved segmentation, extension to a continuous live audio feed, tests with real radios and SDR receivers, speech-to-text for Austrian dialect, and work on scalability and data protection. The evaluation is to be extended to a larger corpus to put the results on a firmer statistical footing. A master's thesis on the topic is in preparation.</span>
+      </p>
+
+      <ul class="spec-list">
+        <li><span class="lang-de" lang="de">Typ</span><span class="lang-en" lang="en">Type</span><span><span class="lang-de" lang="de">Masterprojekt (Masterklasse MKL / TUN Forsch), Grundlage für geplante Masterarbeit</span><span class="lang-en" lang="en">Master's project (master class MKL / TUN Forsch), basis for planned master's thesis</span></span></li>
+        <li><span class="lang-de" lang="de">Zeitraum</span><span class="lang-en" lang="en">Period</span><span><span class="lang-de" lang="de">2026 — laufend; Phase 1 abgeschlossen am 08.07.2026</span><span class="lang-en" lang="en">2026 — ongoing; phase 1 completed 8 July 2026</span></span></li>
+        <li><span class="lang-de" lang="de">Bereich</span><span class="lang-en" lang="en">Field</span><span><span class="lang-de" lang="de">Speech-to-Text, Large Language Models, NLP, Audioverarbeitung, BOS-/Feuerwehrfunk</span><span class="lang-en" lang="en">Speech-to-text, large language models, NLP, audio processing, emergency service radio</span></span></li>
+        <li><span class="lang-de" lang="de">Werkzeuge</span><span class="lang-en" lang="en">Tools</span><span>Python, Streamlit, Whisper-REST, Ollama, OpenRouter, Silero-VAD, pydub/ffmpeg, ReportLab, jiwer</span></li>
+        <li><span class="lang-de" lang="de">Status</span><span class="lang-en" lang="en">Status</span><span><span class="lang-de" lang="de">Phase 1 abgeschlossen, Gesamtprojekt laufend</span><span class="lang-en" lang="en">Phase 1 completed, overall project ongoing</span></span></li>
+      </ul>
+    </div>
+
+    <div class="detail-nav">
+      <a href="../projects.html">← <span class="lang-de" lang="de">Alle Projekte</span><span class="lang-en" lang="en">All projects</span></a>
+      <a href="ai-plywood-quality-assistant.html"><span class="lang-de" lang="de">Nächstes Projekt</span><span class="lang-en" lang="en">Next project</span> →</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap footer-grid">
+    <span class="footer-note">© 2026 Ralf Hörhager</span>
+    <ul class="footer-links">
+      <li><a href="../index.html"><span class="lang-de" lang="de">Start</span><span class="lang-en" lang="en">Home</span></a></li>
+      <li><a href="../projects.html"><span class="lang-de" lang="de">Projekte</span><span class="lang-en" lang="en">Projects</span></a></li>
+      <li><a href="../index.html#kontakt"><span class="lang-de" lang="de">Kontakt</span><span class="lang-en" lang="en">Contact</span></a></li>
+      <li><a href="../gallery.html"><span class="lang-de" lang="de">Galerie</span><span class="lang-en" lang="en">Gallery</span></a></li>
+      <li><a href="https://github.com/RatgebenderWolf" rel="me noopener">GitHub</a></li>
+    </ul>
+  </div>
+  <div class="wrap footer-legal">
+    <a href="../impressum.html"><span class="lang-de" lang="de">Impressum</span><span class="lang-en" lang="en">Legal notice</span></a>
+    <a href="../datenschutz.html"><span class="lang-de" lang="de">Datenschutz</span><span class="lang-en" lang="en">Privacy</span></a>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

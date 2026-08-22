@@ -1,0 +1,805 @@
+{
+  "_hinweis": "Quelle der Wahrheit für die Galerie. Nach jeder Änderung 'python3 tools/build-gallery.py' ausführen — das erzeugt Thumbnails und schreibt die Bildliste in gallery.html. Leere Felder für 'datum' oder 'ort' sind erlaubt; das Skript listet sie beim Bauen als offene Punkte auf.",
+  "tags": {
+    "motorsport": {
+      "de": "Motorsport",
+      "en": "Motorsport"
+    },
+    "auto": {
+      "de": "Auto",
+      "en": "Car"
+    },
+    "naesse": {
+      "de": "Nässe",
+      "en": "Wet"
+    },
+    "landschaft": {
+      "de": "Landschaft",
+      "en": "Landscape"
+    },
+    "sonnenuntergang": {
+      "de": "Sonnenuntergang",
+      "en": "Sunset"
+    },
+    "donau": {
+      "de": "Donau",
+      "en": "Danube"
+    },
+    "hdr": {
+      "de": "HDR",
+      "en": "HDR"
+    },
+    "baum": {
+      "de": "Baum",
+      "en": "Tree"
+    },
+    "ortschaft": {
+      "de": "Ortschaft",
+      "en": "Village"
+    },
+    "astro": {
+      "de": "Astrofotografie",
+      "en": "Astrophotography"
+    },
+    "nacht": {
+      "de": "Nacht",
+      "en": "Night"
+    },
+    "langzeitbelichtung": {
+      "de": "Langzeitbelichtung",
+      "en": "Long exposure"
+    },
+    "driften": {
+      "de": "Driften",
+      "en": "Drifting"
+    },
+    "tier": {
+      "de": "Tier",
+      "en": "Animal"
+    },
+    "insekt": {
+      "de": "Insekt",
+      "en": "Insect"
+    },
+    "boot": {
+      "de": "Schiff/Boot",
+      "en": "Ship/Boat"
+    },
+    "wasser": {
+      "de": "Wasser",
+      "en": "Water"
+    },
+    "himmel": {
+      "de": "Himmel",
+      "en": "Sky"
+    },
+    "flugzeug": {
+      "de": "Flugzeug",
+      "en": "Plane"
+    },
+    "katze": {
+      "de": "Katze",
+      "en": "Cat"
+    },
+    "traktor": {
+      "de": "Traktor",
+      "en": "Tractor"
+    },
+    "sterne": {
+      "de": "Sterne",
+      "en": "Stars"
+    },
+    "vogel": {
+      "de": "Vogel",
+      "en": "Bird"
+    },
+    "gebaeude": {
+      "de": "Gebäude",
+      "en": "Building"
+    }
+  },
+  "photos": [
+    {
+      "datei": "hdr_01_02_gimp.png",
+      "datum": "2026-08-22",
+      "ort": "Ybbs",
+      "tags": [
+        "donau",
+        "hdr",
+        "landschaft",
+        "sonnenuntergang",
+        "wasser"
+      ],
+      "exif": {
+        "datum": "",
+        "kamera": "",
+        "objektiv": "",
+        "brennweite": "",
+        "blende": "",
+        "belichtung": "",
+        "iso": ""
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "hdr_02_01_gimp.png",
+      "datum": "2026-08-22",
+      "ort": "Ybbs",
+      "tags": [
+        "donau",
+        "hdr",
+        "landschaft",
+        "ortschaft",
+        "sonnenuntergang",
+        "wasser"
+      ],
+      "exif": {
+        "datum": "",
+        "kamera": "",
+        "objektiv": "",
+        "brennweite": "",
+        "blende": "",
+        "belichtung": "",
+        "iso": ""
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "hdr_03_02_gimp.png",
+      "datum": "2026-08-22",
+      "ort": "Ybbs",
+      "tags": [
+        "donau",
+        "hdr",
+        "landschaft",
+        "ortschaft",
+        "sonnenuntergang",
+        "wasser"
+      ],
+      "exif": {
+        "datum": "",
+        "kamera": "",
+        "objektiv": "",
+        "brennweite": "",
+        "blende": "",
+        "belichtung": "",
+        "iso": ""
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "hdr_04_01_gimp.png",
+      "datum": "2026-08-22",
+      "ort": "Ybbs",
+      "tags": [
+        "donau",
+        "hdr",
+        "landschaft",
+        "ortschaft",
+        "sonnenuntergang",
+        "wasser"
+      ],
+      "exif": {
+        "datum": "",
+        "kamera": "",
+        "objektiv": "",
+        "brennweite": "",
+        "blende": "",
+        "belichtung": "",
+        "iso": ""
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "hdr_05_02_gimp.png",
+      "datum": "2026-08-22",
+      "ort": "Ybbs",
+      "tags": [
+        "donau",
+        "hdr",
+        "landschaft",
+        "ortschaft",
+        "sonnenuntergang",
+        "wasser"
+      ],
+      "exif": {
+        "datum": "",
+        "kamera": "",
+        "objektiv": "",
+        "brennweite": "",
+        "blende": "",
+        "belichtung": "",
+        "iso": ""
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "IMG_7224.JPG",
+      "datum": "2026-08-15",
+      "ort": "Melk",
+      "tags": [
+        "auto",
+        "driften",
+        "motorsport"
+      ],
+      "exif": {
+        "datum": "2026-08-15",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "194 mm",
+        "blende": "f/5.6",
+        "belichtung": "1/400 s",
+        "iso": "200"
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "IMG_7242.JPG",
+      "datum": "2026-08-15",
+      "ort": "Melk",
+      "tags": [
+        "auto",
+        "driften",
+        "motorsport"
+      ],
+      "exif": {
+        "datum": "2026-08-15",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "135 mm",
+        "blende": "f/5.6",
+        "belichtung": "1/640 s",
+        "iso": "200"
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "result_444s.jpg",
+      "datum": "2026-08-14",
+      "ort": "Leiben",
+      "tags": [
+        "astro",
+        "nacht",
+        "sterne"
+      ],
+      "exif": {
+        "datum": "",
+        "kamera": "",
+        "objektiv": "",
+        "brennweite": "",
+        "blende": "",
+        "belichtung": "",
+        "iso": ""
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "result_528s.jpg",
+      "datum": "2026-08-14",
+      "ort": "Leiben",
+      "tags": [
+        "astro",
+        "nacht",
+        "sterne"
+      ],
+      "exif": {
+        "datum": "",
+        "kamera": "",
+        "objektiv": "",
+        "brennweite": "",
+        "blende": "",
+        "belichtung": "",
+        "iso": ""
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "result_570s.jpg",
+      "datum": "2026-08-14",
+      "ort": "Leiben",
+      "tags": [
+        "astro",
+        "nacht",
+        "sterne"
+      ],
+      "exif": {
+        "datum": "",
+        "kamera": "",
+        "objektiv": "",
+        "brennweite": "",
+        "blende": "",
+        "belichtung": "",
+        "iso": ""
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "result_612s.jpg",
+      "datum": "2026-08-14",
+      "ort": "Leiben",
+      "tags": [
+        "astro",
+        "nacht",
+        "sterne"
+      ],
+      "exif": {
+        "datum": "",
+        "kamera": "",
+        "objektiv": "",
+        "brennweite": "",
+        "blende": "",
+        "belichtung": "",
+        "iso": ""
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "hdr_06_01.jpg",
+      "datum": "2026-08-11",
+      "ort": "Ybbs",
+      "tags": [
+        "donau",
+        "hdr",
+        "ortschaft",
+        "sonnenuntergang",
+        "wasser"
+      ],
+      "exif": {
+        "datum": "2026-08-11",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "146 mm",
+        "blende": "f/8",
+        "belichtung": "1/400 s",
+        "iso": "100"
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "hdr_08_01.jpg",
+      "datum": "2026-08-11",
+      "ort": "Ybbs",
+      "tags": [
+        "donau",
+        "hdr",
+        "ortschaft",
+        "sonnenuntergang",
+        "wasser"
+      ],
+      "exif": {
+        "datum": "2026-08-11",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "55 mm",
+        "blende": "f/5",
+        "belichtung": "1/200 s",
+        "iso": "100"
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "hdr_09_01.jpg",
+      "datum": "2026-08-11",
+      "ort": "Ybbs",
+      "tags": [
+        "donau",
+        "hdr",
+        "landschaft",
+        "ortschaft",
+        "sonnenuntergang",
+        "wasser"
+      ],
+      "exif": {
+        "datum": "2026-08-11",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S10-18mm f/4.5-5.6 IS STM",
+        "brennweite": "18 mm",
+        "blende": "f/14",
+        "belichtung": "1/13 s",
+        "iso": "100"
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "IMG_5496.JPG",
+      "datum": "2026-08-04",
+      "ort": "Leiben",
+      "tags": [
+        "donau",
+        "landschaft",
+        "ortschaft",
+        "sonnenuntergang",
+        "wasser"
+      ],
+      "exif": {
+        "datum": "2026-08-04",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S10-18mm f/4.5-5.6 IS STM",
+        "brennweite": "15 mm",
+        "blende": "f/14",
+        "belichtung": "1/20 s",
+        "iso": "100"
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "hdr_01.jpg",
+      "datum": "2026-08-04",
+      "ort": "Leiben",
+      "tags": [
+        "baum",
+        "hdr",
+        "landschaft",
+        "sonnenuntergang"
+      ],
+      "exif": {
+        "datum": "2026-08-04",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S10-18mm f/4.5-5.6 IS STM",
+        "brennweite": "13 mm",
+        "blende": "f/5.6",
+        "belichtung": "1/400 s",
+        "iso": "100"
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "hdr_02_edit.jpg",
+      "datum": "2026-08-04",
+      "ort": "Leiben",
+      "tags": [
+        "baum",
+        "hdr",
+        "landschaft",
+        "sonnenuntergang"
+      ],
+      "exif": {
+        "datum": "2026-08-04",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S10-18mm f/4.5-5.6 IS STM",
+        "brennweite": "10 mm",
+        "blende": "f/22",
+        "belichtung": "1/6 s",
+        "iso": "100"
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "hdr_03.jpg",
+      "datum": "2026-08-04",
+      "ort": "Leiben",
+      "tags": [
+        "baum",
+        "hdr",
+        "landschaft",
+        "sonnenuntergang"
+      ],
+      "exif": {
+        "datum": "2026-08-04",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S10-18mm f/4.5-5.6 IS STM",
+        "brennweite": "10 mm",
+        "blende": "f/4.5",
+        "belichtung": "1/1600 s",
+        "iso": "100"
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "IMG_5280.JPG",
+      "datum": "2026-04-26",
+      "ort": "Leiben",
+      "tags": [
+        "insekt",
+        "tier"
+      ],
+      "exif": {
+        "datum": "2026-04-26",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "250 mm",
+        "blende": "f/10",
+        "belichtung": "1/200 s",
+        "iso": "1250"
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "IMG_5316.JPG",
+      "datum": "2026-04-26",
+      "ort": "Leiben",
+      "tags": [
+        "boot",
+        "donau",
+        "wasser"
+      ],
+      "exif": {
+        "datum": "2026-04-26",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "250 mm",
+        "blende": "f/5.6",
+        "belichtung": "1/2000 s",
+        "iso": "250"
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "IMG_5348.JPG",
+      "datum": "2026-04-26",
+      "ort": "Leiben",
+      "tags": [
+        "baum",
+        "tier",
+        "vogel"
+      ],
+      "exif": {
+        "datum": "2026-04-26",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "250 mm",
+        "blende": "f/5.6",
+        "belichtung": "1/800 s",
+        "iso": "200"
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "IMG_5353.JPG",
+      "datum": "2026-04-26",
+      "ort": "Leiben",
+      "tags": [
+        "flugzeug",
+        "himmel"
+      ],
+      "exif": {
+        "datum": "2026-04-26",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "250 mm",
+        "blende": "f/5.6",
+        "belichtung": "1/800 s",
+        "iso": "160"
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "IMG_5391.JPG",
+      "datum": "2026-04-26",
+      "ort": "Leiben",
+      "tags": [
+        "katze",
+        "tier"
+      ],
+      "exif": {
+        "datum": "2026-04-26",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "70 mm",
+        "blende": "f/4.5",
+        "belichtung": "1/800 s",
+        "iso": "200"
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "IMG_4736.JPG",
+      "datum": "2026-03-07",
+      "ort": "Melk",
+      "tags": [
+        "auto",
+        "driften",
+        "motorsport",
+        "naesse"
+      ],
+      "exif": {
+        "datum": "2026-03-07",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "100 mm",
+        "blende": "f/5",
+        "belichtung": "1/800 s",
+        "iso": "100"
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "IMG_4839.JPG",
+      "datum": "2026-03-07",
+      "ort": "Melk",
+      "tags": [
+        "auto",
+        "driften",
+        "motorsport",
+        "naesse"
+      ],
+      "exif": {
+        "datum": "2026-03-07",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "214 mm",
+        "blende": "f/5.6",
+        "belichtung": "1/2000 s",
+        "iso": "640"
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "f27073088.jpg",
+      "datum": "2026-03-07",
+      "ort": "Leiben",
+      "tags": [
+        "katze",
+        "tier"
+      ],
+      "exif": {
+        "datum": "2026-03-07",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "183 mm",
+        "blende": "f/5.6",
+        "belichtung": "1/1600 s",
+        "iso": "500"
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "f27413760.jpg",
+      "datum": "2026-03-07",
+      "ort": "Leiben",
+      "tags": [
+        "katze",
+        "tier"
+      ],
+      "exif": {
+        "datum": "2026-03-07",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "250 mm",
+        "blende": "f/5.6",
+        "belichtung": "1/1600 s",
+        "iso": "400"
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "f30805824.jpg",
+      "datum": "2026-03-07",
+      "ort": "Leiben",
+      "tags": [
+        "traktor"
+      ],
+      "exif": {
+        "datum": "2026-03-07",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "117 mm",
+        "blende": "f/5.6",
+        "belichtung": "1/640 s",
+        "iso": "250"
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "IMG_4709.JPG",
+      "datum": "2026-03-06",
+      "ort": "Leiben",
+      "tags": [
+        "insekt",
+        "tier"
+      ],
+      "exif": {
+        "datum": "2026-03-06",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "250 mm",
+        "blende": "f/5.6",
+        "belichtung": "1/800 s",
+        "iso": "125"
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "IMG_4008.JPG",
+      "datum": "2025-05-25",
+      "ort": "Melk",
+      "tags": [
+        "donau",
+        "gebaeude",
+        "ortschaft"
+      ],
+      "exif": {
+        "datum": "2025-05-25",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S18-55mm f/3.5-5.6 IS II",
+        "brennweite": "55 mm",
+        "blende": "f/9",
+        "belichtung": "1/200 s",
+        "iso": "100"
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    },
+    {
+      "datei": "IMG_4010.JPG",
+      "datum": "2025-05-25",
+      "ort": "Melk",
+      "tags": [
+        "donau",
+        "gebaeude",
+        "ortschaft"
+      ],
+      "exif": {
+        "datum": "2025-05-25",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S18-55mm f/3.5-5.6 IS II",
+        "brennweite": "18 mm",
+        "blende": "f/8",
+        "belichtung": "1/320 s",
+        "iso": "100"
+      },
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": ""
+    }
+  ]
+}

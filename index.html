@@ -1,63 +1,76 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vorname Nachname — Portfolio</title>
-<meta name="description" content="Ingenieur-Portfolio: Lebenslauf und Projekte rund um Automatisierung, Prozessanalyse und Künstliche Intelligenz.">
+<title>Ralf Hörhager — Portfolio</title>
+<meta name="description" content="Portfolio von Ralf Hörhager: Dipl.-Ing.-Student Interactive Technologies und BSc Smart Engineering — Projekte zu angewandter KI, Prozesssimulation und Automatisierung in der Produktion.">
+<meta name="author" content="Ralf Hörhager">
+<link rel="canonical" href="https://ratgebenderwolf.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ralf Hörhager — Portfolio">
+<meta property="og:description" content="Projekte zu angewandter KI, Prozesssimulation und Automatisierung in der Produktion.">
+<meta property="og:url" content="https://ratgebenderwolf.github.io/">
+<meta property="og:image" content="https://ratgebenderwolf.github.io/images/profile.jpg">
+<meta property="og:locale" content="de_AT">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script>(function(){var l="de";try{if(localStorage.getItem("site-lang")==="en"){l="en";}}catch(e){}var d=document.documentElement;d.setAttribute("data-lang",l);d.setAttribute("lang",l);})();</script>
+<link rel="stylesheet" href="fonts.css">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<div class="disclaimer">
-  <span class="lang-de"><strong>Testseite</strong> — diese Website ist noch nicht fertig und befindet sich im Aufbau.</span>
-  <span class="lang-en"><strong>Test page</strong> — this website is not finished yet and is still under construction.</span>
+<a href="#main" class="skip-link"><span class="lang-de" lang="de">Zum Inhalt springen</span><span class="lang-en" lang="en">Skip to content</span></a>
+
+<div class="disclaimer" role="note">
+  <span class="lang-de" lang="de"><strong>Hinweis</strong> Diese Website befindet sich im Aufbau. Angaben können unvollständig, veraltet oder fehlerhaft sein.</span>
+  <span class="lang-en" lang="en"><strong>Note</strong> This website is still under construction. Information may be incomplete, outdated or incorrect.</span>
 </div>
 
 <header class="site">
-  <nav class="wrap nav">
-    <a href="index.html" class="nav-brand">Vorname Nachname</a>
+  <nav class="wrap nav" aria-label="Hauptnavigation">
+    <a href="index.html" class="nav-brand">Ralf Hörhager</a>
     <ul class="nav-links">
-      <li><a href="index.html" class="active"><span class="nav-text lang-de">Home</span><span class="nav-text lang-en">Home</span></a></li>
-      <li><a href="projects.html"><span class="lang-de">Projekte</span><span class="lang-en">Projects</span></a></li>
-      <li><a href="#kontakt"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a></li>
+      <li><a href="index.html" class="active" aria-current="page"><span class="lang-de" lang="de">Start</span><span class="lang-en" lang="en">Home</span></a></li>
+      <li><a href="projects.html"><span class="lang-de" lang="de">Projekte</span><span class="lang-en" lang="en">Projects</span></a></li>
+      <li><a href="gallery.html"><span class="lang-de" lang="de">Galerie</span><span class="lang-en" lang="en">Gallery</span></a></li>
+      <li><a href="#kontakt"><span class="lang-de" lang="de">Kontakt</span><span class="lang-en" lang="en">Contact</span></a></li>
     </ul>
-    <div class="lang-toggle">
-      <button data-lang="de">DE</button>
-      <button data-lang="en">EN</button>
+    <div class="lang-toggle" role="group" aria-label="Sprache / Language">
+      <button type="button" data-lang="de" aria-pressed="true" aria-label="Deutsch">DE</button>
+      <button type="button" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
     </div>
   </nav>
 </header>
 
+<main id="main">
+
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <p class="eyebrow"><span class="lang-de">Portfolio — Ausgabe 2026</span><span class="lang-en">Portfolio — 2026 edition</span></p>
-      <h1><span class="lang-de">Vorname Nachname</span><span class="lang-en">Vorname Nachname</span></h1>
+      <p class="eyebrow"><span class="lang-de" lang="de">stand 08.2026</span><span class="lang-en" lang="en"> as of 08.2026</span></p>
+      <h1>Ralf Hörhager B.Sc.</h1>
       <p class="role">
-        <span class="lang-de">Ingenieur mit Fokus auf Automatisierung, Prozessanalyse und Künstliche Intelligenz in Produktion &amp; Bau.</span>
-        <span class="lang-en">Engineer focused on automation, process analysis and artificial intelligence in manufacturing &amp; construction.</span>
+        <span class="lang-de" lang="de">Masterstudent Interactive Technologies — angewandte KI, Prozesssimulation und Automatisierung in der Produktion.</span>
+        <span class="lang-en" lang="en">Master's student in Interactive Technologies — applied AI, process simulation and automation in manufacturing.</span>
       </p>
-      <p>
-        <span class="lang-de">Ich verbinde praktische Prozesskenntnis mit Methoden aus Machine Learning und Konstruktion, um reale Abläufe in der Fertigung messbar zu verbessern.</span>
-        <span class="lang-en">I combine hands-on process knowledge with methods from machine learning and mechanical design to measurably improve real-world manufacturing workflows.</span>
+      <p class="lede">
+        <span class="lang-de" lang="de">Ich arbeite an der Schnittstelle zwischen Fertigung und Software. Neben dem Studium bin ich in der Produktentwicklung bei Doka in Amstetten tätig.</span>
+        <span class="lang-en" lang="en">I work at the intersection of manufacturing and software. Alongside my studies I work in product development at Doka in Amstetten.</span>
       </p>
       <div class="actions">
         <a href="projects.html" class="btn primary">
-          <span class="lang-de">Projekte ansehen</span><span class="lang-en">View projects</span>
+          <span class="lang-de" lang="de">Projekte ansehen</span><span class="lang-en" lang="en">View projects</span>
         </a>
         <a href="#kontakt" class="btn">
-          <span class="lang-de">Kontakt aufnehmen</span><span class="lang-en">Get in touch</span>
+          <span class="lang-de" lang="de">Kontakt</span><span class="lang-en" lang="en">Get in touch</span>
         </a>
       </div>
     </div>
     <div class="hero-frame bracket-frame">
       <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
-      <div class="id">
-        <strong>VN</strong>
-        <span class="lang-de">Foto / Porträt<br>hier einfügen</span>
-        <span class="lang-en">Insert photo /<br>portrait here</span>
-      </div>
+      <img src="images/profile.jpg" width="900" height="1125" alt="Porträt von Ralf Hörhager">
     </div>
   </div>
 </section>
@@ -65,44 +78,90 @@
 <section id="lebenslauf">
   <div class="wrap">
     <div class="section-head">
-      <p class="eyebrow"><span class="lang-de">01 — Über mich</span><span class="lang-en">01 — About</span></p>
-      <h2><span class="lang-de">Lebenslauf</span><span class="lang-en">Résumé</span></h2>
+      <p class="eyebrow"><span class="lang-de" lang="de">01 — Über mich</span><span class="lang-en" lang="en">01 — About</span></p>
+      <h2><span class="lang-de" lang="de">Lebenslauf</span><span class="lang-en" lang="en">Résumé</span></h2>
     </div>
 
     <div class="stations">
       <div class="station">
-        <div class="when mono">2023 — <span class="lang-de">laufend</span><span class="lang-en">present</span></div>
+        <div class="when mono">09/2025 — <span class="lang-de" lang="de">laufend</span><span class="lang-en" lang="en">present</span></div>
         <div>
-          <h3><span class="lang-de">Bachelorstudium, Fachrichtung</span><span class="lang-en">Bachelor's degree, field of study</span></h3>
-          <div class="where"><span class="lang-de">Hochschule / Universität, Ort</span><span class="lang-en">University, location</span></div>
-          <p><span class="lang-de">Schwerpunkte: Automatisierung, Qualitätssicherung, Künstliche Intelligenz.</span><span class="lang-en">Focus areas: automation, quality assurance, artificial intelligence.</span></p>
+          <span class="kind"><span class="lang-de" lang="de">Studium</span><span class="lang-en" lang="en">Studies</span></span>
+          <h3><span class="lang-de" lang="de">Diplom-Ingenieur (Dipl.-Ing.), Interactive Technologies</span><span class="lang-en" lang="en">Diplom-Ingenieur (Dipl.-Ing.), Interactive Technologies</span></h3>
+          <div class="where">Fachhochschule St. Pölten, <span class="lang-de" lang="de">Österreich</span><span class="lang-en" lang="en">Austria</span></div>
+          <p><span class="lang-de" lang="de">Masterstudium mit Schwerpunkt auf interaktiven Systemen, Sprach- und Bildverarbeitung. Projektarbeit ARCTA als Grundlage für die geplante Masterarbeit.</span><span class="lang-en" lang="en">Master's programme focused on interactive systems, speech and image processing. The ARCTA project serves as the basis for the planned master's thesis.</span></p>
         </div>
       </div>
       <div class="station">
-        <div class="when mono">2020 — 2023</div>
+        <div class="when mono">01/2023 — <span class="lang-de" lang="de">laufend</span><span class="lang-en" lang="en">present</span></div>
         <div>
-          <h3><span class="lang-de">Praxis- / Werkstudententätigkeit</span><span class="lang-en">Working student / practical experience</span></h3>
-          <div class="where">Doka</div>
-          <p><span class="lang-de">Prozessanalyse und technische Mitarbeit im Produktionsumfeld für Schalungssysteme.</span><span class="lang-en">Process analysis and technical work in the production environment for formwork systems.</span></p>
+          <span class="kind"><span class="lang-de" lang="de">Berufserfahrung</span><span class="lang-en" lang="en">Work experience</span></span>
+          <h3><span class="lang-de" lang="de">Technischer Zeichner in der Produktentwicklung</span><span class="lang-en" lang="en">Product development engineering drafter</span></h3>
+          <div class="where">Doka GmbH, Amstetten</div>
+          <p><span class="lang-de" lang="de">CAD-Konstruktion, Erstellung von Betriebsanleitungen und Arbeitsanweisungen, Mitarbeit in Projekten und Projektmanagement.</span><span class="lang-en" lang="en">CAD design, preparation of operating manuals and work instructions, project participation and project management.</span></p>
         </div>
       </div>
       <div class="station">
-        <div class="when mono">2016 — 2021</div>
+        <div class="when mono">09/2022 — 09/2025</div>
         <div>
-          <h3><span class="lang-de">HTL / Diplomarbeit</span><span class="lang-en">Technical college / diploma thesis</span></h3>
-          <div class="where"><span class="lang-de">Höhere Technische Lehranstalt, Ort</span><span class="lang-en">Higher technical college, location</span></div>
-          <p><span class="lang-de">Entwicklung eines Endlos-3D-Druckers als Diplomarbeitsprojekt.</span><span class="lang-en">Development of a continuous 3D printer as a diploma thesis project.</span></p>
+          <span class="kind"><span class="lang-de" lang="de">Studium</span><span class="lang-en" lang="en">Studies</span></span>
+          <h3><span class="lang-de" lang="de">Bachelor of Science in Engineering (BSc)</span><span class="lang-en" lang="en">Bachelor of Science in Engineering (BSc)</span></h3>
+          <div class="where">Fachhochschule St. Pölten, <span class="lang-de" lang="de">Österreich</span><span class="lang-en" lang="en">Austria</span></div>
+          <p><span class="lang-de" lang="de">Smart Engineering of Production Technologies and Processes. Abschluss mit der Bachelorarbeit zur KI-gestützten Qualitätssicherung bei Mietschalungen.</span><span class="lang-en" lang="en">Smart Engineering of Production Technologies and Processes. Completed with a bachelor's thesis on AI-supported quality assurance for rental formwork.</span></p>
+        </div>
+      </div>
+      <div class="station">
+        <div class="when mono">09/2016 — 05/2021</div>
+        <div>
+          <span class="kind"><span class="lang-de" lang="de">Ausbildung</span><span class="lang-en" lang="en">Education</span></span>
+          <h3><span class="lang-de" lang="de">Reife- und Diplomprüfung, Maschinenbau</span><span class="lang-en" lang="en">School leaving and diploma certificate, mechanical engineering</span></h3>
+          <div class="where">HTBLuVA St. Pölten</div>
+          <p><span class="lang-de" lang="de">Fachrichtung Maschinenbau, Vertiefung Industrial Design. Diplomarbeit: Entwicklung eines Endlos-3D-Druckers.</span><span class="lang-en" lang="en">Mechanical engineering with a specialisation in industrial design. Diploma thesis: development of a continuous 3D printer.</span></p>
+        </div>
+      </div>
+      <div class="station">
+        <div class="when mono">06/2021</div>
+        <div>
+          <span class="kind"><span class="lang-de" lang="de">Zertifikat</span><span class="lang-en" lang="en">Certification</span></span>
+          <h3>EBC*L Certified Manager</h3>
+          <div class="where">EBC*L International GmbH</div>
+          <p><span class="lang-de" lang="de">Zertifizierung in betriebswirtschaftlichen Grundlagen und Unternehmensführung.</span><span class="lang-en" lang="en">Certification in business administration fundamentals and management.</span></p>
         </div>
       </div>
     </div>
 
-    <div class="tags">
-      <span class="tag">Machine Learning</span>
-      <span class="tag mono lang-de">Prozessanalyse</span><span class="tag mono lang-en">Process Analysis</span>
-      <span class="tag mono">CAD / 3D-Druck</span>
-      <span class="tag mono lang-de">Qualitätssicherung</span><span class="tag mono lang-en">Quality Assurance</span>
-      <span class="tag mono">Python</span>
-      <span class="tag mono lang-de">Automatisierung</span><span class="tag mono lang-en">Automation</span>
+    <div class="tag-group">
+      <h3><span class="lang-de" lang="de">KI &amp; Software</span><span class="lang-en" lang="en">AI &amp; software</span></h3>
+      <div class="tags">
+        <span class="tag mono">Python</span>
+        <span class="tag mono">Machine Learning</span>
+        <span class="tag mono">Computer Vision</span>
+        <span class="tag mono">Speech-to-Text</span>
+        <span class="tag mono">LLM / Streamlit</span>
+        <span class="tag mono">C++ · Java · React</span>
+        <span class="tag mono">Linux</span>
+      </div>
+    </div>
+
+    <div class="tag-group">
+      <h3><span class="lang-de" lang="de">Produktion &amp; Konstruktion</span><span class="lang-en" lang="en">Manufacturing &amp; design</span></h3>
+      <div class="tags">
+        <span class="tag mono lang-de" lang="de">Diskrete Event Simulation</span><span class="tag mono lang-en" lang="en">Discrete event simulation</span>
+        <span class="tag mono">AnyLogic</span>
+        <span class="tag mono lang-de" lang="de">Prozessanalyse</span><span class="tag mono lang-en" lang="en">Process analysis</span>
+        <span class="tag mono lang-de" lang="de">Wertstromanalyse</span><span class="tag mono lang-en" lang="en">Value stream mapping</span>
+        <span class="tag mono">CAD / Inventor</span>
+        <span class="tag mono lang-de" lang="de">3D-Druck</span><span class="tag mono lang-en" lang="en">3D printing</span>
+        <span class="tag mono">Requirements Engineering</span>
+      </div>
+    </div>
+
+    <div class="tag-group">
+      <h3><span class="lang-de" lang="de">Sprachen</span><span class="lang-en" lang="en">Languages</span></h3>
+      <div class="tags">
+        <span class="tag mono lang-de" lang="de">Deutsch — Muttersprache</span><span class="tag mono lang-en" lang="en">German — native</span>
+        <span class="tag mono lang-de" lang="de">Englisch — B2</span><span class="tag mono lang-en" lang="en">English — B2</span>
+      </div>
     </div>
   </div>
 </section>
@@ -110,25 +169,31 @@
 <section class="alt">
   <div class="wrap">
     <div class="section-head">
-      <p class="eyebrow"><span class="lang-de">02 — Neueste Projekte</span><span class="lang-en">02 — Latest projects</span></p>
-      <h2><span class="lang-de">Aktuelle Arbeiten</span><span class="lang-en">Recent work</span></h2>
+      <p class="eyebrow"><span class="lang-de" lang="de">02 — Neueste Projekte</span><span class="lang-en" lang="en">02 — Latest projects</span></p>
+      <h2><span class="lang-de" lang="de">Aktuelle Arbeiten</span><span class="lang-en" lang="en">Recent work</span></h2>
     </div>
     <div class="preview-grid">
-      <a href="projects/bachelorarbeit-ki-qualitaetssicherung.html" class="preview-card bracket-frame">
+      <a href="projects/arcta-funkprotokoll.html" class="preview-card bracket-frame">
         <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
-        <span class="status ongoing"><span class="lang-de">Laufend</span><span class="lang-en">Ongoing</span></span>
-        <h3><span class="lang-de">Automatisierung der Qualitätssicherung bei Mietschalungen durch KI</span><span class="lang-en">Automating quality assurance for rental formwork using AI</span></h3>
-        <p><span class="lang-de">Bachelorarbeit — bildbasierte Fehlererkennung für Schalungspaneele.</span><span class="lang-en">Bachelor's thesis — image-based defect detection for formwork panels.</span></p>
+        <span class="status ongoing"><span class="lang-de" lang="de">Laufend</span><span class="lang-en" lang="en">Ongoing</span></span>
+        <h3>ARCTA — <span class="lang-de" lang="de">Funkprotokolle aus Sprachaufnahmen</span><span class="lang-en" lang="en">radio logs from audio recordings</span></h3>
+        <p><span class="lang-de" lang="de">Masterprojekt — automatisierte Transkription und Analyse von Feuerwehrfunk. WER von 18,5 % auf 4,8 % gesenkt.</span><span class="lang-en" lang="en">Master's project — automated transcription and analysis of fire service radio traffic. WER reduced from 18.5 % to 4.8 %.</span></p>
       </a>
-      <a href="projects/prozessanalyse-doka.html" class="preview-card bracket-frame">
+      <a href="projects/ai-plywood-quality-assistant.html" class="preview-card bracket-frame">
         <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
-        <span class="status done"><span class="lang-de">Abgeschlossen</span><span class="lang-en">Completed</span></span>
-        <h3><span class="lang-de">Prozessanalyse einer Reinigungsstrecke</span><span class="lang-en">Process analysis of a cleaning line</span></h3>
-        <p><span class="lang-de">Doka — Durchlaufzeiten und Engpässe einer Reinigungsanlage untersucht.</span><span class="lang-en">Doka — investigated cycle times and bottlenecks of a cleaning line.</span></p>
+        <span class="status ongoing"><span class="lang-de" lang="de">Laufend</span><span class="lang-en" lang="en">Ongoing</span></span>
+        <h3>AI Plywood Quality Assistant</h3>
+        <p><span class="lang-de" lang="de">Anlage zur automatischen Qualitätserkennung von Oberflächen — Projektleitung und Requirements Engineering.</span><span class="lang-en" lang="en">A system for automated surface quality inspection — project lead and requirements engineering.</span></p>
+      </a>
+      <a href="projects/des-reinigungsstrecke-doka.html" class="preview-card bracket-frame">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <span class="status done"><span class="lang-de" lang="de">Abgeschlossen</span><span class="lang-en" lang="en">Completed</span></span>
+        <h3><span class="lang-de" lang="de">Diskrete Event Simulation einer Bearbeitungsstrecke</span><span class="lang-en" lang="en">Discrete event simulation of a processing line</span></h3>
+        <p><span class="lang-de" lang="de">Duales Projekt bei Doka — Prozessanalyse, Datenaufnahme vor Ort und Simulation in AnyLogic.</span><span class="lang-en" lang="en">Dual study project at Doka — process analysis, on-site data collection and AnyLogic simulation.</span></p>
       </a>
     </div>
     <p style="margin-top:2rem;">
-      <a href="projects.html" class="btn"><span class="lang-de">Alle Projekte in der Zeitleiste</span><span class="lang-en">All projects on the timeline</span></a>
+      <a href="projects.html" class="btn"><span class="lang-de" lang="de">Alle Projekte in der Zeitleiste</span><span class="lang-en" lang="en">All projects on the timeline</span></a>
     </p>
   </div>
 </section>
@@ -136,29 +201,40 @@
 <section id="kontakt">
   <div class="wrap">
     <div class="section-head">
-      <p class="eyebrow"><span class="lang-de">03 — Kontakt</span><span class="lang-en">03 — Contact</span></p>
-      <h2><span class="lang-de">Sprechen wir</span><span class="lang-en">Let's talk</span></h2>
+      <p class="eyebrow"><span class="lang-de" lang="de">03 — Kontakt</span><span class="lang-en" lang="en">03 — Contact</span></p>
+      <h2><span class="lang-de" lang="de">Sprechen wir</span><span class="lang-en" lang="en">Let's talk</span></h2>
     </div>
-    <p style="max-width:520px;">
-      <span class="lang-de">Fragen zu einem Projekt, Zusammenarbeit oder ein Praktikum? Schreib mir gerne.</span>
-      <span class="lang-en">Questions about a project, collaboration, or an internship? Feel free to reach out.</span>
+    <p class="lede">
+      <span class="lang-de" lang="de">Fragen zu einem Projekt, Interesse an einer Zusammenarbeit oder eine offene Position? Schreib mir gerne — ich melde mich zurück.</span>
+      <span class="lang-en" lang="en">Questions about a project, interested in working together, or an open position? Feel free to reach out — I'll get back to you.</span>
     </p>
     <div class="actions">
-      <a href="mailto:name@example.com" class="btn primary">name@example.com</a>
-      <a href="https://github.com/dein-username" class="btn">GitHub</a>
-      <a href="https://linkedin.com/in/dein-profil" class="btn">LinkedIn</a>
+      <a href="mailto:ralf.hoerhager@gmail.com" class="btn primary">ralf.hoerhager@gmail.com</a>
+      <a href="https://github.com/RatgebenderWolf" class="btn" rel="me noopener">GitHub</a>
+      <a href="mailto:ralf.hoerhager@gmail.com?subject=Lebenslauf" class="btn"><span class="lang-de" lang="de">Lebenslauf anfragen</span><span class="lang-en" lang="en">Request résumé</span></a>
     </div>
+    <p class="mono" style="font-size:0.8rem; margin-top:1.5rem;">
+      <span class="lang-de" lang="de">Leiben, Österreich</span><span class="lang-en" lang="en">Leiben, Austria</span>
+    </p>
   </div>
 </section>
 
+</main>
+
 <footer class="site">
   <div class="wrap footer-grid">
-    <span class="footer-note">© 2026 Vorname Nachname</span>
+    <span class="footer-note">© 2026 Ralf Hörhager</span>
     <ul class="footer-links">
-      <li><a href="index.html"><span class="lang-de">Home</span><span class="lang-en">Home</span></a></li>
-      <li><a href="projects.html"><span class="lang-de">Projekte</span><span class="lang-en">Projects</span></a></li>
-      <li><a href="#kontakt"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a></li>
+      <li><a href="index.html"><span class="lang-de" lang="de">Start</span><span class="lang-en" lang="en">Home</span></a></li>
+      <li><a href="projects.html"><span class="lang-de" lang="de">Projekte</span><span class="lang-en" lang="en">Projects</span></a></li>
+      <li><a href="#kontakt"><span class="lang-de" lang="de">Kontakt</span><span class="lang-en" lang="en">Contact</span></a></li>
+      <li><a href="gallery.html"><span class="lang-de" lang="de">Galerie</span><span class="lang-en" lang="en">Gallery</span></a></li>
+      <li><a href="https://github.com/RatgebenderWolf" rel="me noopener">GitHub</a></li>
     </ul>
+  </div>
+  <div class="wrap footer-legal">
+    <a href="impressum.html"><span class="lang-de" lang="de">Impressum</span><span class="lang-en" lang="en">Legal notice</span></a>
+    <a href="datenschutz.html"><span class="lang-de" lang="de">Datenschutz</span><span class="lang-en" lang="en">Privacy</span></a>
   </div>
 </footer>
 
