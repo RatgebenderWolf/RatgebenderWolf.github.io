@@ -1,0 +1,11 @@
+# GitHub Pages laesst Jekyll ueber das Repo laufen und veroeffentlicht dabei
+# jede Datei, die es findet. Quellen und Werkzeuge gehoeren nicht auf die
+# Website: _src/ enthaelt dieselben Inhalte noch einmal und wuerde sonst als
+# Doppelinhalt indexiert.
+exclude:
+  - _src
+  - tools
+  - projekte.md
+  - README.md
+  - photos.json
+  - originals

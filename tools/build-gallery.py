@@ -15,7 +15,8 @@ Ablauf:
   3. Liest Aufnahmedatum und Kameradaten aus dem EXIF des Originals und
      traegt sie in photos.json ein — es werden nur LEERE Felder gefuellt,
      eigene Eintraege bleiben immer erhalten.
-  4. Schreibt die Bildliste in gallery.html zwischen die GALLERY-Marker.
+  4. Schreibt die Bildliste in _src/gallery.html zwischen die GALLERY-Marker.
+     Danach  python3 tools/build-pages.py  laufen lassen.
   5. Listet auf, wo noch Angaben fehlen.
 
 Neues Bild aufnehmen:
@@ -41,7 +42,7 @@ except ImportError:
 ROOT   = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC    = os.path.join(ROOT, "originals")
 OUT    = os.path.join(ROOT, "images", "gallery")
-PAGE   = os.path.join(ROOT, "gallery.html")
+PAGE   = os.path.join(ROOT, "_src", "gallery.html")
 DATA   = os.path.join(ROOT, "photos.json")
 IGNORE = os.path.join(ROOT, ".gitignore")
 

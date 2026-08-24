@@ -83,13 +83,8 @@ img{ max-width:100%; height:auto; display:block; }
   }
 }
 
-/* language switching --------------------------------------------------- */
-/* Der Umschalter sitzt als data-lang auf <html>. Wichtig: NICHT als Klasse
-   lang-en — die Regel unten wuerde dann das Wurzelelement selbst auf
-   display:none setzen und die ganze Seite ausblenden. */
-.lang-en{ display:none; }
-html[data-lang="en"] .lang-de{ display:none; }
-html[data-lang="en"] .lang-en{ display:revert; }
+/* Sprachen liegen auf getrennten Adressen (/ und /en/) und werden beim Bauen
+   auseinandergeschrieben — zur Laufzeit gibt es nichts mehr umzuschalten. */
 
 /* Hinweisbanner: Seite im Aufbau ------------------------------------------ */
 .disclaimer{
@@ -132,11 +127,12 @@ header.site{
   display:flex; border:1px solid var(--ink); border-radius:2px; overflow:hidden;
   font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:0.72rem;
 }
-.lang-toggle button{
-  background:transparent; border:none; padding:0.35em 0.7em; cursor:pointer;
-  color:var(--ink); font-family:inherit; font-size:inherit;
+.lang-toggle a, .lang-toggle span{
+  display:inline-flex; align-items:center;
+  padding:0.35em 0.7em; color:var(--ink); text-decoration:none; line-height:1;
 }
-.lang-toggle button[aria-pressed="true"]{ background:var(--ink); color:var(--paper); }
+.lang-toggle a:hover{ background:var(--paper-alt); color:var(--blue); }
+.lang-toggle [aria-current="true"]{ background:var(--ink); color:var(--paper); }
 
 /* corner-bracket signature element --------------------------------------- */
 .bracket-frame{
@@ -523,6 +519,8 @@ body.lb-open header.site{ display:none; }
   color:var(--blue); line-height:1; margin-bottom:1rem;
 }
 .notfound .actions{ display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:2rem; }
+.notfound-teiler{ border:0; border-top:1px solid var(--line); max-width:120px; margin:3rem auto; }
+.notfound h2{ font-size:1.4rem; }
 
 /* responsive ------------------------------------------------------------------- */
 @media (max-width: 780px){
@@ -555,7 +553,7 @@ body.lb-open header.site{ display:none; }
    17-20 px darunter. Fliesstext-Links im Satz bleiben bewusst klein. */
 @media (max-width: 780px){
   .nav-links a{ display:inline-block; padding:0.55rem 0 0.4rem; }
-  .lang-toggle button{ padding:0.6em 0.95em; }
+  .lang-toggle a, .lang-toggle span{ padding:0.6em 0.95em; }
   .footer-links a, .footer-legal a{ display:inline-block; padding:0.45rem 0; }
   .footer-links{ gap:1.1rem; }
   .tag-chip{ padding:0.5em 0.85em; }

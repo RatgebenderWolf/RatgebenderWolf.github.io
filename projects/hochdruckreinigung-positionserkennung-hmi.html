@@ -1,45 +1,48 @@
 <!DOCTYPE html>
-<html lang="de" data-lang="de">
+<html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Automatisierung der Hochdruckreinigung von Elementrahmen: Positionserkennung und HMI-Entwicklung | Ralf Hörhager</title>
 <meta name="description" content="Bachelorstudienprojekt 3: Methoden zur Positionserkennung von Schalungselementen in der Waschbox, Anforderungen an ein HMI und ein Lernvideo zur Wissensvermittlung.">
 <meta name="author" content="Ralf Hörhager">
-<link rel="canonical" href="https://ratgebenderwolf.github.io/projects/hochdruckreinigung-positionserkennung-hmi.html">
+<link rel="canonical" href="https://ralfhoerhager.com/projects/hochdruckreinigung-positionserkennung-hmi.html">
+<link rel="alternate" hreflang="de" href="https://ralfhoerhager.com/projects/hochdruckreinigung-positionserkennung-hmi.html">
+<link rel="alternate" hreflang="en" href="https://ralfhoerhager.com/en/projects/hochdruckreinigung-positionserkennung-hmi.html">
+<link rel="alternate" hreflang="x-default" href="https://ralfhoerhager.com/projects/hochdruckreinigung-positionserkennung-hmi.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Automatisierung der Hochdruckreinigung von Elementrahmen: Positionserkennung und HMI-Entwicklung">
 <meta property="og:description" content="Positionserkennung von Schalungselementen in der Waschbox, HMI-Anforderungen und ein Lernvideo.">
-<meta property="og:url" content="https://ratgebenderwolf.github.io/projects/hochdruckreinigung-positionserkennung-hmi.html">
-<meta property="og:image" content="https://ratgebenderwolf.github.io/images/profile.jpg">
+<meta property="og:url" content="https://ralfhoerhager.com/projects/hochdruckreinigung-positionserkennung-hmi.html">
+<meta property="og:image" content="https://ralfhoerhager.com/images/profile.jpg">
 <meta property="og:locale" content="de_AT">
+<meta property="og:locale:alternate" content="en">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<script>(function(){var l="de";try{if(localStorage.getItem("site-lang")==="en"){l="en";}}catch(e){}var d=document.documentElement;d.setAttribute("data-lang",l);d.setAttribute("lang",l);})();</script>
-<link rel="stylesheet" href="../fonts.css">
-<link rel="stylesheet" href="../styles.css">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/fonts.css">
+<link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
-<a href="#main" class="skip-link"><span class="lang-de" lang="de">Zum Inhalt springen</span><span class="lang-en" lang="en">Skip to content</span></a>
+<a href="#main" class="skip-link">Zum Inhalt springen</a>
 
 <div class="disclaimer" role="note">
-  <span class="lang-de" lang="de"><strong>Hinweis</strong> Diese Website befindet sich im Aufbau. Angaben können unvollständig, veraltet oder fehlerhaft sein.</span>
-  <span class="lang-en" lang="en"><strong>Note</strong> This website is still under construction. Information may be incomplete, outdated or incorrect.</span>
+  <strong>Hinweis</strong> Diese Website befindet sich im Aufbau. Angaben können unvollständig, veraltet oder fehlerhaft sein.
+  
 </div>
 
 <header class="site">
   <nav class="wrap nav" aria-label="Hauptnavigation">
-    <a href="../index.html" class="nav-brand">Ralf Hörhager</a>
+    <a href="/" class="nav-brand">Ralf Hörhager</a>
     <ul class="nav-links">
-      <li><a href="../index.html"><span class="lang-de" lang="de">Start</span><span class="lang-en" lang="en">Home</span></a></li>
-      <li><a href="../projects.html" class="active"><span class="lang-de" lang="de">Projekte</span><span class="lang-en" lang="en">Projects</span></a></li>
-      <li><a href="../gallery.html"><span class="lang-de" lang="de">Galerie</span><span class="lang-en" lang="en">Gallery</span></a></li>
-      <li><a href="../index.html#kontakt"><span class="lang-de" lang="de">Kontakt</span><span class="lang-en" lang="en">Contact</span></a></li>
+      <li><a href="/">Start</a></li>
+      <li><a href="/projects.html" class="active">Projekte</a></li>
+      <li><a href="/gallery.html">Galerie</a></li>
+      <li><a href="/#kontakt">Kontakt</a></li>
     </ul>
-    <div class="lang-toggle" role="group" aria-label="Sprache / Language">
-      <button type="button" data-lang="de" aria-pressed="true" aria-label="Deutsch">DE</button>
-      <button type="button" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+    <div class="lang-toggle" aria-label="Sprache / Language">
+      <span aria-current="true">DE</span>
+      <a href="/en/projects/hochdruckreinigung-positionserkennung-hmi.html" hreflang="en" lang="en" aria-label="English">EN</a>
     </div>
   </nav>
 </header>
@@ -47,11 +50,11 @@
 <main id="main">
 <section class="detail-top">
   <div class="wrap detail-hero">
-    <a href="../projects.html" class="back-link">← <span class="lang-de" lang="de">Zurück zur Zeitleiste</span><span class="lang-en" lang="en">Back to timeline</span></a>
-    <p class="eyebrow"><span class="lang-de" lang="de">Bachelorstudienprojekt 3</span><span class="lang-en" lang="en">Bachelor study project 3</span></p>
-    <h1><span class="lang-de" lang="de">Automatisierung der Hochdruckreinigung von Elementrahmen: Positionserkennung und HMI-Entwicklung</span><span class="lang-en" lang="en">Automation of high-pressure cleaning of element frames: position detection and HMI</span></h1>
+    <a href="/projects.html" class="back-link">← Zurück zur Zeitleiste</a>
+    <p class="eyebrow">Bachelorstudienprojekt 3</p>
+    <h1>Automatisierung der Hochdruckreinigung von Elementrahmen: Positionserkennung und HMI-Entwicklung</h1>
     <div class="detail-meta">
-      <span class="status done"><span class="lang-de" lang="de">Abgeschlossen</span><span class="lang-en" lang="en">Completed</span></span>
+      <span class="status done">Abgeschlossen</span>
       <span class="when mono">09.2024 — 02.2025</span>
     </div>
   </div>
@@ -61,37 +64,37 @@
   <div class="wrap">
     <div class="detail-body">
 
-      <p class="eyebrow"><span class="lang-de" lang="de">Beschreibung</span><span class="lang-en" lang="en">About</span></p>
+      <p class="eyebrow">Beschreibung</p>
       <p>
-        <span class="lang-de" lang="de">Das Hauptziel des Projekts ist es, ein Lernvideo zu erstellen. Die Wissensvermittlung im Videoformat soll angewandt werden, um die im Projekt ausgearbeiteten Ergebnisse zu präsentieren. Im Projekt geht es allgemein um die Automatisierung der Hochdruckreinigung von Schalungselementen. Speziell geht es hier um die Positionserkennung von Schalungselementen in der Waschbox.</span>
-        <span class="lang-en" lang="en">The main goal of the project is to produce a training video. Knowledge transfer in video format is to be applied in order to present the results worked out in the project. Broadly, the project is about automating the high-pressure cleaning of formwork elements; specifically, it deals with detecting the position of formwork elements inside the washing box.</span>
+        Das Hauptziel des Projekts ist es, ein Lernvideo zu erstellen. Die Wissensvermittlung im Videoformat soll angewandt werden, um die im Projekt ausgearbeiteten Ergebnisse zu präsentieren. Im Projekt geht es allgemein um die Automatisierung der Hochdruckreinigung von Schalungselementen. Speziell geht es hier um die Positionserkennung von Schalungselementen in der Waschbox.
+        
       </p>
 
-      <p class="eyebrow"><span class="lang-de" lang="de">Zielstellung des Projekts</span><span class="lang-en" lang="en">Project objectives</span></p>
+      <p class="eyebrow">Zielstellung des Projekts</p>
       <ul>
-        <li><span class="lang-de" lang="de">Methoden zur Positionserkennung aufzeigen und bewerten</span><span class="lang-en" lang="en">Identifying and assessing methods for position detection</span></li>
-        <li><span class="lang-de" lang="de">Anforderungen für ein Human-Machine-Interface (HMI) definieren</span><span class="lang-en" lang="en">Defining requirements for a human-machine interface (HMI)</span></li>
-        <li><span class="lang-de" lang="de">Erstellung eines Lernvideos zur Wissensverbreitung der erarbeiteten Inhalte</span><span class="lang-en" lang="en">Producing a training video to disseminate the content developed</span></li>
+        <li>Methoden zur Positionserkennung aufzeigen und bewerten</li>
+        <li>Anforderungen für ein Human-Machine-Interface (HMI) definieren</li>
+        <li>Erstellung eines Lernvideos zur Wissensverbreitung der erarbeiteten Inhalte</li>
       </ul>
 
-      <p class="eyebrow"><span class="lang-de" lang="de">Problem- bzw. Fragestellung</span><span class="lang-en" lang="en">Research questions</span></p>
+      <p class="eyebrow">Problem- bzw. Fragestellung</p>
       <ul>
-        <li><span class="lang-de" lang="de">Wie kann die Position eines Elementpakets im Arbeitsbereich ermittelt werden?</span><span class="lang-en" lang="en">How can the position of a stack of elements within the working area be determined?</span></li>
-        <li><span class="lang-de" lang="de">Wie könnte ein Interface für diese Anlage aussehen?</span><span class="lang-en" lang="en">What could an interface for this system look like?</span></li>
+        <li>Wie kann die Position eines Elementpakets im Arbeitsbereich ermittelt werden?</li>
+        <li>Wie könnte ein Interface für diese Anlage aussehen?</li>
       </ul>
 
       <ul class="spec-list">
-        <li><span class="lang-de" lang="de">Typ</span><span class="lang-en" lang="en">Type</span><span><span class="lang-de" lang="de">Bachelorstudienprojekt 3</span><span class="lang-en" lang="en">Bachelor study project 3</span></span></li>
-        <li><span class="lang-de" lang="de">Zeitraum</span><span class="lang-en" lang="en">Period</span><span><span class="lang-de" lang="de">09.2024 — 02.2025</span><span class="lang-en" lang="en">09.2024 — 02.2025</span></span></li>
-        <li><span class="lang-de" lang="de">Bereich</span><span class="lang-en" lang="en">Field</span><span><span class="lang-de" lang="de">Automatisierung, Positionserkennung, Human-Machine-Interface, Wissensvermittlung</span><span class="lang-en" lang="en">Automation, position detection, human-machine interface, knowledge transfer</span></span></li>
-        <li><span class="lang-de" lang="de">Status</span><span class="lang-en" lang="en">Status</span><span><span class="lang-de" lang="de">Abgeschlossen</span><span class="lang-en" lang="en">Completed</span></span></li>
-        <li><span class="lang-de" lang="de">Zuletzt aktualisiert</span><span class="lang-en" lang="en">Last updated</span><span><time datetime="2026-08-24"><span class="lang-de" lang="de">24.08.2026</span><span class="lang-en" lang="en">24 Aug 2026</span></time></span></li>
+        <li>Typ<span>Bachelorstudienprojekt 3</span></li>
+        <li>Zeitraum<span>09.2024 — 02.2025</span></li>
+        <li>Bereich<span>Automatisierung, Positionserkennung, Human-Machine-Interface, Wissensvermittlung</span></li>
+        <li>Status<span>Abgeschlossen</span></li>
+        <li>Zuletzt aktualisiert<span><time datetime="2026-08-24">24.08.2026</time></span></li>
       </ul>
     </div>
 
     <div class="detail-nav">
-      <a href="poc-schalhaut-fortfuehrung.html">← <span class="lang-de" lang="de">Vorheriges Projekt</span><span class="lang-en" lang="en">Previous project</span></a>
-      <a href="poc-schalhaut.html"><span class="lang-de" lang="de">Nächstes Projekt</span><span class="lang-en" lang="en">Next project</span> →</a>
+      <a href="/projects/poc-schalhaut-fortfuehrung.html">← Vorheriges Projekt</a>
+      <a href="/projects/poc-schalhaut.html">Nächstes Projekt →</a>
     </div>
   </div>
 </section>
@@ -101,20 +104,19 @@
   <div class="wrap footer-grid">
     <span class="footer-note">© 2026 Ralf Hörhager</span>
     <ul class="footer-links">
-      <li><a href="../index.html"><span class="lang-de" lang="de">Start</span><span class="lang-en" lang="en">Home</span></a></li>
-      <li><a href="../projects.html"><span class="lang-de" lang="de">Projekte</span><span class="lang-en" lang="en">Projects</span></a></li>
-      <li><a href="../index.html#kontakt"><span class="lang-de" lang="de">Kontakt</span><span class="lang-en" lang="en">Contact</span></a></li>
-      <li><a href="../gallery.html"><span class="lang-de" lang="de">Galerie</span><span class="lang-en" lang="en">Gallery</span></a></li>
+      <li><a href="/">Start</a></li>
+      <li><a href="/projects.html">Projekte</a></li>
+      <li><a href="/#kontakt">Kontakt</a></li>
+      <li><a href="/gallery.html">Galerie</a></li>
       <li><a href="https://github.com/RatgebenderWolf" rel="me noopener">GitHub</a></li>
     </ul>
   </div>
   <div class="wrap footer-legal">
-    <a href="../impressum.html"><span class="lang-de" lang="de">Impressum</span><span class="lang-en" lang="en">Legal notice</span></a>
-    <a href="../datenschutz.html"><span class="lang-de" lang="de">Datenschutz</span><span class="lang-en" lang="en">Privacy</span></a>
-    <span class="footer-updated"><span class="lang-de" lang="de">Zuletzt aktualisiert</span><span class="lang-en" lang="en">Last updated</span> <time datetime="2026-08-24"><span class="lang-de" lang="de">24.08.2026</span><span class="lang-en" lang="en">24 Aug 2026</span></time></span>
+    <a href="/impressum.html">Impressum</a>
+    <a href="/datenschutz.html">Datenschutz</a>
+    <span class="footer-updated">Zuletzt aktualisiert <time datetime="2026-08-24">24.08.2026</time></span>
   </div>
 </footer>
 
-<script src="../script.js"></script>
 </body>
 </html>

@@ -1,45 +1,48 @@
 <!DOCTYPE html>
-<html lang="de" data-lang="de">
+<html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Galerie — Ralf Hörhager</title>
 <meta name="description" content="Fotogalerie von Ralf Hörhager: Fahrtechnik und Motorsport, HDR-Landschaften an der Donau und Astrofotografie — filterbar nach Datum, Ort und Tags.">
 <meta name="author" content="Ralf Hörhager">
-<link rel="canonical" href="https://ratgebenderwolf.github.io/gallery.html">
+<link rel="canonical" href="https://ralfhoerhager.com/gallery.html">
+<link rel="alternate" hreflang="de" href="https://ralfhoerhager.com/gallery.html">
+<link rel="alternate" hreflang="en" href="https://ralfhoerhager.com/en/gallery.html">
+<link rel="alternate" hreflang="x-default" href="https://ralfhoerhager.com/gallery.html">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Galerie — Ralf Hörhager">
 <meta property="og:description" content="Fahrtechnik, HDR-Landschaften an der Donau und Astrofotografie.">
-<meta property="og:url" content="https://ratgebenderwolf.github.io/gallery.html">
-<meta property="og:image" content="https://ratgebenderwolf.github.io/images/gallery/large/hdr_02_edit_converted.webp">
+<meta property="og:url" content="https://ralfhoerhager.com/gallery.html">
+<meta property="og:image" content="https://ralfhoerhager.com/images/gallery/large/hdr_02_edit_converted.webp">
 <meta property="og:locale" content="de_AT">
+<meta property="og:locale:alternate" content="en">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<script>(function(){var l="de";try{if(localStorage.getItem("site-lang")==="en"){l="en";}}catch(e){}var d=document.documentElement;d.setAttribute("data-lang",l);d.setAttribute("lang",l);})();</script>
-<link rel="stylesheet" href="fonts.css">
-<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/fonts.css">
+<link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
-<a href="#main" class="skip-link"><span class="lang-de" lang="de">Zum Inhalt springen</span><span class="lang-en" lang="en">Skip to content</span></a>
+<a href="#main" class="skip-link">Zum Inhalt springen</a>
 
 <div class="disclaimer" role="note">
-  <span class="lang-de" lang="de"><strong>Hinweis</strong> Diese Website befindet sich im Aufbau. Angaben können unvollständig, veraltet oder fehlerhaft sein.</span>
-  <span class="lang-en" lang="en"><strong>Note</strong> This website is still under construction. Information may be incomplete, outdated or incorrect.</span>
+  <strong>Hinweis</strong> Diese Website befindet sich im Aufbau. Angaben können unvollständig, veraltet oder fehlerhaft sein.
+  
 </div>
 
 <header class="site">
   <nav class="wrap nav" aria-label="Hauptnavigation">
-    <a href="index.html" class="nav-brand">Ralf Hörhager</a>
+    <a href="/" class="nav-brand">Ralf Hörhager</a>
     <ul class="nav-links">
-      <li><a href="index.html"><span class="lang-de" lang="de">Start</span><span class="lang-en" lang="en">Home</span></a></li>
-      <li><a href="projects.html"><span class="lang-de" lang="de">Projekte</span><span class="lang-en" lang="en">Projects</span></a></li>
-      <li><a href="gallery.html" class="active" aria-current="page"><span class="lang-de" lang="de">Galerie</span><span class="lang-en" lang="en">Gallery</span></a></li>
-      <li><a href="index.html#kontakt"><span class="lang-de" lang="de">Kontakt</span><span class="lang-en" lang="en">Contact</span></a></li>
+      <li><a href="/">Start</a></li>
+      <li><a href="/projects.html">Projekte</a></li>
+      <li><a href="/gallery.html" class="active" aria-current="page">Galerie</a></li>
+      <li><a href="/#kontakt">Kontakt</a></li>
     </ul>
-    <div class="lang-toggle" role="group" aria-label="Sprache / Language">
-      <button type="button" data-lang="de" aria-pressed="true" aria-label="Deutsch">DE</button>
-      <button type="button" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+    <div class="lang-toggle" aria-label="Sprache / Language">
+      <span aria-current="true">DE</span>
+      <a href="/en/gallery.html" hreflang="en" lang="en" aria-label="English">EN</a>
     </div>
   </nav>
 </header>
@@ -48,11 +51,11 @@
 
 <section class="detail-top">
   <div class="wrap detail-hero">
-    <p class="eyebrow"><span class="lang-de" lang="de">Hobby — Fotografie</span><span class="lang-en" lang="en">Hobby — photography</span></p>
-    <h1><span class="lang-de" lang="de">Galerie</span><span class="lang-en" lang="en">Gallery</span></h1>
+    <p class="eyebrow">Hobby — Fotografie</p>
+    <h1>Galerie</h1>
     <p class="mono" style="font-size:0.78rem;">
-      <span class="lang-de" lang="de">Alle Bilder © Ralf Hörhager — Weiterverwendung nur mit Zustimmung.</span>
-      <span class="lang-en" lang="en">All images © Ralf Hörhager — reuse only with permission.</span>
+      Alle Bilder © Ralf Hörhager — Weiterverwendung nur mit Zustimmung.
+      
     </p>
   </div>
 </section>
@@ -64,447 +67,321 @@
     <form class="filters" id="filters" hidden aria-label="Galerie filtern">
       <div class="filter-row">
         <div class="filter-field filter-search">
-          <label for="fSearch"><span class="lang-de" lang="de">Suche</span><span class="lang-en" lang="en">Search</span></label>
-          <input type="search" id="fSearch" autocomplete="off"
-                 data-ph-de="Beschreibung, Thema, Ort …" data-ph-en="Description, subject, place …"
-                 placeholder="Beschreibung, Thema, Ort …">
+          <label for="fSearch">Suche</label>
+          <input type="search" id="fSearch" autocomplete="off" placeholder="Beschreibung, Thema, Ort …">
         </div>
         <div class="filter-field">
-          <label for="fYear"><span class="lang-de" lang="de">Jahr</span><span class="lang-en" lang="en">Year</span></label>
+          <label for="fYear">Jahr</label>
           <select id="fYear"></select>
         </div>
         <div class="filter-field">
-          <label for="fPlace"><span class="lang-de" lang="de">Ort</span><span class="lang-en" lang="en">Place</span></label>
+          <label for="fPlace">Ort</label>
           <select id="fPlace"></select>
         </div>
         <div class="filter-field">
-          <label for="fSort"><span class="lang-de" lang="de">Sortierung</span><span class="lang-en" lang="en">Sort</span></label>
+          <label for="fSort">Sortierung</label>
           <select id="fSort"></select>
         </div>
       </div>
 
       <fieldset class="filter-tags">
-        <legend><span class="lang-de" lang="de">Themen</span><span class="lang-en" lang="en">Subjects</span></legend>
+        <legend>Themen</legend>
         <div id="fTags" class="tag-chips"></div>
       </fieldset>
 
       <div class="filter-foot">
         <p class="filter-count" id="fCount" role="status" aria-live="polite"></p>
         <button type="button" class="btn" id="fReset">
-          <span class="lang-de" lang="de">Filter zurücksetzen</span><span class="lang-en" lang="en">Reset filters</span>
+          Filter zurücksetzen
         </button>
       </div>
     </form>
 
     <p class="filter-empty" id="fEmpty" hidden>
-      <span class="lang-de" lang="de">Keine Bilder passen zu dieser Auswahl.</span>
-      <span class="lang-en" lang="en">No images match this selection.</span>
+      Keine Bilder passen zu dieser Auswahl.
+      
     </p>
 
     <ul class="shot-grid" id="shotGrid">
       <!-- GALLERY:START -->
-        <li class="shot-item" data-date="2026-08-22" data-year="2026"
-            data-place="Ybbs" data-tags="donau hdr landschaft sonnenuntergang wasser" data-search="donau, hdr, landschaft, sonnenuntergang, wasser · ybbs · 22.08.2026 danube, hdr, landscape, sunset, water · ybbs · 22.08.2026 ybbs donau hdr landschaft sonnenuntergang wasser donau hdr landschaft sonnenuntergang wasser danube hdr landscape sunset water canon eos 2000d   2026-08-22">
-          <button type="button" class="shot" data-large="images/gallery/large/hdr_01_02_gimp.webp"
-                  data-cam="Canon EOS 2000D" data-exif=""
-                  data-alt-de="Donau, HDR, Landschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026" data-alt-en="Danube, HDR, Landscape, Sunset, Water · Ybbs · 22.08.2026">
-            <img src="images/gallery/thumb/hdr_01_02_gimp.webp" width="800" height="533"
-                 alt="Donau, HDR, Landschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026" data-alt-de="Donau, HDR, Landschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026" data-alt-en="Danube, HDR, Landscape, Sunset, Water · Ybbs · 22.08.2026">
+        <li class="shot-item" data-date="2026-08-22" data-year="2026" data-place="Ybbs" data-tags="donau hdr landschaft sonnenuntergang wasser" data-search="donau, hdr, landschaft, sonnenuntergang, wasser · ybbs · 22.08.2026 danube, hdr, landscape, sunset, water · ybbs · 22.08.2026 ybbs donau hdr landschaft sonnenuntergang wasser donau hdr landschaft sonnenuntergang wasser danube hdr landscape sunset water canon eos 2000d   2026-08-22">
+          <button type="button" class="shot" data-large="/images/gallery/large/hdr_01_02_gimp.webp" data-cam="Canon EOS 2000D" data-exif="" data-alt="Donau, HDR, Landschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026">
+            <img src="/images/gallery/thumb/hdr_01_02_gimp.webp" width="800" height="533" alt="Donau, HDR, Landschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026" data-alt="Donau, HDR, Landschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-08-22" class="shot-date">22.08.2026</time><span class="shot-place">Ybbs</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Donau</span><span class="lang-en" lang="en">Danube</span></span><span class="shot-tag"><span class="lang-de" lang="de">HDR</span><span class="lang-en" lang="en">HDR</span></span><span class="shot-tag"><span class="lang-de" lang="de">Landschaft</span><span class="lang-en" lang="en">Landscape</span></span><span class="shot-tag"><span class="lang-de" lang="de">Sonnenuntergang</span><span class="lang-en" lang="en">Sunset</span></span><span class="shot-tag"><span class="lang-de" lang="de">Wasser</span><span class="lang-en" lang="en">Water</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Donau</span><span class="shot-tag">HDR</span><span class="shot-tag">Landschaft</span><span class="shot-tag">Sonnenuntergang</span><span class="shot-tag">Wasser</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2026-08-22" data-year="2026"
-            data-place="Ybbs" data-tags="donau hdr landschaft ortschaft sonnenuntergang wasser" data-search="donau, hdr, landschaft, ortschaft, sonnenuntergang, wasser · ybbs · 22.08.2026 danube, hdr, landscape, village, sunset, water · ybbs · 22.08.2026 ybbs donau hdr landschaft ortschaft sonnenuntergang wasser donau hdr landschaft ortschaft sonnenuntergang wasser danube hdr landscape village sunset water canon eos 2000d   2026-08-22">
-          <button type="button" class="shot" data-large="images/gallery/large/hdr_02_01_gimp.webp"
-                  data-cam="Canon EOS 2000D" data-exif=""
-                  data-alt-de="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026" data-alt-en="Danube, HDR, Landscape, Village, Sunset, Water · Ybbs · 22.08.2026">
-            <img src="images/gallery/thumb/hdr_02_01_gimp.webp" width="800" height="533"
-                 alt="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026" data-alt-de="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026" data-alt-en="Danube, HDR, Landscape, Village, Sunset, Water · Ybbs · 22.08.2026">
+        <li class="shot-item" data-date="2026-08-22" data-year="2026" data-place="Ybbs" data-tags="donau hdr landschaft ortschaft sonnenuntergang wasser" data-search="donau, hdr, landschaft, ortschaft, sonnenuntergang, wasser · ybbs · 22.08.2026 danube, hdr, landscape, village, sunset, water · ybbs · 22.08.2026 ybbs donau hdr landschaft ortschaft sonnenuntergang wasser donau hdr landschaft ortschaft sonnenuntergang wasser danube hdr landscape village sunset water canon eos 2000d   2026-08-22">
+          <button type="button" class="shot" data-large="/images/gallery/large/hdr_02_01_gimp.webp" data-cam="Canon EOS 2000D" data-exif="" data-alt="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026">
+            <img src="/images/gallery/thumb/hdr_02_01_gimp.webp" width="800" height="533" alt="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026" data-alt="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-08-22" class="shot-date">22.08.2026</time><span class="shot-place">Ybbs</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Donau</span><span class="lang-en" lang="en">Danube</span></span><span class="shot-tag"><span class="lang-de" lang="de">HDR</span><span class="lang-en" lang="en">HDR</span></span><span class="shot-tag"><span class="lang-de" lang="de">Landschaft</span><span class="lang-en" lang="en">Landscape</span></span><span class="shot-tag"><span class="lang-de" lang="de">Ortschaft</span><span class="lang-en" lang="en">Village</span></span><span class="shot-tag"><span class="lang-de" lang="de">Sonnenuntergang</span><span class="lang-en" lang="en">Sunset</span></span><span class="shot-tag"><span class="lang-de" lang="de">Wasser</span><span class="lang-en" lang="en">Water</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Donau</span><span class="shot-tag">HDR</span><span class="shot-tag">Landschaft</span><span class="shot-tag">Ortschaft</span><span class="shot-tag">Sonnenuntergang</span><span class="shot-tag">Wasser</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2026-08-22" data-year="2026"
-            data-place="Ybbs" data-tags="donau hdr landschaft ortschaft sonnenuntergang wasser" data-search="donau, hdr, landschaft, ortschaft, sonnenuntergang, wasser · ybbs · 22.08.2026 danube, hdr, landscape, village, sunset, water · ybbs · 22.08.2026 ybbs donau hdr landschaft ortschaft sonnenuntergang wasser donau hdr landschaft ortschaft sonnenuntergang wasser danube hdr landscape village sunset water canon eos 2000d   2026-08-22">
-          <button type="button" class="shot" data-large="images/gallery/large/hdr_03_02_gimp.webp"
-                  data-cam="Canon EOS 2000D" data-exif=""
-                  data-alt-de="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026" data-alt-en="Danube, HDR, Landscape, Village, Sunset, Water · Ybbs · 22.08.2026">
-            <img src="images/gallery/thumb/hdr_03_02_gimp.webp" width="800" height="533"
-                 alt="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026" data-alt-de="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026" data-alt-en="Danube, HDR, Landscape, Village, Sunset, Water · Ybbs · 22.08.2026">
+        <li class="shot-item" data-date="2026-08-22" data-year="2026" data-place="Ybbs" data-tags="donau hdr landschaft ortschaft sonnenuntergang wasser" data-search="donau, hdr, landschaft, ortschaft, sonnenuntergang, wasser · ybbs · 22.08.2026 danube, hdr, landscape, village, sunset, water · ybbs · 22.08.2026 ybbs donau hdr landschaft ortschaft sonnenuntergang wasser donau hdr landschaft ortschaft sonnenuntergang wasser danube hdr landscape village sunset water canon eos 2000d   2026-08-22">
+          <button type="button" class="shot" data-large="/images/gallery/large/hdr_03_02_gimp.webp" data-cam="Canon EOS 2000D" data-exif="" data-alt="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026">
+            <img src="/images/gallery/thumb/hdr_03_02_gimp.webp" width="800" height="533" alt="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026" data-alt="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-08-22" class="shot-date">22.08.2026</time><span class="shot-place">Ybbs</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Donau</span><span class="lang-en" lang="en">Danube</span></span><span class="shot-tag"><span class="lang-de" lang="de">HDR</span><span class="lang-en" lang="en">HDR</span></span><span class="shot-tag"><span class="lang-de" lang="de">Landschaft</span><span class="lang-en" lang="en">Landscape</span></span><span class="shot-tag"><span class="lang-de" lang="de">Ortschaft</span><span class="lang-en" lang="en">Village</span></span><span class="shot-tag"><span class="lang-de" lang="de">Sonnenuntergang</span><span class="lang-en" lang="en">Sunset</span></span><span class="shot-tag"><span class="lang-de" lang="de">Wasser</span><span class="lang-en" lang="en">Water</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Donau</span><span class="shot-tag">HDR</span><span class="shot-tag">Landschaft</span><span class="shot-tag">Ortschaft</span><span class="shot-tag">Sonnenuntergang</span><span class="shot-tag">Wasser</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2026-08-22" data-year="2026"
-            data-place="Ybbs" data-tags="donau hdr landschaft ortschaft sonnenuntergang wasser" data-search="donau, hdr, landschaft, ortschaft, sonnenuntergang, wasser · ybbs · 22.08.2026 danube, hdr, landscape, village, sunset, water · ybbs · 22.08.2026 ybbs donau hdr landschaft ortschaft sonnenuntergang wasser donau hdr landschaft ortschaft sonnenuntergang wasser danube hdr landscape village sunset water canon eos 2000d   2026-08-22">
-          <button type="button" class="shot" data-large="images/gallery/large/hdr_04_01_gimp.webp"
-                  data-cam="Canon EOS 2000D" data-exif=""
-                  data-alt-de="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026" data-alt-en="Danube, HDR, Landscape, Village, Sunset, Water · Ybbs · 22.08.2026">
-            <img src="images/gallery/thumb/hdr_04_01_gimp.webp" width="800" height="533" loading="lazy" decoding="async"
-                 alt="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026" data-alt-de="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026" data-alt-en="Danube, HDR, Landscape, Village, Sunset, Water · Ybbs · 22.08.2026">
+        <li class="shot-item" data-date="2026-08-22" data-year="2026" data-place="Ybbs" data-tags="donau hdr landschaft ortschaft sonnenuntergang wasser" data-search="donau, hdr, landschaft, ortschaft, sonnenuntergang, wasser · ybbs · 22.08.2026 danube, hdr, landscape, village, sunset, water · ybbs · 22.08.2026 ybbs donau hdr landschaft ortschaft sonnenuntergang wasser donau hdr landschaft ortschaft sonnenuntergang wasser danube hdr landscape village sunset water canon eos 2000d   2026-08-22">
+          <button type="button" class="shot" data-large="/images/gallery/large/hdr_04_01_gimp.webp" data-cam="Canon EOS 2000D" data-exif="" data-alt="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026">
+            <img src="/images/gallery/thumb/hdr_04_01_gimp.webp" width="800" height="533" loading="lazy" decoding="async" alt="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026" data-alt="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-08-22" class="shot-date">22.08.2026</time><span class="shot-place">Ybbs</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Donau</span><span class="lang-en" lang="en">Danube</span></span><span class="shot-tag"><span class="lang-de" lang="de">HDR</span><span class="lang-en" lang="en">HDR</span></span><span class="shot-tag"><span class="lang-de" lang="de">Landschaft</span><span class="lang-en" lang="en">Landscape</span></span><span class="shot-tag"><span class="lang-de" lang="de">Ortschaft</span><span class="lang-en" lang="en">Village</span></span><span class="shot-tag"><span class="lang-de" lang="de">Sonnenuntergang</span><span class="lang-en" lang="en">Sunset</span></span><span class="shot-tag"><span class="lang-de" lang="de">Wasser</span><span class="lang-en" lang="en">Water</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Donau</span><span class="shot-tag">HDR</span><span class="shot-tag">Landschaft</span><span class="shot-tag">Ortschaft</span><span class="shot-tag">Sonnenuntergang</span><span class="shot-tag">Wasser</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2026-08-22" data-year="2026"
-            data-place="Ybbs" data-tags="donau hdr landschaft ortschaft sonnenuntergang wasser" data-search="donau, hdr, landschaft, ortschaft, sonnenuntergang, wasser · ybbs · 22.08.2026 danube, hdr, landscape, village, sunset, water · ybbs · 22.08.2026 ybbs donau hdr landschaft ortschaft sonnenuntergang wasser donau hdr landschaft ortschaft sonnenuntergang wasser danube hdr landscape village sunset water canon eos 2000d   2026-08-22">
-          <button type="button" class="shot" data-large="images/gallery/large/hdr_05_02_gimp.webp"
-                  data-cam="Canon EOS 2000D" data-exif=""
-                  data-alt-de="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026" data-alt-en="Danube, HDR, Landscape, Village, Sunset, Water · Ybbs · 22.08.2026">
-            <img src="images/gallery/thumb/hdr_05_02_gimp.webp" width="800" height="533" loading="lazy" decoding="async"
-                 alt="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026" data-alt-de="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026" data-alt-en="Danube, HDR, Landscape, Village, Sunset, Water · Ybbs · 22.08.2026">
+        <li class="shot-item" data-date="2026-08-22" data-year="2026" data-place="Ybbs" data-tags="donau hdr landschaft ortschaft sonnenuntergang wasser" data-search="donau, hdr, landschaft, ortschaft, sonnenuntergang, wasser · ybbs · 22.08.2026 danube, hdr, landscape, village, sunset, water · ybbs · 22.08.2026 ybbs donau hdr landschaft ortschaft sonnenuntergang wasser donau hdr landschaft ortschaft sonnenuntergang wasser danube hdr landscape village sunset water canon eos 2000d   2026-08-22">
+          <button type="button" class="shot" data-large="/images/gallery/large/hdr_05_02_gimp.webp" data-cam="Canon EOS 2000D" data-exif="" data-alt="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026">
+            <img src="/images/gallery/thumb/hdr_05_02_gimp.webp" width="800" height="533" loading="lazy" decoding="async" alt="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026" data-alt="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 22.08.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-08-22" class="shot-date">22.08.2026</time><span class="shot-place">Ybbs</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Donau</span><span class="lang-en" lang="en">Danube</span></span><span class="shot-tag"><span class="lang-de" lang="de">HDR</span><span class="lang-en" lang="en">HDR</span></span><span class="shot-tag"><span class="lang-de" lang="de">Landschaft</span><span class="lang-en" lang="en">Landscape</span></span><span class="shot-tag"><span class="lang-de" lang="de">Ortschaft</span><span class="lang-en" lang="en">Village</span></span><span class="shot-tag"><span class="lang-de" lang="de">Sonnenuntergang</span><span class="lang-en" lang="en">Sunset</span></span><span class="shot-tag"><span class="lang-de" lang="de">Wasser</span><span class="lang-en" lang="en">Water</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Donau</span><span class="shot-tag">HDR</span><span class="shot-tag">Landschaft</span><span class="shot-tag">Ortschaft</span><span class="shot-tag">Sonnenuntergang</span><span class="shot-tag">Wasser</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2026-08-15" data-year="2026"
-            data-place="Melk" data-tags="auto driften motorsport" data-search="auto, driften, motorsport · melk · 15.08.2026 car, drifting, motorsport · melk · 15.08.2026 melk auto driften motorsport auto driften motorsport car drifting motorsport canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/5,6 · 1/400 · 194 mm · iso 200 2026-08-15">
-          <button type="button" class="shot" data-large="images/gallery/large/IMG_7224.webp"
-                  data-cam="Canon EOS 2000D" data-exif="ƒ/5,6 · 1/400 · 194 mm · ISO 200"
-                  data-alt-de="Auto, Driften, Motorsport · Melk · 15.08.2026" data-alt-en="Car, Drifting, Motorsport · Melk · 15.08.2026">
-            <img src="images/gallery/thumb/IMG_7224.webp" width="800" height="533" loading="lazy" decoding="async"
-                 alt="Auto, Driften, Motorsport · Melk · 15.08.2026" data-alt-de="Auto, Driften, Motorsport · Melk · 15.08.2026" data-alt-en="Car, Drifting, Motorsport · Melk · 15.08.2026">
+        <li class="shot-item" data-date="2026-08-15" data-year="2026" data-place="Melk" data-tags="auto driften motorsport" data-search="auto, driften, motorsport · melk · 15.08.2026 car, drifting, motorsport · melk · 15.08.2026 melk auto driften motorsport auto driften motorsport car drifting motorsport canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/5,6 · 1/400 · 194 mm · iso 200 2026-08-15">
+          <button type="button" class="shot" data-large="/images/gallery/large/IMG_7224.webp" data-cam="Canon EOS 2000D" data-exif="ƒ/5,6 · 1/400 · 194 mm · ISO 200" data-alt="Auto, Driften, Motorsport · Melk · 15.08.2026">
+            <img src="/images/gallery/thumb/IMG_7224.webp" width="800" height="533" loading="lazy" decoding="async" alt="Auto, Driften, Motorsport · Melk · 15.08.2026" data-alt="Auto, Driften, Motorsport · Melk · 15.08.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-08-15" class="shot-date">15.08.2026</time><span class="shot-place">Melk</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Auto</span><span class="lang-en" lang="en">Car</span></span><span class="shot-tag"><span class="lang-de" lang="de">Driften</span><span class="lang-en" lang="en">Drifting</span></span><span class="shot-tag"><span class="lang-de" lang="de">Motorsport</span><span class="lang-en" lang="en">Motorsport</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Auto</span><span class="shot-tag">Driften</span><span class="shot-tag">Motorsport</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2026-08-15" data-year="2026"
-            data-place="Melk" data-tags="auto driften motorsport" data-search="auto, driften, motorsport · melk · 15.08.2026 car, drifting, motorsport · melk · 15.08.2026 melk auto driften motorsport auto driften motorsport car drifting motorsport canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/5,6 · 1/640 · 135 mm · iso 200 2026-08-15">
-          <button type="button" class="shot" data-large="images/gallery/large/IMG_7242.webp"
-                  data-cam="Canon EOS 2000D" data-exif="ƒ/5,6 · 1/640 · 135 mm · ISO 200"
-                  data-alt-de="Auto, Driften, Motorsport · Melk · 15.08.2026" data-alt-en="Car, Drifting, Motorsport · Melk · 15.08.2026">
-            <img src="images/gallery/thumb/IMG_7242.webp" width="800" height="533" loading="lazy" decoding="async"
-                 alt="Auto, Driften, Motorsport · Melk · 15.08.2026" data-alt-de="Auto, Driften, Motorsport · Melk · 15.08.2026" data-alt-en="Car, Drifting, Motorsport · Melk · 15.08.2026">
+        <li class="shot-item" data-date="2026-08-15" data-year="2026" data-place="Melk" data-tags="auto driften motorsport" data-search="auto, driften, motorsport · melk · 15.08.2026 car, drifting, motorsport · melk · 15.08.2026 melk auto driften motorsport auto driften motorsport car drifting motorsport canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/5,6 · 1/640 · 135 mm · iso 200 2026-08-15">
+          <button type="button" class="shot" data-large="/images/gallery/large/IMG_7242.webp" data-cam="Canon EOS 2000D" data-exif="ƒ/5,6 · 1/640 · 135 mm · ISO 200" data-alt="Auto, Driften, Motorsport · Melk · 15.08.2026">
+            <img src="/images/gallery/thumb/IMG_7242.webp" width="800" height="533" loading="lazy" decoding="async" alt="Auto, Driften, Motorsport · Melk · 15.08.2026" data-alt="Auto, Driften, Motorsport · Melk · 15.08.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-08-15" class="shot-date">15.08.2026</time><span class="shot-place">Melk</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Auto</span><span class="lang-en" lang="en">Car</span></span><span class="shot-tag"><span class="lang-de" lang="de">Driften</span><span class="lang-en" lang="en">Drifting</span></span><span class="shot-tag"><span class="lang-de" lang="de">Motorsport</span><span class="lang-en" lang="en">Motorsport</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Auto</span><span class="shot-tag">Driften</span><span class="shot-tag">Motorsport</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2026-08-14" data-year="2026"
-            data-place="Leiben" data-tags="astro nacht sterne" data-search="astrofotografie, nacht, sterne · leiben · 14.08.2026 astrophotography, night, stars · leiben · 14.08.2026 leiben astro nacht sterne astrofotografie nacht sterne astrophotography night stars canon eos 2000d   2026-08-14">
-          <button type="button" class="shot" data-large="images/gallery/large/result_444s.webp"
-                  data-cam="Canon EOS 2000D" data-exif=""
-                  data-alt-de="Astrofotografie, Nacht, Sterne · Leiben · 14.08.2026" data-alt-en="Astrophotography, Night, Stars · Leiben · 14.08.2026">
-            <img src="images/gallery/thumb/result_444s.webp" width="800" height="564" loading="lazy" decoding="async"
-                 alt="Astrofotografie, Nacht, Sterne · Leiben · 14.08.2026" data-alt-de="Astrofotografie, Nacht, Sterne · Leiben · 14.08.2026" data-alt-en="Astrophotography, Night, Stars · Leiben · 14.08.2026">
+        <li class="shot-item" data-date="2026-08-14" data-year="2026" data-place="Leiben" data-tags="astro nacht sterne" data-search="astrofotografie, nacht, sterne · leiben · 14.08.2026 astrophotography, night, stars · leiben · 14.08.2026 leiben astro nacht sterne astrofotografie nacht sterne astrophotography night stars canon eos 2000d   2026-08-14">
+          <button type="button" class="shot" data-large="/images/gallery/large/result_444s.webp" data-cam="Canon EOS 2000D" data-exif="" data-alt="Astrofotografie, Nacht, Sterne · Leiben · 14.08.2026">
+            <img src="/images/gallery/thumb/result_444s.webp" width="800" height="564" loading="lazy" decoding="async" alt="Astrofotografie, Nacht, Sterne · Leiben · 14.08.2026" data-alt="Astrofotografie, Nacht, Sterne · Leiben · 14.08.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-08-14" class="shot-date">14.08.2026</time><span class="shot-place">Leiben</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Astrofotografie</span><span class="lang-en" lang="en">Astrophotography</span></span><span class="shot-tag"><span class="lang-de" lang="de">Nacht</span><span class="lang-en" lang="en">Night</span></span><span class="shot-tag"><span class="lang-de" lang="de">Sterne</span><span class="lang-en" lang="en">Stars</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Astrofotografie</span><span class="shot-tag">Nacht</span><span class="shot-tag">Sterne</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2026-08-14" data-year="2026"
-            data-place="Leiben" data-tags="astro nacht sterne" data-search="astrofotografie, nacht, sterne · leiben · 14.08.2026 astrophotography, night, stars · leiben · 14.08.2026 leiben astro nacht sterne astrofotografie nacht sterne astrophotography night stars canon eos 2000d   2026-08-14">
-          <button type="button" class="shot" data-large="images/gallery/large/result_528s.webp"
-                  data-cam="Canon EOS 2000D" data-exif=""
-                  data-alt-de="Astrofotografie, Nacht, Sterne · Leiben · 14.08.2026" data-alt-en="Astrophotography, Night, Stars · Leiben · 14.08.2026">
-            <img src="images/gallery/thumb/result_528s.webp" width="800" height="524" loading="lazy" decoding="async"
-                 alt="Astrofotografie, Nacht, Sterne · Leiben · 14.08.2026" data-alt-de="Astrofotografie, Nacht, Sterne · Leiben · 14.08.2026" data-alt-en="Astrophotography, Night, Stars · Leiben · 14.08.2026">
+        <li class="shot-item" data-date="2026-08-14" data-year="2026" data-place="Leiben" data-tags="astro nacht sterne" data-search="astrofotografie, nacht, sterne · leiben · 14.08.2026 astrophotography, night, stars · leiben · 14.08.2026 leiben astro nacht sterne astrofotografie nacht sterne astrophotography night stars canon eos 2000d   2026-08-14">
+          <button type="button" class="shot" data-large="/images/gallery/large/result_528s.webp" data-cam="Canon EOS 2000D" data-exif="" data-alt="Astrofotografie, Nacht, Sterne · Leiben · 14.08.2026">
+            <img src="/images/gallery/thumb/result_528s.webp" width="800" height="524" loading="lazy" decoding="async" alt="Astrofotografie, Nacht, Sterne · Leiben · 14.08.2026" data-alt="Astrofotografie, Nacht, Sterne · Leiben · 14.08.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-08-14" class="shot-date">14.08.2026</time><span class="shot-place">Leiben</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Astrofotografie</span><span class="lang-en" lang="en">Astrophotography</span></span><span class="shot-tag"><span class="lang-de" lang="de">Nacht</span><span class="lang-en" lang="en">Night</span></span><span class="shot-tag"><span class="lang-de" lang="de">Sterne</span><span class="lang-en" lang="en">Stars</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Astrofotografie</span><span class="shot-tag">Nacht</span><span class="shot-tag">Sterne</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2026-08-14" data-year="2026"
-            data-place="Leiben" data-tags="astro nacht sterne" data-search="astrofotografie, nacht, sterne · leiben · 14.08.2026 astrophotography, night, stars · leiben · 14.08.2026 leiben astro nacht sterne astrofotografie nacht sterne astrophotography night stars canon eos 2000d   2026-08-14">
-          <button type="button" class="shot" data-large="images/gallery/large/result_570s.webp"
-                  data-cam="Canon EOS 2000D" data-exif=""
-                  data-alt-de="Astrofotografie, Nacht, Sterne · Leiben · 14.08.2026" data-alt-en="Astrophotography, Night, Stars · Leiben · 14.08.2026">
-            <img src="images/gallery/thumb/result_570s.webp" width="800" height="525" loading="lazy" decoding="async"
-                 alt="Astrofotografie, Nacht, Sterne · Leiben · 14.08.2026" data-alt-de="Astrofotografie, Nacht, Sterne · Leiben · 14.08.2026" data-alt-en="Astrophotography, Night, Stars · Leiben · 14.08.2026">
+        <li class="shot-item" data-date="2026-08-14" data-year="2026" data-place="Leiben" data-tags="astro nacht sterne" data-search="astrofotografie, nacht, sterne · leiben · 14.08.2026 astrophotography, night, stars · leiben · 14.08.2026 leiben astro nacht sterne astrofotografie nacht sterne astrophotography night stars canon eos 2000d   2026-08-14">
+          <button type="button" class="shot" data-large="/images/gallery/large/result_570s.webp" data-cam="Canon EOS 2000D" data-exif="" data-alt="Astrofotografie, Nacht, Sterne · Leiben · 14.08.2026">
+            <img src="/images/gallery/thumb/result_570s.webp" width="800" height="525" loading="lazy" decoding="async" alt="Astrofotografie, Nacht, Sterne · Leiben · 14.08.2026" data-alt="Astrofotografie, Nacht, Sterne · Leiben · 14.08.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-08-14" class="shot-date">14.08.2026</time><span class="shot-place">Leiben</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Astrofotografie</span><span class="lang-en" lang="en">Astrophotography</span></span><span class="shot-tag"><span class="lang-de" lang="de">Nacht</span><span class="lang-en" lang="en">Night</span></span><span class="shot-tag"><span class="lang-de" lang="de">Sterne</span><span class="lang-en" lang="en">Stars</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Astrofotografie</span><span class="shot-tag">Nacht</span><span class="shot-tag">Sterne</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2026-08-14" data-year="2026"
-            data-place="Leiben" data-tags="astro nacht sterne" data-search="astrofotografie, nacht, sterne · leiben · 14.08.2026 astrophotography, night, stars · leiben · 14.08.2026 leiben astro nacht sterne astrofotografie nacht sterne astrophotography night stars canon eos 2000d   2026-08-14">
-          <button type="button" class="shot" data-large="images/gallery/large/result_612s.webp"
-                  data-cam="Canon EOS 2000D" data-exif=""
-                  data-alt-de="Astrofotografie, Nacht, Sterne · Leiben · 14.08.2026" data-alt-en="Astrophotography, Night, Stars · Leiben · 14.08.2026">
-            <img src="images/gallery/thumb/result_612s.webp" width="800" height="529" loading="lazy" decoding="async"
-                 alt="Astrofotografie, Nacht, Sterne · Leiben · 14.08.2026" data-alt-de="Astrofotografie, Nacht, Sterne · Leiben · 14.08.2026" data-alt-en="Astrophotography, Night, Stars · Leiben · 14.08.2026">
+        <li class="shot-item" data-date="2026-08-14" data-year="2026" data-place="Leiben" data-tags="astro nacht sterne" data-search="astrofotografie, nacht, sterne · leiben · 14.08.2026 astrophotography, night, stars · leiben · 14.08.2026 leiben astro nacht sterne astrofotografie nacht sterne astrophotography night stars canon eos 2000d   2026-08-14">
+          <button type="button" class="shot" data-large="/images/gallery/large/result_612s.webp" data-cam="Canon EOS 2000D" data-exif="" data-alt="Astrofotografie, Nacht, Sterne · Leiben · 14.08.2026">
+            <img src="/images/gallery/thumb/result_612s.webp" width="800" height="529" loading="lazy" decoding="async" alt="Astrofotografie, Nacht, Sterne · Leiben · 14.08.2026" data-alt="Astrofotografie, Nacht, Sterne · Leiben · 14.08.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-08-14" class="shot-date">14.08.2026</time><span class="shot-place">Leiben</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Astrofotografie</span><span class="lang-en" lang="en">Astrophotography</span></span><span class="shot-tag"><span class="lang-de" lang="de">Nacht</span><span class="lang-en" lang="en">Night</span></span><span class="shot-tag"><span class="lang-de" lang="de">Sterne</span><span class="lang-en" lang="en">Stars</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Astrofotografie</span><span class="shot-tag">Nacht</span><span class="shot-tag">Sterne</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2026-08-11" data-year="2026"
-            data-place="Ybbs" data-tags="donau hdr ortschaft sonnenuntergang wasser" data-search="donau, hdr, ortschaft, sonnenuntergang, wasser · ybbs · 11.08.2026 danube, hdr, village, sunset, water · ybbs · 11.08.2026 ybbs donau hdr ortschaft sonnenuntergang wasser donau hdr ortschaft sonnenuntergang wasser danube hdr village sunset water canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/8 · 1/400 · 146 mm · iso 100 2026-08-11">
-          <button type="button" class="shot" data-large="images/gallery/large/hdr_06_01.webp"
-                  data-cam="Canon EOS 2000D" data-exif="ƒ/8 · 1/400 · 146 mm · ISO 100"
-                  data-alt-de="Donau, HDR, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 11.08.2026" data-alt-en="Danube, HDR, Village, Sunset, Water · Ybbs · 11.08.2026">
-            <img src="images/gallery/thumb/hdr_06_01.webp" width="800" height="533" loading="lazy" decoding="async"
-                 alt="Donau, HDR, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 11.08.2026" data-alt-de="Donau, HDR, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 11.08.2026" data-alt-en="Danube, HDR, Village, Sunset, Water · Ybbs · 11.08.2026">
+        <li class="shot-item" data-date="2026-08-11" data-year="2026" data-place="Ybbs" data-tags="donau hdr ortschaft sonnenuntergang wasser" data-search="donau, hdr, ortschaft, sonnenuntergang, wasser · ybbs · 11.08.2026 danube, hdr, village, sunset, water · ybbs · 11.08.2026 ybbs donau hdr ortschaft sonnenuntergang wasser donau hdr ortschaft sonnenuntergang wasser danube hdr village sunset water canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/8 · 1/400 · 146 mm · iso 100 2026-08-11">
+          <button type="button" class="shot" data-large="/images/gallery/large/hdr_06_01.webp" data-cam="Canon EOS 2000D" data-exif="ƒ/8 · 1/400 · 146 mm · ISO 100" data-alt="Donau, HDR, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 11.08.2026">
+            <img src="/images/gallery/thumb/hdr_06_01.webp" width="800" height="533" loading="lazy" decoding="async" alt="Donau, HDR, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 11.08.2026" data-alt="Donau, HDR, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 11.08.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-08-11" class="shot-date">11.08.2026</time><span class="shot-place">Ybbs</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Donau</span><span class="lang-en" lang="en">Danube</span></span><span class="shot-tag"><span class="lang-de" lang="de">HDR</span><span class="lang-en" lang="en">HDR</span></span><span class="shot-tag"><span class="lang-de" lang="de">Ortschaft</span><span class="lang-en" lang="en">Village</span></span><span class="shot-tag"><span class="lang-de" lang="de">Sonnenuntergang</span><span class="lang-en" lang="en">Sunset</span></span><span class="shot-tag"><span class="lang-de" lang="de">Wasser</span><span class="lang-en" lang="en">Water</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Donau</span><span class="shot-tag">HDR</span><span class="shot-tag">Ortschaft</span><span class="shot-tag">Sonnenuntergang</span><span class="shot-tag">Wasser</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2026-08-11" data-year="2026"
-            data-place="Ybbs" data-tags="donau hdr ortschaft sonnenuntergang wasser" data-search="donau, hdr, ortschaft, sonnenuntergang, wasser · ybbs · 11.08.2026 danube, hdr, village, sunset, water · ybbs · 11.08.2026 ybbs donau hdr ortschaft sonnenuntergang wasser donau hdr ortschaft sonnenuntergang wasser danube hdr village sunset water canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/5 · 1/200 · 55 mm · iso 100 2026-08-11">
-          <button type="button" class="shot" data-large="images/gallery/large/hdr_08_01.webp"
-                  data-cam="Canon EOS 2000D" data-exif="ƒ/5 · 1/200 · 55 mm · ISO 100"
-                  data-alt-de="Donau, HDR, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 11.08.2026" data-alt-en="Danube, HDR, Village, Sunset, Water · Ybbs · 11.08.2026">
-            <img src="images/gallery/thumb/hdr_08_01.webp" width="800" height="533" loading="lazy" decoding="async"
-                 alt="Donau, HDR, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 11.08.2026" data-alt-de="Donau, HDR, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 11.08.2026" data-alt-en="Danube, HDR, Village, Sunset, Water · Ybbs · 11.08.2026">
+        <li class="shot-item" data-date="2026-08-11" data-year="2026" data-place="Ybbs" data-tags="donau hdr ortschaft sonnenuntergang wasser" data-search="donau, hdr, ortschaft, sonnenuntergang, wasser · ybbs · 11.08.2026 danube, hdr, village, sunset, water · ybbs · 11.08.2026 ybbs donau hdr ortschaft sonnenuntergang wasser donau hdr ortschaft sonnenuntergang wasser danube hdr village sunset water canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/5 · 1/200 · 55 mm · iso 100 2026-08-11">
+          <button type="button" class="shot" data-large="/images/gallery/large/hdr_08_01.webp" data-cam="Canon EOS 2000D" data-exif="ƒ/5 · 1/200 · 55 mm · ISO 100" data-alt="Donau, HDR, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 11.08.2026">
+            <img src="/images/gallery/thumb/hdr_08_01.webp" width="800" height="533" loading="lazy" decoding="async" alt="Donau, HDR, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 11.08.2026" data-alt="Donau, HDR, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 11.08.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-08-11" class="shot-date">11.08.2026</time><span class="shot-place">Ybbs</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Donau</span><span class="lang-en" lang="en">Danube</span></span><span class="shot-tag"><span class="lang-de" lang="de">HDR</span><span class="lang-en" lang="en">HDR</span></span><span class="shot-tag"><span class="lang-de" lang="de">Ortschaft</span><span class="lang-en" lang="en">Village</span></span><span class="shot-tag"><span class="lang-de" lang="de">Sonnenuntergang</span><span class="lang-en" lang="en">Sunset</span></span><span class="shot-tag"><span class="lang-de" lang="de">Wasser</span><span class="lang-en" lang="en">Water</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Donau</span><span class="shot-tag">HDR</span><span class="shot-tag">Ortschaft</span><span class="shot-tag">Sonnenuntergang</span><span class="shot-tag">Wasser</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2026-08-11" data-year="2026"
-            data-place="Ybbs" data-tags="donau hdr landschaft ortschaft sonnenuntergang wasser" data-search="donau, hdr, landschaft, ortschaft, sonnenuntergang, wasser · ybbs · 11.08.2026 danube, hdr, landscape, village, sunset, water · ybbs · 11.08.2026 ybbs donau hdr landschaft ortschaft sonnenuntergang wasser donau hdr landschaft ortschaft sonnenuntergang wasser danube hdr landscape village sunset water canon eos 2000d ef-s10-18mm f/4.5-5.6 is stm ƒ/14 · 1/13 · 18 mm · iso 100 2026-08-11">
-          <button type="button" class="shot" data-large="images/gallery/large/hdr_09_01.webp"
-                  data-cam="Canon EOS 2000D" data-exif="ƒ/14 · 1/13 · 18 mm · ISO 100"
-                  data-alt-de="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 11.08.2026" data-alt-en="Danube, HDR, Landscape, Village, Sunset, Water · Ybbs · 11.08.2026">
-            <img src="images/gallery/thumb/hdr_09_01.webp" width="800" height="533" loading="lazy" decoding="async"
-                 alt="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 11.08.2026" data-alt-de="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 11.08.2026" data-alt-en="Danube, HDR, Landscape, Village, Sunset, Water · Ybbs · 11.08.2026">
+        <li class="shot-item" data-date="2026-08-11" data-year="2026" data-place="Ybbs" data-tags="donau hdr landschaft ortschaft sonnenuntergang wasser" data-search="donau, hdr, landschaft, ortschaft, sonnenuntergang, wasser · ybbs · 11.08.2026 danube, hdr, landscape, village, sunset, water · ybbs · 11.08.2026 ybbs donau hdr landschaft ortschaft sonnenuntergang wasser donau hdr landschaft ortschaft sonnenuntergang wasser danube hdr landscape village sunset water canon eos 2000d ef-s10-18mm f/4.5-5.6 is stm ƒ/14 · 1/13 · 18 mm · iso 100 2026-08-11">
+          <button type="button" class="shot" data-large="/images/gallery/large/hdr_09_01.webp" data-cam="Canon EOS 2000D" data-exif="ƒ/14 · 1/13 · 18 mm · ISO 100" data-alt="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 11.08.2026">
+            <img src="/images/gallery/thumb/hdr_09_01.webp" width="800" height="533" loading="lazy" decoding="async" alt="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 11.08.2026" data-alt="Donau, HDR, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Ybbs · 11.08.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-08-11" class="shot-date">11.08.2026</time><span class="shot-place">Ybbs</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Donau</span><span class="lang-en" lang="en">Danube</span></span><span class="shot-tag"><span class="lang-de" lang="de">HDR</span><span class="lang-en" lang="en">HDR</span></span><span class="shot-tag"><span class="lang-de" lang="de">Landschaft</span><span class="lang-en" lang="en">Landscape</span></span><span class="shot-tag"><span class="lang-de" lang="de">Ortschaft</span><span class="lang-en" lang="en">Village</span></span><span class="shot-tag"><span class="lang-de" lang="de">Sonnenuntergang</span><span class="lang-en" lang="en">Sunset</span></span><span class="shot-tag"><span class="lang-de" lang="de">Wasser</span><span class="lang-en" lang="en">Water</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Donau</span><span class="shot-tag">HDR</span><span class="shot-tag">Landschaft</span><span class="shot-tag">Ortschaft</span><span class="shot-tag">Sonnenuntergang</span><span class="shot-tag">Wasser</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2026-08-04" data-year="2026"
-            data-place="Leiben" data-tags="donau landschaft ortschaft sonnenuntergang wasser" data-search="donau, landschaft, ortschaft, sonnenuntergang, wasser · leiben · 04.08.2026 danube, landscape, village, sunset, water · leiben · 04.08.2026 leiben donau landschaft ortschaft sonnenuntergang wasser donau landschaft ortschaft sonnenuntergang wasser danube landscape village sunset water canon eos 2000d ef-s10-18mm f/4.5-5.6 is stm ƒ/14 · 1/20 · 15 mm · iso 100 2026-08-04">
-          <button type="button" class="shot" data-large="images/gallery/large/IMG_5496.webp"
-                  data-cam="Canon EOS 2000D" data-exif="ƒ/14 · 1/20 · 15 mm · ISO 100"
-                  data-alt-de="Donau, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Leiben · 04.08.2026" data-alt-en="Danube, Landscape, Village, Sunset, Water · Leiben · 04.08.2026">
-            <img src="images/gallery/thumb/IMG_5496.webp" width="800" height="533" loading="lazy" decoding="async"
-                 alt="Donau, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Leiben · 04.08.2026" data-alt-de="Donau, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Leiben · 04.08.2026" data-alt-en="Danube, Landscape, Village, Sunset, Water · Leiben · 04.08.2026">
+        <li class="shot-item" data-date="2026-08-04" data-year="2026" data-place="Leiben" data-tags="donau landschaft ortschaft sonnenuntergang wasser" data-search="donau, landschaft, ortschaft, sonnenuntergang, wasser · leiben · 04.08.2026 danube, landscape, village, sunset, water · leiben · 04.08.2026 leiben donau landschaft ortschaft sonnenuntergang wasser donau landschaft ortschaft sonnenuntergang wasser danube landscape village sunset water canon eos 2000d ef-s10-18mm f/4.5-5.6 is stm ƒ/14 · 1/20 · 15 mm · iso 100 2026-08-04">
+          <button type="button" class="shot" data-large="/images/gallery/large/IMG_5496.webp" data-cam="Canon EOS 2000D" data-exif="ƒ/14 · 1/20 · 15 mm · ISO 100" data-alt="Donau, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Leiben · 04.08.2026">
+            <img src="/images/gallery/thumb/IMG_5496.webp" width="800" height="533" loading="lazy" decoding="async" alt="Donau, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Leiben · 04.08.2026" data-alt="Donau, Landschaft, Ortschaft, Sonnenuntergang, Wasser · Leiben · 04.08.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-08-04" class="shot-date">04.08.2026</time><span class="shot-place">Leiben</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Donau</span><span class="lang-en" lang="en">Danube</span></span><span class="shot-tag"><span class="lang-de" lang="de">Landschaft</span><span class="lang-en" lang="en">Landscape</span></span><span class="shot-tag"><span class="lang-de" lang="de">Ortschaft</span><span class="lang-en" lang="en">Village</span></span><span class="shot-tag"><span class="lang-de" lang="de">Sonnenuntergang</span><span class="lang-en" lang="en">Sunset</span></span><span class="shot-tag"><span class="lang-de" lang="de">Wasser</span><span class="lang-en" lang="en">Water</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Donau</span><span class="shot-tag">Landschaft</span><span class="shot-tag">Ortschaft</span><span class="shot-tag">Sonnenuntergang</span><span class="shot-tag">Wasser</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2026-08-04" data-year="2026"
-            data-place="Leiben" data-tags="baum hdr landschaft sonnenuntergang" data-search="baum, hdr, landschaft, sonnenuntergang · leiben · 04.08.2026 tree, hdr, landscape, sunset · leiben · 04.08.2026 leiben baum hdr landschaft sonnenuntergang baum hdr landschaft sonnenuntergang tree hdr landscape sunset canon eos 2000d ef-s10-18mm f/4.5-5.6 is stm ƒ/5,6 · 1/400 · 13 mm · iso 100 2026-08-04">
-          <button type="button" class="shot" data-large="images/gallery/large/hdr_01.webp"
-                  data-cam="Canon EOS 2000D" data-exif="ƒ/5,6 · 1/400 · 13 mm · ISO 100"
-                  data-alt-de="Baum, HDR, Landschaft, Sonnenuntergang · Leiben · 04.08.2026" data-alt-en="Tree, HDR, Landscape, Sunset · Leiben · 04.08.2026">
-            <img src="images/gallery/thumb/hdr_01.webp" width="800" height="533" loading="lazy" decoding="async"
-                 alt="Baum, HDR, Landschaft, Sonnenuntergang · Leiben · 04.08.2026" data-alt-de="Baum, HDR, Landschaft, Sonnenuntergang · Leiben · 04.08.2026" data-alt-en="Tree, HDR, Landscape, Sunset · Leiben · 04.08.2026">
+        <li class="shot-item" data-date="2026-08-04" data-year="2026" data-place="Leiben" data-tags="baum hdr landschaft sonnenuntergang" data-search="baum, hdr, landschaft, sonnenuntergang · leiben · 04.08.2026 tree, hdr, landscape, sunset · leiben · 04.08.2026 leiben baum hdr landschaft sonnenuntergang baum hdr landschaft sonnenuntergang tree hdr landscape sunset canon eos 2000d ef-s10-18mm f/4.5-5.6 is stm ƒ/5,6 · 1/400 · 13 mm · iso 100 2026-08-04">
+          <button type="button" class="shot" data-large="/images/gallery/large/hdr_01.webp" data-cam="Canon EOS 2000D" data-exif="ƒ/5,6 · 1/400 · 13 mm · ISO 100" data-alt="Baum, HDR, Landschaft, Sonnenuntergang · Leiben · 04.08.2026">
+            <img src="/images/gallery/thumb/hdr_01.webp" width="800" height="533" loading="lazy" decoding="async" alt="Baum, HDR, Landschaft, Sonnenuntergang · Leiben · 04.08.2026" data-alt="Baum, HDR, Landschaft, Sonnenuntergang · Leiben · 04.08.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-08-04" class="shot-date">04.08.2026</time><span class="shot-place">Leiben</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Baum</span><span class="lang-en" lang="en">Tree</span></span><span class="shot-tag"><span class="lang-de" lang="de">HDR</span><span class="lang-en" lang="en">HDR</span></span><span class="shot-tag"><span class="lang-de" lang="de">Landschaft</span><span class="lang-en" lang="en">Landscape</span></span><span class="shot-tag"><span class="lang-de" lang="de">Sonnenuntergang</span><span class="lang-en" lang="en">Sunset</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Baum</span><span class="shot-tag">HDR</span><span class="shot-tag">Landschaft</span><span class="shot-tag">Sonnenuntergang</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2026-08-04" data-year="2026"
-            data-place="Leiben" data-tags="baum hdr landschaft sonnenuntergang" data-search="baum, hdr, landschaft, sonnenuntergang · leiben · 04.08.2026 tree, hdr, landscape, sunset · leiben · 04.08.2026 leiben baum hdr landschaft sonnenuntergang baum hdr landschaft sonnenuntergang tree hdr landscape sunset canon eos 2000d ef-s10-18mm f/4.5-5.6 is stm ƒ/22 · 1/6 · 10 mm · iso 100 2026-08-04">
-          <button type="button" class="shot" data-large="images/gallery/large/hdr_02_edit.webp"
-                  data-cam="Canon EOS 2000D" data-exif="ƒ/22 · 1/6 · 10 mm · ISO 100"
-                  data-alt-de="Baum, HDR, Landschaft, Sonnenuntergang · Leiben · 04.08.2026" data-alt-en="Tree, HDR, Landscape, Sunset · Leiben · 04.08.2026">
-            <img src="images/gallery/thumb/hdr_02_edit.webp" width="800" height="533" loading="lazy" decoding="async"
-                 alt="Baum, HDR, Landschaft, Sonnenuntergang · Leiben · 04.08.2026" data-alt-de="Baum, HDR, Landschaft, Sonnenuntergang · Leiben · 04.08.2026" data-alt-en="Tree, HDR, Landscape, Sunset · Leiben · 04.08.2026">
+        <li class="shot-item" data-date="2026-08-04" data-year="2026" data-place="Leiben" data-tags="baum hdr landschaft sonnenuntergang" data-search="baum, hdr, landschaft, sonnenuntergang · leiben · 04.08.2026 tree, hdr, landscape, sunset · leiben · 04.08.2026 leiben baum hdr landschaft sonnenuntergang baum hdr landschaft sonnenuntergang tree hdr landscape sunset canon eos 2000d ef-s10-18mm f/4.5-5.6 is stm ƒ/22 · 1/6 · 10 mm · iso 100 2026-08-04">
+          <button type="button" class="shot" data-large="/images/gallery/large/hdr_02_edit.webp" data-cam="Canon EOS 2000D" data-exif="ƒ/22 · 1/6 · 10 mm · ISO 100" data-alt="Baum, HDR, Landschaft, Sonnenuntergang · Leiben · 04.08.2026">
+            <img src="/images/gallery/thumb/hdr_02_edit.webp" width="800" height="533" loading="lazy" decoding="async" alt="Baum, HDR, Landschaft, Sonnenuntergang · Leiben · 04.08.2026" data-alt="Baum, HDR, Landschaft, Sonnenuntergang · Leiben · 04.08.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-08-04" class="shot-date">04.08.2026</time><span class="shot-place">Leiben</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Baum</span><span class="lang-en" lang="en">Tree</span></span><span class="shot-tag"><span class="lang-de" lang="de">HDR</span><span class="lang-en" lang="en">HDR</span></span><span class="shot-tag"><span class="lang-de" lang="de">Landschaft</span><span class="lang-en" lang="en">Landscape</span></span><span class="shot-tag"><span class="lang-de" lang="de">Sonnenuntergang</span><span class="lang-en" lang="en">Sunset</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Baum</span><span class="shot-tag">HDR</span><span class="shot-tag">Landschaft</span><span class="shot-tag">Sonnenuntergang</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2026-08-04" data-year="2026"
-            data-place="Leiben" data-tags="baum hdr landschaft sonnenuntergang" data-search="baum, hdr, landschaft, sonnenuntergang · leiben · 04.08.2026 tree, hdr, landscape, sunset · leiben · 04.08.2026 leiben baum hdr landschaft sonnenuntergang baum hdr landschaft sonnenuntergang tree hdr landscape sunset canon eos 2000d ef-s10-18mm f/4.5-5.6 is stm ƒ/4,5 · 1/1600 · 10 mm · iso 100 2026-08-04">
-          <button type="button" class="shot" data-large="images/gallery/large/hdr_03.webp"
-                  data-cam="Canon EOS 2000D" data-exif="ƒ/4,5 · 1/1600 · 10 mm · ISO 100"
-                  data-alt-de="Baum, HDR, Landschaft, Sonnenuntergang · Leiben · 04.08.2026" data-alt-en="Tree, HDR, Landscape, Sunset · Leiben · 04.08.2026">
-            <img src="images/gallery/thumb/hdr_03.webp" width="800" height="532" loading="lazy" decoding="async"
-                 alt="Baum, HDR, Landschaft, Sonnenuntergang · Leiben · 04.08.2026" data-alt-de="Baum, HDR, Landschaft, Sonnenuntergang · Leiben · 04.08.2026" data-alt-en="Tree, HDR, Landscape, Sunset · Leiben · 04.08.2026">
+        <li class="shot-item" data-date="2026-08-04" data-year="2026" data-place="Leiben" data-tags="baum hdr landschaft sonnenuntergang" data-search="baum, hdr, landschaft, sonnenuntergang · leiben · 04.08.2026 tree, hdr, landscape, sunset · leiben · 04.08.2026 leiben baum hdr landschaft sonnenuntergang baum hdr landschaft sonnenuntergang tree hdr landscape sunset canon eos 2000d ef-s10-18mm f/4.5-5.6 is stm ƒ/4,5 · 1/1600 · 10 mm · iso 100 2026-08-04">
+          <button type="button" class="shot" data-large="/images/gallery/large/hdr_03.webp" data-cam="Canon EOS 2000D" data-exif="ƒ/4,5 · 1/1600 · 10 mm · ISO 100" data-alt="Baum, HDR, Landschaft, Sonnenuntergang · Leiben · 04.08.2026">
+            <img src="/images/gallery/thumb/hdr_03.webp" width="800" height="532" loading="lazy" decoding="async" alt="Baum, HDR, Landschaft, Sonnenuntergang · Leiben · 04.08.2026" data-alt="Baum, HDR, Landschaft, Sonnenuntergang · Leiben · 04.08.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-08-04" class="shot-date">04.08.2026</time><span class="shot-place">Leiben</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Baum</span><span class="lang-en" lang="en">Tree</span></span><span class="shot-tag"><span class="lang-de" lang="de">HDR</span><span class="lang-en" lang="en">HDR</span></span><span class="shot-tag"><span class="lang-de" lang="de">Landschaft</span><span class="lang-en" lang="en">Landscape</span></span><span class="shot-tag"><span class="lang-de" lang="de">Sonnenuntergang</span><span class="lang-en" lang="en">Sunset</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Baum</span><span class="shot-tag">HDR</span><span class="shot-tag">Landschaft</span><span class="shot-tag">Sonnenuntergang</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2026-04-26" data-year="2026"
-            data-place="Leiben" data-tags="insekt tier" data-search="insekt, tier · leiben · 26.04.2026 insect, animal · leiben · 26.04.2026 leiben insekt tier insekt tier insect animal canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/10 · 1/200 · 250 mm · iso 1250 2026-04-26">
-          <button type="button" class="shot" data-large="images/gallery/large/IMG_5280.webp"
-                  data-cam="Canon EOS 2000D" data-exif="ƒ/10 · 1/200 · 250 mm · ISO 1250"
-                  data-alt-de="Insekt, Tier · Leiben · 26.04.2026" data-alt-en="Insect, Animal · Leiben · 26.04.2026">
-            <img src="images/gallery/thumb/IMG_5280.webp" width="800" height="533" loading="lazy" decoding="async"
-                 alt="Insekt, Tier · Leiben · 26.04.2026" data-alt-de="Insekt, Tier · Leiben · 26.04.2026" data-alt-en="Insect, Animal · Leiben · 26.04.2026">
+        <li class="shot-item" data-date="2026-04-26" data-year="2026" data-place="Leiben" data-tags="insekt tier" data-search="insekt, tier · leiben · 26.04.2026 insect, animal · leiben · 26.04.2026 leiben insekt tier insekt tier insect animal canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/10 · 1/200 · 250 mm · iso 1250 2026-04-26">
+          <button type="button" class="shot" data-large="/images/gallery/large/IMG_5280.webp" data-cam="Canon EOS 2000D" data-exif="ƒ/10 · 1/200 · 250 mm · ISO 1250" data-alt="Insekt, Tier · Leiben · 26.04.2026">
+            <img src="/images/gallery/thumb/IMG_5280.webp" width="800" height="533" loading="lazy" decoding="async" alt="Insekt, Tier · Leiben · 26.04.2026" data-alt="Insekt, Tier · Leiben · 26.04.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-04-26" class="shot-date">26.04.2026</time><span class="shot-place">Leiben</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Insekt</span><span class="lang-en" lang="en">Insect</span></span><span class="shot-tag"><span class="lang-de" lang="de">Tier</span><span class="lang-en" lang="en">Animal</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Insekt</span><span class="shot-tag">Tier</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2026-04-26" data-year="2026"
-            data-place="Leiben" data-tags="boot donau wasser" data-search="schiff/boot, donau, wasser · leiben · 26.04.2026 ship/boat, danube, water · leiben · 26.04.2026 leiben boot donau wasser schiff/boot donau wasser ship/boat danube water canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/5,6 · 1/2000 · 250 mm · iso 250 2026-04-26">
-          <button type="button" class="shot" data-large="images/gallery/large/IMG_5316.webp"
-                  data-cam="Canon EOS 2000D" data-exif="ƒ/5,6 · 1/2000 · 250 mm · ISO 250"
-                  data-alt-de="Schiff/Boot, Donau, Wasser · Leiben · 26.04.2026" data-alt-en="Ship/Boat, Danube, Water · Leiben · 26.04.2026">
-            <img src="images/gallery/thumb/IMG_5316.webp" width="800" height="533" loading="lazy" decoding="async"
-                 alt="Schiff/Boot, Donau, Wasser · Leiben · 26.04.2026" data-alt-de="Schiff/Boot, Donau, Wasser · Leiben · 26.04.2026" data-alt-en="Ship/Boat, Danube, Water · Leiben · 26.04.2026">
+        <li class="shot-item" data-date="2026-04-26" data-year="2026" data-place="Leiben" data-tags="boot donau wasser" data-search="schiff/boot, donau, wasser · leiben · 26.04.2026 ship/boat, danube, water · leiben · 26.04.2026 leiben boot donau wasser schiff/boot donau wasser ship/boat danube water canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/5,6 · 1/2000 · 250 mm · iso 250 2026-04-26">
+          <button type="button" class="shot" data-large="/images/gallery/large/IMG_5316.webp" data-cam="Canon EOS 2000D" data-exif="ƒ/5,6 · 1/2000 · 250 mm · ISO 250" data-alt="Schiff/Boot, Donau, Wasser · Leiben · 26.04.2026">
+            <img src="/images/gallery/thumb/IMG_5316.webp" width="800" height="533" loading="lazy" decoding="async" alt="Schiff/Boot, Donau, Wasser · Leiben · 26.04.2026" data-alt="Schiff/Boot, Donau, Wasser · Leiben · 26.04.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-04-26" class="shot-date">26.04.2026</time><span class="shot-place">Leiben</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Schiff/Boot</span><span class="lang-en" lang="en">Ship/Boat</span></span><span class="shot-tag"><span class="lang-de" lang="de">Donau</span><span class="lang-en" lang="en">Danube</span></span><span class="shot-tag"><span class="lang-de" lang="de">Wasser</span><span class="lang-en" lang="en">Water</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Schiff/Boot</span><span class="shot-tag">Donau</span><span class="shot-tag">Wasser</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2026-04-26" data-year="2026"
-            data-place="Leiben" data-tags="baum tier vogel" data-search="baum, tier, vogel · leiben · 26.04.2026 tree, animal, bird · leiben · 26.04.2026 leiben baum tier vogel baum tier vogel tree animal bird canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/5,6 · 1/800 · 250 mm · iso 200 2026-04-26">
-          <button type="button" class="shot" data-large="images/gallery/large/IMG_5348.webp"
-                  data-cam="Canon EOS 2000D" data-exif="ƒ/5,6 · 1/800 · 250 mm · ISO 200"
-                  data-alt-de="Baum, Tier, Vogel · Leiben · 26.04.2026" data-alt-en="Tree, Animal, Bird · Leiben · 26.04.2026">
-            <img src="images/gallery/thumb/IMG_5348.webp" width="800" height="533" loading="lazy" decoding="async"
-                 alt="Baum, Tier, Vogel · Leiben · 26.04.2026" data-alt-de="Baum, Tier, Vogel · Leiben · 26.04.2026" data-alt-en="Tree, Animal, Bird · Leiben · 26.04.2026">
+        <li class="shot-item" data-date="2026-04-26" data-year="2026" data-place="Leiben" data-tags="baum tier vogel" data-search="baum, tier, vogel · leiben · 26.04.2026 tree, animal, bird · leiben · 26.04.2026 leiben baum tier vogel baum tier vogel tree animal bird canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/5,6 · 1/800 · 250 mm · iso 200 2026-04-26">
+          <button type="button" class="shot" data-large="/images/gallery/large/IMG_5348.webp" data-cam="Canon EOS 2000D" data-exif="ƒ/5,6 · 1/800 · 250 mm · ISO 200" data-alt="Baum, Tier, Vogel · Leiben · 26.04.2026">
+            <img src="/images/gallery/thumb/IMG_5348.webp" width="800" height="533" loading="lazy" decoding="async" alt="Baum, Tier, Vogel · Leiben · 26.04.2026" data-alt="Baum, Tier, Vogel · Leiben · 26.04.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-04-26" class="shot-date">26.04.2026</time><span class="shot-place">Leiben</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Baum</span><span class="lang-en" lang="en">Tree</span></span><span class="shot-tag"><span class="lang-de" lang="de">Tier</span><span class="lang-en" lang="en">Animal</span></span><span class="shot-tag"><span class="lang-de" lang="de">Vogel</span><span class="lang-en" lang="en">Bird</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Baum</span><span class="shot-tag">Tier</span><span class="shot-tag">Vogel</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2026-04-26" data-year="2026"
-            data-place="Leiben" data-tags="flugzeug himmel" data-search="flugzeug, himmel · leiben · 26.04.2026 plane, sky · leiben · 26.04.2026 leiben flugzeug himmel flugzeug himmel plane sky canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/5,6 · 1/800 · 250 mm · iso 160 2026-04-26">
-          <button type="button" class="shot" data-large="images/gallery/large/IMG_5353.webp"
-                  data-cam="Canon EOS 2000D" data-exif="ƒ/5,6 · 1/800 · 250 mm · ISO 160"
-                  data-alt-de="Flugzeug, Himmel · Leiben · 26.04.2026" data-alt-en="Plane, Sky · Leiben · 26.04.2026">
-            <img src="images/gallery/thumb/IMG_5353.webp" width="800" height="533" loading="lazy" decoding="async"
-                 alt="Flugzeug, Himmel · Leiben · 26.04.2026" data-alt-de="Flugzeug, Himmel · Leiben · 26.04.2026" data-alt-en="Plane, Sky · Leiben · 26.04.2026">
+        <li class="shot-item" data-date="2026-04-26" data-year="2026" data-place="Leiben" data-tags="flugzeug himmel" data-search="flugzeug, himmel · leiben · 26.04.2026 plane, sky · leiben · 26.04.2026 leiben flugzeug himmel flugzeug himmel plane sky canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/5,6 · 1/800 · 250 mm · iso 160 2026-04-26">
+          <button type="button" class="shot" data-large="/images/gallery/large/IMG_5353.webp" data-cam="Canon EOS 2000D" data-exif="ƒ/5,6 · 1/800 · 250 mm · ISO 160" data-alt="Flugzeug, Himmel · Leiben · 26.04.2026">
+            <img src="/images/gallery/thumb/IMG_5353.webp" width="800" height="533" loading="lazy" decoding="async" alt="Flugzeug, Himmel · Leiben · 26.04.2026" data-alt="Flugzeug, Himmel · Leiben · 26.04.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-04-26" class="shot-date">26.04.2026</time><span class="shot-place">Leiben</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Flugzeug</span><span class="lang-en" lang="en">Plane</span></span><span class="shot-tag"><span class="lang-de" lang="de">Himmel</span><span class="lang-en" lang="en">Sky</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Flugzeug</span><span class="shot-tag">Himmel</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2026-04-26" data-year="2026"
-            data-place="Leiben" data-tags="katze tier" data-search="katze, tier · leiben · 26.04.2026 cat, animal · leiben · 26.04.2026 leiben katze tier katze tier cat animal canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/4,5 · 1/800 · 70 mm · iso 200 2026-04-26">
-          <button type="button" class="shot" data-large="images/gallery/large/IMG_5391.webp"
-                  data-cam="Canon EOS 2000D" data-exif="ƒ/4,5 · 1/800 · 70 mm · ISO 200"
-                  data-alt-de="Katze, Tier · Leiben · 26.04.2026" data-alt-en="Cat, Animal · Leiben · 26.04.2026">
-            <img src="images/gallery/thumb/IMG_5391.webp" width="800" height="533" loading="lazy" decoding="async"
-                 alt="Katze, Tier · Leiben · 26.04.2026" data-alt-de="Katze, Tier · Leiben · 26.04.2026" data-alt-en="Cat, Animal · Leiben · 26.04.2026">
+        <li class="shot-item" data-date="2026-04-26" data-year="2026" data-place="Leiben" data-tags="katze tier" data-search="katze, tier · leiben · 26.04.2026 cat, animal · leiben · 26.04.2026 leiben katze tier katze tier cat animal canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/4,5 · 1/800 · 70 mm · iso 200 2026-04-26">
+          <button type="button" class="shot" data-large="/images/gallery/large/IMG_5391.webp" data-cam="Canon EOS 2000D" data-exif="ƒ/4,5 · 1/800 · 70 mm · ISO 200" data-alt="Katze, Tier · Leiben · 26.04.2026">
+            <img src="/images/gallery/thumb/IMG_5391.webp" width="800" height="533" loading="lazy" decoding="async" alt="Katze, Tier · Leiben · 26.04.2026" data-alt="Katze, Tier · Leiben · 26.04.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-04-26" class="shot-date">26.04.2026</time><span class="shot-place">Leiben</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Katze</span><span class="lang-en" lang="en">Cat</span></span><span class="shot-tag"><span class="lang-de" lang="de">Tier</span><span class="lang-en" lang="en">Animal</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Katze</span><span class="shot-tag">Tier</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2026-03-07" data-year="2026"
-            data-place="Melk" data-tags="auto driften motorsport naesse" data-search="auto, driften, motorsport, nässe · melk · 07.03.2026 car, drifting, motorsport, wet · melk · 07.03.2026 melk auto driften motorsport naesse auto driften motorsport nässe car drifting motorsport wet canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/5 · 1/800 · 100 mm · iso 100 2026-03-07">
-          <button type="button" class="shot" data-large="images/gallery/large/IMG_4736.webp"
-                  data-cam="Canon EOS 2000D" data-exif="ƒ/5 · 1/800 · 100 mm · ISO 100"
-                  data-alt-de="Auto, Driften, Motorsport, Nässe · Melk · 07.03.2026" data-alt-en="Car, Drifting, Motorsport, Wet · Melk · 07.03.2026">
-            <img src="images/gallery/thumb/IMG_4736.webp" width="800" height="533" loading="lazy" decoding="async"
-                 alt="Auto, Driften, Motorsport, Nässe · Melk · 07.03.2026" data-alt-de="Auto, Driften, Motorsport, Nässe · Melk · 07.03.2026" data-alt-en="Car, Drifting, Motorsport, Wet · Melk · 07.03.2026">
+        <li class="shot-item" data-date="2026-03-07" data-year="2026" data-place="Melk" data-tags="auto driften motorsport naesse" data-search="auto, driften, motorsport, nässe · melk · 07.03.2026 car, drifting, motorsport, wet · melk · 07.03.2026 melk auto driften motorsport naesse auto driften motorsport nässe car drifting motorsport wet canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/5 · 1/800 · 100 mm · iso 100 2026-03-07">
+          <button type="button" class="shot" data-large="/images/gallery/large/IMG_4736.webp" data-cam="Canon EOS 2000D" data-exif="ƒ/5 · 1/800 · 100 mm · ISO 100" data-alt="Auto, Driften, Motorsport, Nässe · Melk · 07.03.2026">
+            <img src="/images/gallery/thumb/IMG_4736.webp" width="800" height="533" loading="lazy" decoding="async" alt="Auto, Driften, Motorsport, Nässe · Melk · 07.03.2026" data-alt="Auto, Driften, Motorsport, Nässe · Melk · 07.03.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-03-07" class="shot-date">07.03.2026</time><span class="shot-place">Melk</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Auto</span><span class="lang-en" lang="en">Car</span></span><span class="shot-tag"><span class="lang-de" lang="de">Driften</span><span class="lang-en" lang="en">Drifting</span></span><span class="shot-tag"><span class="lang-de" lang="de">Motorsport</span><span class="lang-en" lang="en">Motorsport</span></span><span class="shot-tag"><span class="lang-de" lang="de">Nässe</span><span class="lang-en" lang="en">Wet</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Auto</span><span class="shot-tag">Driften</span><span class="shot-tag">Motorsport</span><span class="shot-tag">Nässe</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2026-03-07" data-year="2026"
-            data-place="Melk" data-tags="auto driften motorsport naesse" data-search="auto, driften, motorsport, nässe · melk · 07.03.2026 car, drifting, motorsport, wet · melk · 07.03.2026 melk auto driften motorsport naesse auto driften motorsport nässe car drifting motorsport wet canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/5,6 · 1/2000 · 214 mm · iso 640 2026-03-07">
-          <button type="button" class="shot" data-large="images/gallery/large/IMG_4839.webp"
-                  data-cam="Canon EOS 2000D" data-exif="ƒ/5,6 · 1/2000 · 214 mm · ISO 640"
-                  data-alt-de="Auto, Driften, Motorsport, Nässe · Melk · 07.03.2026" data-alt-en="Car, Drifting, Motorsport, Wet · Melk · 07.03.2026">
-            <img src="images/gallery/thumb/IMG_4839.webp" width="800" height="533" loading="lazy" decoding="async"
-                 alt="Auto, Driften, Motorsport, Nässe · Melk · 07.03.2026" data-alt-de="Auto, Driften, Motorsport, Nässe · Melk · 07.03.2026" data-alt-en="Car, Drifting, Motorsport, Wet · Melk · 07.03.2026">
+        <li class="shot-item" data-date="2026-03-07" data-year="2026" data-place="Melk" data-tags="auto driften motorsport naesse" data-search="auto, driften, motorsport, nässe · melk · 07.03.2026 car, drifting, motorsport, wet · melk · 07.03.2026 melk auto driften motorsport naesse auto driften motorsport nässe car drifting motorsport wet canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/5,6 · 1/2000 · 214 mm · iso 640 2026-03-07">
+          <button type="button" class="shot" data-large="/images/gallery/large/IMG_4839.webp" data-cam="Canon EOS 2000D" data-exif="ƒ/5,6 · 1/2000 · 214 mm · ISO 640" data-alt="Auto, Driften, Motorsport, Nässe · Melk · 07.03.2026">
+            <img src="/images/gallery/thumb/IMG_4839.webp" width="800" height="533" loading="lazy" decoding="async" alt="Auto, Driften, Motorsport, Nässe · Melk · 07.03.2026" data-alt="Auto, Driften, Motorsport, Nässe · Melk · 07.03.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-03-07" class="shot-date">07.03.2026</time><span class="shot-place">Melk</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Auto</span><span class="lang-en" lang="en">Car</span></span><span class="shot-tag"><span class="lang-de" lang="de">Driften</span><span class="lang-en" lang="en">Drifting</span></span><span class="shot-tag"><span class="lang-de" lang="de">Motorsport</span><span class="lang-en" lang="en">Motorsport</span></span><span class="shot-tag"><span class="lang-de" lang="de">Nässe</span><span class="lang-en" lang="en">Wet</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Auto</span><span class="shot-tag">Driften</span><span class="shot-tag">Motorsport</span><span class="shot-tag">Nässe</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2026-03-07" data-year="2026"
-            data-place="Leiben" data-tags="katze tier" data-search="katze, tier · leiben · 07.03.2026 cat, animal · leiben · 07.03.2026 leiben katze tier katze tier cat animal canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/5,6 · 1/1600 · 183 mm · iso 500 2026-03-07">
-          <button type="button" class="shot" data-large="images/gallery/large/f27073088.webp"
-                  data-cam="Canon EOS 2000D" data-exif="ƒ/5,6 · 1/1600 · 183 mm · ISO 500"
-                  data-alt-de="Katze, Tier · Leiben · 07.03.2026" data-alt-en="Cat, Animal · Leiben · 07.03.2026">
-            <img src="images/gallery/thumb/f27073088.webp" width="800" height="533" loading="lazy" decoding="async"
-                 alt="Katze, Tier · Leiben · 07.03.2026" data-alt-de="Katze, Tier · Leiben · 07.03.2026" data-alt-en="Cat, Animal · Leiben · 07.03.2026">
+        <li class="shot-item" data-date="2026-03-07" data-year="2026" data-place="Leiben" data-tags="katze tier" data-search="katze, tier · leiben · 07.03.2026 cat, animal · leiben · 07.03.2026 leiben katze tier katze tier cat animal canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/5,6 · 1/1600 · 183 mm · iso 500 2026-03-07">
+          <button type="button" class="shot" data-large="/images/gallery/large/f27073088.webp" data-cam="Canon EOS 2000D" data-exif="ƒ/5,6 · 1/1600 · 183 mm · ISO 500" data-alt="Katze, Tier · Leiben · 07.03.2026">
+            <img src="/images/gallery/thumb/f27073088.webp" width="800" height="533" loading="lazy" decoding="async" alt="Katze, Tier · Leiben · 07.03.2026" data-alt="Katze, Tier · Leiben · 07.03.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-03-07" class="shot-date">07.03.2026</time><span class="shot-place">Leiben</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Katze</span><span class="lang-en" lang="en">Cat</span></span><span class="shot-tag"><span class="lang-de" lang="de">Tier</span><span class="lang-en" lang="en">Animal</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Katze</span><span class="shot-tag">Tier</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2026-03-07" data-year="2026"
-            data-place="Leiben" data-tags="katze tier" data-search="katze, tier · leiben · 07.03.2026 cat, animal · leiben · 07.03.2026 leiben katze tier katze tier cat animal canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/5,6 · 1/1600 · 250 mm · iso 400 2026-03-07">
-          <button type="button" class="shot" data-large="images/gallery/large/f27413760.webp"
-                  data-cam="Canon EOS 2000D" data-exif="ƒ/5,6 · 1/1600 · 250 mm · ISO 400"
-                  data-alt-de="Katze, Tier · Leiben · 07.03.2026" data-alt-en="Cat, Animal · Leiben · 07.03.2026">
-            <img src="images/gallery/thumb/f27413760.webp" width="800" height="533" loading="lazy" decoding="async"
-                 alt="Katze, Tier · Leiben · 07.03.2026" data-alt-de="Katze, Tier · Leiben · 07.03.2026" data-alt-en="Cat, Animal · Leiben · 07.03.2026">
+        <li class="shot-item" data-date="2026-03-07" data-year="2026" data-place="Leiben" data-tags="katze tier" data-search="katze, tier · leiben · 07.03.2026 cat, animal · leiben · 07.03.2026 leiben katze tier katze tier cat animal canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/5,6 · 1/1600 · 250 mm · iso 400 2026-03-07">
+          <button type="button" class="shot" data-large="/images/gallery/large/f27413760.webp" data-cam="Canon EOS 2000D" data-exif="ƒ/5,6 · 1/1600 · 250 mm · ISO 400" data-alt="Katze, Tier · Leiben · 07.03.2026">
+            <img src="/images/gallery/thumb/f27413760.webp" width="800" height="533" loading="lazy" decoding="async" alt="Katze, Tier · Leiben · 07.03.2026" data-alt="Katze, Tier · Leiben · 07.03.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-03-07" class="shot-date">07.03.2026</time><span class="shot-place">Leiben</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Katze</span><span class="lang-en" lang="en">Cat</span></span><span class="shot-tag"><span class="lang-de" lang="de">Tier</span><span class="lang-en" lang="en">Animal</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Katze</span><span class="shot-tag">Tier</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2026-03-07" data-year="2026"
-            data-place="Leiben" data-tags="traktor" data-search="traktor · leiben · 07.03.2026 tractor · leiben · 07.03.2026 leiben traktor traktor tractor canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/5,6 · 1/640 · 117 mm · iso 250 2026-03-07">
-          <button type="button" class="shot" data-large="images/gallery/large/f30805824.webp"
-                  data-cam="Canon EOS 2000D" data-exif="ƒ/5,6 · 1/640 · 117 mm · ISO 250"
-                  data-alt-de="Traktor · Leiben · 07.03.2026" data-alt-en="Tractor · Leiben · 07.03.2026">
-            <img src="images/gallery/thumb/f30805824.webp" width="800" height="533" loading="lazy" decoding="async"
-                 alt="Traktor · Leiben · 07.03.2026" data-alt-de="Traktor · Leiben · 07.03.2026" data-alt-en="Tractor · Leiben · 07.03.2026">
+        <li class="shot-item" data-date="2026-03-07" data-year="2026" data-place="Leiben" data-tags="traktor" data-search="traktor · leiben · 07.03.2026 tractor · leiben · 07.03.2026 leiben traktor traktor tractor canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/5,6 · 1/640 · 117 mm · iso 250 2026-03-07">
+          <button type="button" class="shot" data-large="/images/gallery/large/f30805824.webp" data-cam="Canon EOS 2000D" data-exif="ƒ/5,6 · 1/640 · 117 mm · ISO 250" data-alt="Traktor · Leiben · 07.03.2026">
+            <img src="/images/gallery/thumb/f30805824.webp" width="800" height="533" loading="lazy" decoding="async" alt="Traktor · Leiben · 07.03.2026" data-alt="Traktor · Leiben · 07.03.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-03-07" class="shot-date">07.03.2026</time><span class="shot-place">Leiben</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Traktor</span><span class="lang-en" lang="en">Tractor</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Traktor</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2026-03-06" data-year="2026"
-            data-place="Leiben" data-tags="insekt tier" data-search="insekt, tier · leiben · 06.03.2026 insect, animal · leiben · 06.03.2026 leiben insekt tier insekt tier insect animal canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/5,6 · 1/800 · 250 mm · iso 125 2026-03-06">
-          <button type="button" class="shot" data-large="images/gallery/large/IMG_4709.webp"
-                  data-cam="Canon EOS 2000D" data-exif="ƒ/5,6 · 1/800 · 250 mm · ISO 125"
-                  data-alt-de="Insekt, Tier · Leiben · 06.03.2026" data-alt-en="Insect, Animal · Leiben · 06.03.2026">
-            <img src="images/gallery/thumb/IMG_4709.webp" width="800" height="533" loading="lazy" decoding="async"
-                 alt="Insekt, Tier · Leiben · 06.03.2026" data-alt-de="Insekt, Tier · Leiben · 06.03.2026" data-alt-en="Insect, Animal · Leiben · 06.03.2026">
+        <li class="shot-item" data-date="2026-03-06" data-year="2026" data-place="Leiben" data-tags="insekt tier" data-search="insekt, tier · leiben · 06.03.2026 insect, animal · leiben · 06.03.2026 leiben insekt tier insekt tier insect animal canon eos 2000d ef-s55-250mm f/4-5.6 is stm ƒ/5,6 · 1/800 · 250 mm · iso 125 2026-03-06">
+          <button type="button" class="shot" data-large="/images/gallery/large/IMG_4709.webp" data-cam="Canon EOS 2000D" data-exif="ƒ/5,6 · 1/800 · 250 mm · ISO 125" data-alt="Insekt, Tier · Leiben · 06.03.2026">
+            <img src="/images/gallery/thumb/IMG_4709.webp" width="800" height="533" loading="lazy" decoding="async" alt="Insekt, Tier · Leiben · 06.03.2026" data-alt="Insekt, Tier · Leiben · 06.03.2026">
           </button>
           <div class="shot-meta">
             <time datetime="2026-03-06" class="shot-date">06.03.2026</time><span class="shot-place">Leiben</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Insekt</span><span class="lang-en" lang="en">Insect</span></span><span class="shot-tag"><span class="lang-de" lang="de">Tier</span><span class="lang-en" lang="en">Animal</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Insekt</span><span class="shot-tag">Tier</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2025-05-25" data-year="2025"
-            data-place="Melk" data-tags="donau gebaeude ortschaft" data-search="donau, gebäude, ortschaft · melk · 25.05.2025 danube, building, village · melk · 25.05.2025 melk donau gebaeude ortschaft donau gebäude ortschaft danube building village canon eos 2000d ef-s18-55mm f/3.5-5.6 is ii ƒ/9 · 1/200 · 55 mm · iso 100 2025-05-25">
-          <button type="button" class="shot" data-large="images/gallery/large/IMG_4008.webp"
-                  data-cam="Canon EOS 2000D" data-exif="ƒ/9 · 1/200 · 55 mm · ISO 100"
-                  data-alt-de="Donau, Gebäude, Ortschaft · Melk · 25.05.2025" data-alt-en="Danube, Building, Village · Melk · 25.05.2025">
-            <img src="images/gallery/thumb/IMG_4008.webp" width="800" height="533" loading="lazy" decoding="async"
-                 alt="Donau, Gebäude, Ortschaft · Melk · 25.05.2025" data-alt-de="Donau, Gebäude, Ortschaft · Melk · 25.05.2025" data-alt-en="Danube, Building, Village · Melk · 25.05.2025">
+        <li class="shot-item" data-date="2025-05-25" data-year="2025" data-place="Melk" data-tags="donau gebaeude ortschaft" data-search="donau, gebäude, ortschaft · melk · 25.05.2025 danube, building, village · melk · 25.05.2025 melk donau gebaeude ortschaft donau gebäude ortschaft danube building village canon eos 2000d ef-s18-55mm f/3.5-5.6 is ii ƒ/9 · 1/200 · 55 mm · iso 100 2025-05-25">
+          <button type="button" class="shot" data-large="/images/gallery/large/IMG_4008.webp" data-cam="Canon EOS 2000D" data-exif="ƒ/9 · 1/200 · 55 mm · ISO 100" data-alt="Donau, Gebäude, Ortschaft · Melk · 25.05.2025">
+            <img src="/images/gallery/thumb/IMG_4008.webp" width="800" height="533" loading="lazy" decoding="async" alt="Donau, Gebäude, Ortschaft · Melk · 25.05.2025" data-alt="Donau, Gebäude, Ortschaft · Melk · 25.05.2025">
           </button>
           <div class="shot-meta">
             <time datetime="2025-05-25" class="shot-date">25.05.2025</time><span class="shot-place">Melk</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Donau</span><span class="lang-en" lang="en">Danube</span></span><span class="shot-tag"><span class="lang-de" lang="de">Gebäude</span><span class="lang-en" lang="en">Building</span></span><span class="shot-tag"><span class="lang-de" lang="de">Ortschaft</span><span class="lang-en" lang="en">Village</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Donau</span><span class="shot-tag">Gebäude</span><span class="shot-tag">Ortschaft</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
-        <li class="shot-item" data-date="2025-05-25" data-year="2025"
-            data-place="Melk" data-tags="donau gebaeude ortschaft" data-search="donau, gebäude, ortschaft · melk · 25.05.2025 danube, building, village · melk · 25.05.2025 melk donau gebaeude ortschaft donau gebäude ortschaft danube building village canon eos 2000d ef-s18-55mm f/3.5-5.6 is ii ƒ/8 · 1/320 · 18 mm · iso 100 2025-05-25">
-          <button type="button" class="shot" data-large="images/gallery/large/IMG_4010.webp"
-                  data-cam="Canon EOS 2000D" data-exif="ƒ/8 · 1/320 · 18 mm · ISO 100"
-                  data-alt-de="Donau, Gebäude, Ortschaft · Melk · 25.05.2025" data-alt-en="Danube, Building, Village · Melk · 25.05.2025">
-            <img src="images/gallery/thumb/IMG_4010.webp" width="800" height="533" loading="lazy" decoding="async"
-                 alt="Donau, Gebäude, Ortschaft · Melk · 25.05.2025" data-alt-de="Donau, Gebäude, Ortschaft · Melk · 25.05.2025" data-alt-en="Danube, Building, Village · Melk · 25.05.2025">
+        <li class="shot-item" data-date="2025-05-25" data-year="2025" data-place="Melk" data-tags="donau gebaeude ortschaft" data-search="donau, gebäude, ortschaft · melk · 25.05.2025 danube, building, village · melk · 25.05.2025 melk donau gebaeude ortschaft donau gebäude ortschaft danube building village canon eos 2000d ef-s18-55mm f/3.5-5.6 is ii ƒ/8 · 1/320 · 18 mm · iso 100 2025-05-25">
+          <button type="button" class="shot" data-large="/images/gallery/large/IMG_4010.webp" data-cam="Canon EOS 2000D" data-exif="ƒ/8 · 1/320 · 18 mm · ISO 100" data-alt="Donau, Gebäude, Ortschaft · Melk · 25.05.2025">
+            <img src="/images/gallery/thumb/IMG_4010.webp" width="800" height="533" loading="lazy" decoding="async" alt="Donau, Gebäude, Ortschaft · Melk · 25.05.2025" data-alt="Donau, Gebäude, Ortschaft · Melk · 25.05.2025">
           </button>
           <div class="shot-meta">
             <time datetime="2025-05-25" class="shot-date">25.05.2025</time><span class="shot-place">Melk</span>
           </div>
-          <div class="shot-tags"><span class="shot-tag"><span class="lang-de" lang="de">Donau</span><span class="lang-en" lang="en">Danube</span></span><span class="shot-tag"><span class="lang-de" lang="de">Gebäude</span><span class="lang-en" lang="en">Building</span></span><span class="shot-tag"><span class="lang-de" lang="de">Ortschaft</span><span class="lang-en" lang="en">Village</span></span><span class="shot-cam">Canon EOS 2000D</span></div>
+          <div class="shot-tags"><span class="shot-tag">Donau</span><span class="shot-tag">Gebäude</span><span class="shot-tag">Ortschaft</span><span class="shot-cam">Canon EOS 2000D</span></div>
         </li>
         <!-- GALLERY:END -->
     </ul>
@@ -531,20 +408,19 @@
   <div class="wrap footer-grid">
     <span class="footer-note">© 2026 Ralf Hörhager</span>
     <ul class="footer-links">
-      <li><a href="index.html"><span class="lang-de" lang="de">Start</span><span class="lang-en" lang="en">Home</span></a></li>
-      <li><a href="projects.html"><span class="lang-de" lang="de">Projekte</span><span class="lang-en" lang="en">Projects</span></a></li>
-      <li><a href="gallery.html"><span class="lang-de" lang="de">Galerie</span><span class="lang-en" lang="en">Gallery</span></a></li>
+      <li><a href="/">Start</a></li>
+      <li><a href="/projects.html">Projekte</a></li>
+      <li><a href="/gallery.html">Galerie</a></li>
       <li><a href="https://github.com/RatgebenderWolf" rel="me noopener">GitHub</a></li>
     </ul>
   </div>
   <div class="wrap footer-legal">
-    <a href="impressum.html"><span class="lang-de" lang="de">Impressum</span><span class="lang-en" lang="en">Legal notice</span></a>
-    <a href="datenschutz.html"><span class="lang-de" lang="de">Datenschutz</span><span class="lang-en" lang="en">Privacy</span></a>
-    <span class="footer-updated"><span class="lang-de" lang="de">Zuletzt aktualisiert</span><span class="lang-en" lang="en">Last updated</span> <time datetime="2026-08-24"><span class="lang-de" lang="de">24.08.2026</span><span class="lang-en" lang="en">24 Aug 2026</span></time></span>
+    <a href="/impressum.html">Impressum</a>
+    <a href="/datenschutz.html">Datenschutz</a>
+    <span class="footer-updated">Zuletzt aktualisiert <time datetime="2026-08-24">24.08.2026</time></span>
   </div>
 </footer>
 
-<script src="script.js"></script>
-<script src="gallery.js"></script>
+<script src="/gallery.js"></script>
 </body>
 </html>

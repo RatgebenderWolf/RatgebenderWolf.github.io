@@ -7,9 +7,10 @@
   if (!items.length) return;
 
   /* ---------- Sprache ---------------------------------------------------- */
-  function isEN(){ return document.documentElement.getAttribute('data-lang') === 'en'; }
-  function t(de, en){ return isEN() ? en : de; }
-  function altOf(el){ return el.getAttribute(isEN() ? 'data-alt-en' : 'data-alt-de') || ''; }
+  /* Die Sprache steht in der Adresse (/ bzw. /en/) und aendert sich zur
+     Laufzeit nicht mehr — einmal ablesen genuegt. */
+  var EN = document.documentElement.lang === 'en';
+  function t(de, en){ return EN ? en : de; }
 
   /* ---------- Lightbox --------------------------------------------------- */
   var img = document.getElementById('lbImg');
@@ -30,7 +31,7 @@
     // Die Beschreibung bleibt im alt-Text — sichtbar steht sie im Raster unter
     // dem Bild. Die Unterschrift hat zwei Zeilen: oben Kamera und Aufnahme-
     // daten, darunter die Position im Durchlauf.
-    img.alt = altOf(btn);
+    img.alt = btn.dataset.alt || '';
     var zeile = [];
     if (btn.dataset.cam)  zeile.push(btn.dataset.cam);
     if (btn.dataset.exif) zeile.push(btn.dataset.exif);
@@ -100,17 +101,13 @@
     });
     it.querySelectorAll('.shot-tag').forEach(function(chip, n){
       var id = (it.dataset.tags || '').split(/\s+/).filter(Boolean)[n];
-      if (!id || tagLabels[id]) return;
-      tagLabels[id] = {
-        de: (chip.querySelector('.lang-de') || {}).textContent || id,
-        en: (chip.querySelector('.lang-en') || {}).textContent || id
-      };
+      if (id && !tagLabels[id]) tagLabels[id] = chip.textContent.trim() || id;
     });
   });
   years.sort().reverse();
   places.sort(function(a, b){ return a.localeCompare(b, 'de'); });
   tagIds.sort(function(a, b){
-    return (tagLabels[a] ? tagLabels[a].de : a).localeCompare(tagLabels[b] ? tagLabels[b].de : b, 'de');
+    return (tagLabels[a] || a).localeCompare(tagLabels[b] || b, 'de');
   });
 
   var undated = items.some(function(it){ return !it.dataset.date; });
@@ -146,7 +143,7 @@
       b.type = 'button';
       b.className = 'tag-chip';
       b.dataset.tag = id;
-      b.textContent = tagLabels[id] ? t(tagLabels[id].de, tagLabels[id].en) : id;
+      b.textContent = tagLabels[id] || id;
       b.setAttribute('aria-pressed', activeTags.indexOf(id) >= 0 ? 'true' : 'false');
       b.addEventListener('click', function(){
         var i = activeTags.indexOf(id);
@@ -214,14 +211,6 @@
     tagsEl.querySelectorAll('.tag-chip').forEach(function(b){ b.setAttribute('aria-pressed','false'); });
     apply();
     qEl.focus();
-  });
-
-  document.addEventListener('site-lang-change', function(){
-    document.querySelectorAll('img[data-alt-de]').forEach(function(el){ el.alt = altOf(el); });
-    fillSelects();
-    buildTagChips();
-    apply();
-    if (!box.hidden) show(idx);
   });
 
   fillSelects();

@@ -1,45 +1,48 @@
 <!DOCTYPE html>
-<html lang="de" data-lang="de">
+<html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Machbarkeitsstudie zur Anomalieerkennung bei Industrieöfen mit ML | Ralf Hörhager</title>
 <meta name="description" content="Machbarkeitsstudie zur Machine-Learning-basierten Anomalieerkennung für industrielle Stoßöfen — One-Class-Ansatz auf realen Prozessdaten, Segmentierung in Zyklen und Prozessphasen.">
 <meta name="author" content="Ralf Hörhager">
-<link rel="canonical" href="https://ratgebenderwolf.github.io/projects/anomalieerkennung-industrieoefen.html">
+<link rel="canonical" href="https://ralfhoerhager.com/projects/anomalieerkennung-industrieoefen.html">
+<link rel="alternate" hreflang="de" href="https://ralfhoerhager.com/projects/anomalieerkennung-industrieoefen.html">
+<link rel="alternate" hreflang="en" href="https://ralfhoerhager.com/en/projects/anomalieerkennung-industrieoefen.html">
+<link rel="alternate" hreflang="x-default" href="https://ralfhoerhager.com/projects/anomalieerkennung-industrieoefen.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Machbarkeitsstudie zur Anomalieerkennung bei Industrieöfen mit ML">
 <meta property="og:description" content="ML-basierte Anomalieerkennung für industrielle Stoßöfen — One-Class-Ansatz auf realen Prozessdaten.">
-<meta property="og:url" content="https://ratgebenderwolf.github.io/projects/anomalieerkennung-industrieoefen.html">
-<meta property="og:image" content="https://ratgebenderwolf.github.io/images/profile.jpg">
+<meta property="og:url" content="https://ralfhoerhager.com/projects/anomalieerkennung-industrieoefen.html">
+<meta property="og:image" content="https://ralfhoerhager.com/images/profile.jpg">
 <meta property="og:locale" content="de_AT">
+<meta property="og:locale:alternate" content="en">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<script>(function(){var l="de";try{if(localStorage.getItem("site-lang")==="en"){l="en";}}catch(e){}var d=document.documentElement;d.setAttribute("data-lang",l);d.setAttribute("lang",l);})();</script>
-<link rel="stylesheet" href="../fonts.css">
-<link rel="stylesheet" href="../styles.css">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/fonts.css">
+<link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
-<a href="#main" class="skip-link"><span class="lang-de" lang="de">Zum Inhalt springen</span><span class="lang-en" lang="en">Skip to content</span></a>
+<a href="#main" class="skip-link">Zum Inhalt springen</a>
 
 <div class="disclaimer" role="note">
-  <span class="lang-de" lang="de"><strong>Hinweis</strong> Diese Website befindet sich im Aufbau. Angaben können unvollständig, veraltet oder fehlerhaft sein.</span>
-  <span class="lang-en" lang="en"><strong>Note</strong> This website is still under construction. Information may be incomplete, outdated or incorrect.</span>
+  <strong>Hinweis</strong> Diese Website befindet sich im Aufbau. Angaben können unvollständig, veraltet oder fehlerhaft sein.
+  
 </div>
 
 <header class="site">
   <nav class="wrap nav" aria-label="Hauptnavigation">
-    <a href="../index.html" class="nav-brand">Ralf Hörhager</a>
+    <a href="/" class="nav-brand">Ralf Hörhager</a>
     <ul class="nav-links">
-      <li><a href="../index.html"><span class="lang-de" lang="de">Start</span><span class="lang-en" lang="en">Home</span></a></li>
-      <li><a href="../projects.html" class="active"><span class="lang-de" lang="de">Projekte</span><span class="lang-en" lang="en">Projects</span></a></li>
-      <li><a href="../gallery.html"><span class="lang-de" lang="de">Galerie</span><span class="lang-en" lang="en">Gallery</span></a></li>
-      <li><a href="../index.html#kontakt"><span class="lang-de" lang="de">Kontakt</span><span class="lang-en" lang="en">Contact</span></a></li>
+      <li><a href="/">Start</a></li>
+      <li><a href="/projects.html" class="active">Projekte</a></li>
+      <li><a href="/gallery.html">Galerie</a></li>
+      <li><a href="/#kontakt">Kontakt</a></li>
     </ul>
-    <div class="lang-toggle" role="group" aria-label="Sprache / Language">
-      <button type="button" data-lang="de" aria-pressed="true" aria-label="Deutsch">DE</button>
-      <button type="button" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+    <div class="lang-toggle" aria-label="Sprache / Language">
+      <span aria-current="true">DE</span>
+      <a href="/en/projects/anomalieerkennung-industrieoefen.html" hreflang="en" lang="en" aria-label="English">EN</a>
     </div>
   </nav>
 </header>
@@ -47,11 +50,11 @@
 <main id="main">
 <section class="detail-top">
   <div class="wrap detail-hero">
-    <a href="../projects.html" class="back-link">← <span class="lang-de" lang="de">Zurück zur Zeitleiste</span><span class="lang-en" lang="en">Back to timeline</span></a>
-    <p class="eyebrow"><span class="lang-de" lang="de">Masterstudiengang — Projekt 1</span><span class="lang-en" lang="en">Master's programme — project 1</span></p>
-    <h1><span class="lang-de" lang="de">Machbarkeitsstudie zur Anomalieerkennung bei Industrieöfen mit ML</span><span class="lang-en" lang="en">Feasibility study on ML-based anomaly detection for industrial furnaces</span></h1>
+    <a href="/projects.html" class="back-link">← Zurück zur Zeitleiste</a>
+    <p class="eyebrow">Masterstudiengang — Projekt 1</p>
+    <h1>Machbarkeitsstudie zur Anomalieerkennung bei Industrieöfen mit ML</h1>
     <div class="detail-meta">
-      <span class="status done"><span class="lang-de" lang="de">Abgeschlossen</span><span class="lang-en" lang="en">Completed</span></span>
+      <span class="status done">Abgeschlossen</span>
       <span class="when mono">09.2025 — 02.2026</span>
     </div>
   </div>
@@ -61,52 +64,52 @@
   <div class="wrap">
     <div class="detail-body">
 
-      <p class="eyebrow"><span class="lang-de" lang="de">Beschreibung</span><span class="lang-en" lang="en">About</span></p>
+      <p class="eyebrow">Beschreibung</p>
       <p>
-        <span class="lang-de" lang="de">Im Rahmen dieses Masterklassenprojekts wurde die Machbarkeit einer Machine-Learning-basierten Anomalieerkennung für industrielle Stoßöfen untersucht. Ziel war die Entwicklung eines Analysesystems, das auf Basis historischer Prozessdaten auffällige Abweichungen im Ofenbetrieb automatisch erkennt und für Service-, Inbetriebnahme- und Analysezwecke nutzbar macht.</span>
-        <span class="lang-en" lang="en">This master class project examined the feasibility of machine-learning-based anomaly detection for industrial pusher-type furnaces. The goal was to develop an analysis system that automatically detects unusual deviations in furnace operation from historical process data and makes them usable for service, commissioning and analysis purposes.</span>
+        Im Rahmen dieses Masterklassenprojekts wurde die Machbarkeit einer Machine-Learning-basierten Anomalieerkennung für industrielle Stoßöfen untersucht. Ziel war die Entwicklung eines Analysesystems, das auf Basis historischer Prozessdaten auffällige Abweichungen im Ofenbetrieb automatisch erkennt und für Service-, Inbetriebnahme- und Analysezwecke nutzbar macht.
+        
       </p>
 
       <p>
-        <span class="lang-de" lang="de">Als Datengrundlage dienten reale Prozessdaten aus einem Stoßofen, darunter Temperatur-Soll- und Istwerte sowie Reglerstellgrößen verschiedener Ofenzonen. Nach einer umfangreichen Datenaufbereitung und Segmentierung des Ofenbetriebs in einzelne Zyklen und Prozessphasen wurde ein Machine-Learning-Modell zur Erkennung von Abweichungen vom Normalbetrieb entwickelt.</span>
-        <span class="lang-en" lang="en">The data basis was real process data from a pusher-type furnace, including temperature setpoints and actual values as well as controller outputs for various furnace zones. After extensive data preparation and segmentation of furnace operation into individual cycles and process phases, a machine learning model was developed to detect deviations from normal operation.</span>
+        Als Datengrundlage dienten reale Prozessdaten aus einem Stoßofen, darunter Temperatur-Soll- und Istwerte sowie Reglerstellgrößen verschiedener Ofenzonen. Nach einer umfangreichen Datenaufbereitung und Segmentierung des Ofenbetriebs in einzelne Zyklen und Prozessphasen wurde ein Machine-Learning-Modell zur Erkennung von Abweichungen vom Normalbetrieb entwickelt.
+        
       </p>
 
       <p>
-        <span class="lang-de" lang="de">Da keine gelabelten Fehlerdaten vorlagen, kam ein One-Class-Ansatz zum Einsatz, der das typische Betriebsverhalten erlernt und Auffälligkeiten über einen Anomalie-Score bewertet. Die Ergebnisse werden textbasiert und grafisch dargestellt, um technische Anwender bei der Analyse kritischer Betriebszustände zu unterstützen.</span>
-        <span class="lang-en" lang="en">As no labelled fault data was available, a one-class approach was used: it learns typical operating behaviour and rates irregularities via an anomaly score. The results are presented both as text and graphically, to support technical users in analysing critical operating states.</span>
+        Da keine gelabelten Fehlerdaten vorlagen, kam ein One-Class-Ansatz zum Einsatz, der das typische Betriebsverhalten erlernt und Auffälligkeiten über einen Anomalie-Score bewertet. Die Ergebnisse werden textbasiert und grafisch dargestellt, um technische Anwender bei der Analyse kritischer Betriebszustände zu unterstützen.
+        
       </p>
 
       <p>
-        <span class="lang-de" lang="de">Die Arbeit ist als Machbarkeitsstudie für die Offline-Analyse historischer Daten ausgelegt. Die entwickelte Architektur ist modular aufgebaut und kann künftig um Funktionen wie eine grafische Benutzeroberfläche, Online-Analyse oder erweiterte Reportingmöglichkeiten ergänzt werden.</span>
-        <span class="lang-en" lang="en">The work is designed as a feasibility study for offline analysis of historical data. The architecture developed is modular and can later be extended with features such as a graphical user interface, online analysis or more comprehensive reporting.</span>
+        Die Arbeit ist als Machbarkeitsstudie für die Offline-Analyse historischer Daten ausgelegt. Die entwickelte Architektur ist modular aufgebaut und kann künftig um Funktionen wie eine grafische Benutzeroberfläche, Online-Analyse oder erweiterte Reportingmöglichkeiten ergänzt werden.
+        
       </p>
 
-      <p class="eyebrow"><span class="lang-de" lang="de">Aufgabe im Projekt</span><span class="lang-en" lang="en">My tasks</span></p>
+      <p class="eyebrow">Aufgabe im Projekt</p>
       <ul>
-        <li><span class="lang-de" lang="de">Planung und Durchführung von Tests zur Modellbewertung</span><span class="lang-en" lang="en">Planning and running tests to evaluate the model</span></li>
-        <li><span class="lang-de" lang="de">Bewertung von Ergebnissen</span><span class="lang-en" lang="en">Assessing the results</span></li>
-        <li><span class="lang-de" lang="de">Dokumentation und Ergebnisvisualisierung</span><span class="lang-en" lang="en">Documentation and visualisation of results</span></li>
+        <li>Planung und Durchführung von Tests zur Modellbewertung</li>
+        <li>Bewertung von Ergebnissen</li>
+        <li>Dokumentation und Ergebnisvisualisierung</li>
       </ul>
 
-      <p class="eyebrow"><span class="lang-de" lang="de">Fazit</span><span class="lang-en" lang="en">Conclusion</span></p>
+      <p class="eyebrow">Fazit</p>
       <p>
-        <span class="lang-de" lang="de">Die Ergebnisse zeigen, dass eine Machine-Learning-basierte Anomalieerkennung für industrielle Stoßöfen grundsätzlich umsetzbar ist und großes Potenzial für den industriellen Einsatz besitzt.</span>
-        <span class="lang-en" lang="en">The results show that machine-learning-based anomaly detection for industrial pusher-type furnaces is fundamentally feasible and holds considerable potential for industrial use.</span>
+        Die Ergebnisse zeigen, dass eine Machine-Learning-basierte Anomalieerkennung für industrielle Stoßöfen grundsätzlich umsetzbar ist und großes Potenzial für den industriellen Einsatz besitzt.
+        
       </p>
 
       <ul class="spec-list">
-        <li><span class="lang-de" lang="de">Typ</span><span class="lang-en" lang="en">Type</span><span><span class="lang-de" lang="de">Masterstudiengang — Projekt 1</span><span class="lang-en" lang="en">Master's programme — project 1</span></span></li>
-        <li><span class="lang-de" lang="de">Zeitraum</span><span class="lang-en" lang="en">Period</span><span><span class="lang-de" lang="de">09.2025 — 02.2026</span><span class="lang-en" lang="en">09.2025 — 02.2026</span></span></li>
-        <li><span class="lang-de" lang="de">Bereich</span><span class="lang-en" lang="en">Field</span><span><span class="lang-de" lang="de">Machine Learning, Anomalieerkennung, Prozessdatenanalyse, Industrieöfen</span><span class="lang-en" lang="en">Machine learning, anomaly detection, process data analysis, industrial furnaces</span></span></li>
-        <li><span class="lang-de" lang="de">Status</span><span class="lang-en" lang="en">Status</span><span><span class="lang-de" lang="de">Abgeschlossen</span><span class="lang-en" lang="en">Completed</span></span></li>
-        <li><span class="lang-de" lang="de">Zuletzt aktualisiert</span><span class="lang-en" lang="en">Last updated</span><span><time datetime="2026-08-24"><span class="lang-de" lang="de">24.08.2026</span><span class="lang-en" lang="en">24 Aug 2026</span></time></span></li>
+        <li>Typ<span>Masterstudiengang — Projekt 1</span></li>
+        <li>Zeitraum<span>09.2025 — 02.2026</span></li>
+        <li>Bereich<span>Machine Learning, Anomalieerkennung, Prozessdatenanalyse, Industrieöfen</span></li>
+        <li>Status<span>Abgeschlossen</span></li>
+        <li>Zuletzt aktualisiert<span><time datetime="2026-08-24">24.08.2026</time></span></li>
       </ul>
     </div>
 
     <div class="detail-nav">
-      <a href="ai-plywood-quality-assistant.html">← <span class="lang-de" lang="de">Vorheriges Projekt</span><span class="lang-en" lang="en">Previous project</span></a>
-      <a href="bachelorarbeit-ki-qualitaetssicherung.html"><span class="lang-de" lang="de">Nächstes Projekt</span><span class="lang-en" lang="en">Next project</span> →</a>
+      <a href="/projects/ai-plywood-quality-assistant.html">← Vorheriges Projekt</a>
+      <a href="/projects/bachelorarbeit-ki-qualitaetssicherung.html">Nächstes Projekt →</a>
     </div>
   </div>
 </section>
@@ -116,20 +119,19 @@
   <div class="wrap footer-grid">
     <span class="footer-note">© 2026 Ralf Hörhager</span>
     <ul class="footer-links">
-      <li><a href="../index.html"><span class="lang-de" lang="de">Start</span><span class="lang-en" lang="en">Home</span></a></li>
-      <li><a href="../projects.html"><span class="lang-de" lang="de">Projekte</span><span class="lang-en" lang="en">Projects</span></a></li>
-      <li><a href="../index.html#kontakt"><span class="lang-de" lang="de">Kontakt</span><span class="lang-en" lang="en">Contact</span></a></li>
-      <li><a href="../gallery.html"><span class="lang-de" lang="de">Galerie</span><span class="lang-en" lang="en">Gallery</span></a></li>
+      <li><a href="/">Start</a></li>
+      <li><a href="/projects.html">Projekte</a></li>
+      <li><a href="/#kontakt">Kontakt</a></li>
+      <li><a href="/gallery.html">Galerie</a></li>
       <li><a href="https://github.com/RatgebenderWolf" rel="me noopener">GitHub</a></li>
     </ul>
   </div>
   <div class="wrap footer-legal">
-    <a href="../impressum.html"><span class="lang-de" lang="de">Impressum</span><span class="lang-en" lang="en">Legal notice</span></a>
-    <a href="../datenschutz.html"><span class="lang-de" lang="de">Datenschutz</span><span class="lang-en" lang="en">Privacy</span></a>
-    <span class="footer-updated"><span class="lang-de" lang="de">Zuletzt aktualisiert</span><span class="lang-en" lang="en">Last updated</span> <time datetime="2026-08-24"><span class="lang-de" lang="de">24.08.2026</span><span class="lang-en" lang="en">24 Aug 2026</span></time></span>
+    <a href="/impressum.html">Impressum</a>
+    <a href="/datenschutz.html">Datenschutz</a>
+    <span class="footer-updated">Zuletzt aktualisiert <time datetime="2026-08-24">24.08.2026</time></span>
   </div>
 </footer>
 
-<script src="../script.js"></script>
 </body>
 </html>

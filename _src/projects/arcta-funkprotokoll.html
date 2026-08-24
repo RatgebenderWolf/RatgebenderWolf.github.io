@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-en="ARCTA — Automated Radio Communication Transcription &amp; Analysis | Ralf Hörhager">ARCTA — Automated Radio Communication Transcription &amp; Analysis | Ralf Hörhager</title>
+<meta name="description" content="ARCTA erzeugt aus dialektbehaftetem Feuerwehr- und BOS-Sprechfunk ein normiertes, hochdeutsches Einsatzprotokoll — Speech-to-Text mit LLM-Nachkorrektur, evaluiert mit EvalARCTA." data-en="ARCTA turns dialect-heavy fire service and emergency radio traffic into a normalised, standard-German incident log — speech-to-text with LLM post-correction, evaluated with EvalARCTA.">
+<meta name="author" content="Ralf Hörhager">
+<link rel="canonical" href="https://ralfhoerhager.com/projects/arcta-funkprotokoll.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ARCTA — Automated Radio Communication Transcription &amp; Analysis" data-en="ARCTA — Automated Radio Communication Transcription &amp; Analysis">
+<meta property="og:description" content="Automatisierte Transkription und Analyse von Feuerwehr- und BOS-Sprechfunk. WER von 18,5 % auf 4,8 % gesenkt." data-en="Automated transcription and analysis of fire service and emergency radio traffic. WER reduced from 18.5 % to 4.8 %.">
+<meta property="og:url" content="https://ralfhoerhager.com/projects/arcta-funkprotokoll.html">
+<meta property="og:image" content="https://ralfhoerhager.com/images/profile.jpg">
+<meta property="og:locale" content="de_AT">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../fonts.css">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link"><span class="lang-de" lang="de">Zum Inhalt springen</span><span class="lang-en" lang="en">Skip to content</span></a>
+
+<div class="disclaimer" role="note">
+  <span class="lang-de" lang="de"><strong>Hinweis</strong> Diese Website befindet sich im Aufbau. Angaben können unvollständig, veraltet oder fehlerhaft sein.</span>
+  <span class="lang-en" lang="en"><strong>Note</strong> This website is still under construction. Information may be incomplete, outdated or incorrect.</span>
+</div>
+
+<header class="site">
+  <nav class="wrap nav" aria-label="Hauptnavigation">
+    <a href="../index.html" class="nav-brand">Ralf Hörhager</a>
+    <ul class="nav-links">
+      <li><a href="../index.html"><span class="lang-de" lang="de">Start</span><span class="lang-en" lang="en">Home</span></a></li>
+      <li><a href="../projects.html" class="active"><span class="lang-de" lang="de">Projekte</span><span class="lang-en" lang="en">Projects</span></a></li>
+      <li><a href="../gallery.html"><span class="lang-de" lang="de">Galerie</span><span class="lang-en" lang="en">Gallery</span></a></li>
+      <li><a href="../index.html#kontakt"><span class="lang-de" lang="de">Kontakt</span><span class="lang-en" lang="en">Contact</span></a></li>
+    </ul>
+    <div class="lang-toggle" role="group" aria-label="Sprache / Language">
+      <button type="button" data-lang="de" aria-pressed="true" aria-label="Deutsch">DE</button>
+      <button type="button" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+<section class="detail-top">
+  <div class="wrap detail-hero">
+    <a href="../projects.html" class="back-link">← <span class="lang-de" lang="de">Zurück zur Zeitleiste</span><span class="lang-en" lang="en">Back to timeline</span></a>
+    <p class="eyebrow"><span class="lang-de" lang="de">Masterstudiengang — Projekt 2</span><span class="lang-en" lang="en">Master's programme — project 2</span></p>
+    <h1>ARCTA — Automated Radio Communication Transcription &amp; Analysis</h1>
+    <div class="detail-meta">
+      <span class="status done"><span class="lang-de" lang="de">Abgeschlossen</span><span class="lang-en" lang="en">Completed</span></span>
+      <span class="when mono">03.2026 — 06.2026</span>
+    </div>
+  </div>
+</section>
+
+<section class="detail-main">
+  <div class="wrap">
+    <div class="detail-body">
+
+      <p class="eyebrow"><span class="lang-de" lang="de">Beschreibung</span><span class="lang-en" lang="en">About</span></p>
+      <p>
+        <span class="lang-de" lang="de">ARCTA ist eine Anwendung zur automatisierten Transkription, Strukturierung und Analyse von Feuerwehr- und BOS-Sprechfunk. Aus dialektbehafteten Audioaufnahmen wird ein normiertes, hochdeutsches Einsatzprotokoll erzeugt. Die Verarbeitung erfolgt in zwei Stufen: Zunächst wandelt ein Spracherkenner (Speech-to-Text, STT) das Audio in Rohtext um; anschließend korrigiert und strukturiert ein großes Sprachmodell (LLM) diesen Text — Dialektkorrektur, Erkennung von Sender und Empfänger, Klassifikation.</span>
+        <span class="lang-en" lang="en">ARCTA is an application for the automated transcription, structuring and analysis of fire service and emergency radio traffic. It turns dialect-heavy audio recordings into a normalised, standard-German incident log. Processing happens in two stages: first a speech recogniser (speech-to-text, STT) converts the audio into raw text; a large language model (LLM) then corrects and structures that text — dialect correction, sender and receiver identification, classification.</span>
+      </p>
+
+      <p>
+        <span class="lang-de" lang="de">Für den Funkverkehr ist nicht nur die allgemeine Texttreue wichtig, sondern besonders die korrekte Erkennung von Zahlen, Koordinaten und Rufnamen. Die Evaluierung sollte daher beantworten, welches Korrektur-LLM die rohe STT-Ausgabe am stärksten verbessert, wie zuverlässig Zahlen erkannt werden und in welchem Verhältnis die erreichte Genauigkeit zu Kosten und Verarbeitungsgeschwindigkeit steht.</span>
+        <span class="lang-en" lang="en">For radio traffic it is not only general textual fidelity that matters, but above all the correct recognition of numbers, coordinates and call signs. The evaluation therefore had to answer which correction LLM improves the raw STT output most, how reliably numbers are recognised, and how the accuracy achieved relates to cost and processing speed.</span>
+      </p>
+
+      <p class="eyebrow"><span class="lang-de" lang="de">Evaluierungswerkzeug — EvalARCTA</span><span class="lang-en" lang="en">Evaluation tool — EvalARCTA</span></p>
+      <p>
+        <span class="lang-de" lang="de">Die Auswertung erfolgte mit dem eigens entwickelten Werkzeug <strong>EvalARCTA</strong>. Es vergleicht jede Transkription (Hypothese) mit einer manuell erstellten, korrekten Referenz (Truth) auf Wortebene und berechnet daraus standardisierte Fehlerkennzahlen. Verglichen wird ausschließlich der Wortinhalt — Groß-/Kleinschreibung, Satzzeichen und Zeitstempel haben keinen Einfluss auf das Ergebnis. Die Berechnung stützt sich auf die etablierte Bibliothek jiwer und läuft vollständig lokal auf der CPU.</span>
+        <span class="lang-en" lang="en">The evaluation was carried out with <strong>EvalARCTA</strong>, a tool developed specifically for this purpose. It compares each transcription (hypothesis) against a manually produced, correct reference (truth) at word level and derives standardised error metrics from it. Only the word content is compared — capitalisation, punctuation and timestamps have no effect on the result. The calculation builds on the established jiwer library and runs entirely locally on the CPU.</span>
+      </p>
+
+      <p class="eyebrow"><span class="lang-de" lang="de">Ergebnisse</span><span class="lang-en" lang="en">Results</span></p>
+      <div class="table-scroll">
+        <table class="data-table">
+          <caption><span class="lang-de" lang="de">Hauptergebnis im radio-Modus, sortiert nach WER — niedriger ist besser.</span><span class="lang-en" lang="en">Main result in radio mode, sorted by WER — lower is better.</span></caption>
+          <thead>
+            <tr>
+              <th scope="col"><span class="lang-de" lang="de">Serie (STT roh / + LLM)</span><span class="lang-en" lang="en">Series (raw STT / + LLM)</span></th>
+              <th scope="col">WER %</th>
+              <th scope="col">CER %</th>
+              <th scope="col"><span class="lang-de" lang="de">Zahlen-Acc. %</span><span class="lang-en" lang="en">Number acc. %</span></th>
+              <th scope="col"><span class="lang-de" lang="de">Kosten USD</span><span class="lang-en" lang="en">Cost USD</span></th>
+              <th scope="col">RTF</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="best"><td>gemini-3.5-flash:nitro</td><td>4,8</td><td>3,2</td><td>100,0</td><td>0,575</td><td>0,051</td></tr>
+            <tr><td>gpt-5.5</td><td>6,1</td><td>4,1</td><td>100,0</td><td>0,430</td><td>0,678</td></tr>
+            <tr><td>gemini-3.5-flash</td><td>6,4</td><td>3,9</td><td>100,0</td><td>0,430</td><td>0,659</td></tr>
+            <tr><td>qwen3.7-max</td><td>7,0</td><td>4,7</td><td>98,4</td><td>0,540</td><td>0,375</td></tr>
+            <tr><td>deepseek-v4-flash</td><td>11,9</td><td>6,5</td><td>98,4</td><td>1,460</td><td>0,074</td></tr>
+            <tr class="baseline"><td><span class="lang-de" lang="de">STT roh (ohne LLM)</span><span class="lang-en" lang="en">Raw STT (no LLM)</span></td><td>18,5</td><td>7,1</td><td>98,4</td><td>1,000</td><td>0,110</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="figures">
+        <div>
+          <span class="num">4,8 %</span>
+          <span class="label"><span class="lang-de" lang="de">WER, bestes Modell<br>(roh: 18,5 %)</span><span class="lang-en" lang="en">WER, best model<br>(raw: 18.5 %)</span></span>
+        </div>
+        <div>
+          <span class="num">3,2 %</span>
+          <span class="label">CER</span>
+        </div>
+        <div>
+          <span class="num">100 %</span>
+          <span class="label"><span class="lang-de" lang="de">Zahlen-Accuracy</span><span class="lang-en" lang="en">Number accuracy</span></span>
+        </div>
+        <div>
+          <span class="num">0,575</span>
+          <span class="label"><span class="lang-de" lang="de">Kosten in USD</span><span class="lang-en" lang="en">Cost in USD</span></span>
+        </div>
+      </div>
+
+      <p>
+        <span class="lang-de" lang="de">Der größte Qualitätssprung entsteht durch die LLM-Korrektur: Die rohe STT-Ausgabe liegt im radio-Modus bei 18,5 % WER, während das beste Modell die Fehlerrate auf 4,8 % senkt — eine Reduktion um rund drei Viertel. Selbst das schwächste Korrektur-LLM (deepseek-v4-flash, 11,9 %) verbessert die Rohausgabe noch spürbar.</span>
+        <span class="lang-en" lang="en">The biggest jump in quality comes from the LLM correction: in radio mode the raw STT output sits at 18.5 % WER, while the best model brings the error rate down to 4.8 % — a reduction of roughly three quarters. Even the weakest correction LLM (deepseek-v4-flash, 11.9 %) still improves the raw output noticeably.</span>
+      </p>
+
+      <p>
+        <span class="lang-de" lang="de">Zusätzlich zeigt der Vergleich der Modi, dass die radio-Normalisierung die gemessene WER durchgängig senkt, da unterschiedliche Sprechweisen derselben Zahl als inhaltlich gleich gewertet werden. Die höchste Genauigkeit ist dabei nicht automatisch die teuerste Option: gemini-3.5-flash:nitro verbindet die beste WER mit einem mittleren Preis von 0,575 USD und bietet damit insgesamt das beste Gesamtverhältnis aus Genauigkeit, Tempo und Kosten.</span>
+        <span class="lang-en" lang="en">The comparison of modes also shows that radio normalisation consistently lowers the measured WER, because different ways of speaking the same number are counted as equivalent in content. The highest accuracy is not automatically the most expensive option: gemini-3.5-flash:nitro combines the best WER with a mid-range price of 0.575 USD, giving it the best overall balance of accuracy, speed and cost.</span>
+      </p>
+
+      <p class="eyebrow"><span class="lang-de" lang="de">Kennzahlen</span><span class="lang-en" lang="en">Metrics</span></p>
+      <ul>
+        <li><span class="lang-de" lang="de"><strong>WER</strong> (Word Error Rate) = (S + D + I) / N — Standardmetrik der Spracherkennung, niedriger ist besser. Kann theoretisch über 100 % steigen, wenn sehr viel zusätzlicher Text erzeugt wird.</span><span class="lang-en" lang="en"><strong>WER</strong> (word error rate) = (S + D + I) / N — the standard speech recognition metric, lower is better. It can in theory exceed 100 % if a lot of additional text is generated.</span></li>
+        <li><span class="lang-de" lang="de"><strong>CER</strong> (Character Error Rate) = Zeichen-Editierdistanz / Referenzzeichen — feiner als WER und robuster bei deutschen Wortendungen und Komposita.</span><span class="lang-en" lang="en"><strong>CER</strong> (character error rate) = character edit distance / reference characters — finer-grained than WER and more robust with German inflections and compounds.</span></li>
+        <li><span class="lang-de" lang="de"><strong>Zahlen-Accuracy</strong> = korrekt erkannte Ziffern-Token / Ziffern-Token gesamt — missionskritisch für Koordinaten, nur im radio-Modus aussagekräftig.</span><span class="lang-en" lang="en"><strong>Number accuracy</strong> = correctly recognised digit tokens / total digit tokens — mission-critical for coordinates, meaningful only in radio mode.</span></li>
+        <li><span class="lang-de" lang="de"><strong>RTF</strong> (Real-Time-Factor) = Gesamtlaufzeit / Audiodauer — Werte unter 1 bedeuten schneller als Echtzeit.</span><span class="lang-en" lang="en"><strong>RTF</strong> (real-time factor) = total runtime / audio duration — values below 1 mean faster than real time.</span></li>
+        <li><span class="lang-de" lang="de"><strong>Kosten</strong> = STT-Kosten und LLM-Kosten in US-Dollar.</span><span class="lang-en" lang="en"><strong>Cost</strong> = STT cost plus LLM cost in US dollars.</span></li>
+      </ul>
+
+      <p class="eyebrow"><span class="lang-de" lang="de">Fazit</span><span class="lang-en" lang="en">Conclusion</span></p>
+      <p>
+        <span class="lang-de" lang="de">Für die automatische Transkription des untersuchten BOS-Sprechfunks empfiehlt sich auf Basis dieser ersten Evaluierung die Kombination aus dem STT-Modell <span class="mono">microsoft/mai-transcribe-1.5</span> und dem Korrektur-LLM <span class="mono">gemini-3.5-flash:nitro</span>. Diese Kombination erreicht die niedrigste Wortfehlerrate (4,8 %), erkennt alle Zahlen-Token korrekt (100 % Zahlen-Accuracy) und arbeitet dabei zu moderaten Kosten schneller als Echtzeit.</span>
+        <span class="lang-en" lang="en">For the automatic transcription of the emergency radio traffic examined, this first evaluation recommends the combination of the STT model <span class="mono">microsoft/mai-transcribe-1.5</span> with the correction LLM <span class="mono">gemini-3.5-flash:nitro</span>. This combination achieves the lowest word error rate (4.8 %), recognises every digit token correctly (100 % number accuracy) and works faster than real time at a moderate cost.</span>
+      </p>
+
+      <p>
+        <span class="lang-de" lang="de">Zwei grundsätzliche Erkenntnisse lassen sich festhalten: Die nachgelagerte LLM-Korrektur ist für eine brauchbare Transkriptionsqualität unverzichtbar, und für die Bewertung von Funktexten ist die radio-Normalisierung notwendig, um die fachlich entscheidende Zahlentreue korrekt zu messen. Der nächste sinnvolle Schritt ist die Ausweitung der Evaluierung auf einen größeren Korpus, um die gefundene Rangfolge statistisch abzusichern.</span>
+        <span class="lang-en" lang="en">Two general findings stand out: downstream LLM correction is indispensable for usable transcription quality, and radio normalisation is necessary when assessing radio texts in order to measure the professionally decisive fidelity of numbers correctly. The next sensible step is to extend the evaluation to a larger corpus in order to put the resulting ranking on a firmer statistical footing.</span>
+      </p>
+
+      <ul class="spec-list">
+        <li><span class="lang-de" lang="de">Typ</span><span class="lang-en" lang="en">Type</span><span><span class="lang-de" lang="de">Masterstudiengang — Projekt 2</span><span class="lang-en" lang="en">Master's programme — project 2</span></span></li>
+        <li><span class="lang-de" lang="de">Zeitraum</span><span class="lang-en" lang="en">Period</span><span><span class="lang-de" lang="de">03.2026 — 06.2026</span><span class="lang-en" lang="en">03.2026 — 06.2026</span></span></li>
+        <li><span class="lang-de" lang="de">Bereich</span><span class="lang-en" lang="en">Field</span><span><span class="lang-de" lang="de">Speech-to-Text, Large Language Models, BOS-/Feuerwehrfunk</span><span class="lang-en" lang="en">Speech-to-text, large language models, emergency service radio</span></span></li>
+        <li><span class="lang-de" lang="de">Werkzeuge</span><span class="lang-en" lang="en">Tools</span><span><span class="lang-de" lang="de">EvalARCTA (auf Basis von jiwer)</span><span class="lang-en" lang="en">EvalARCTA (built on jiwer)</span></span></li>
+        <li><span class="lang-de" lang="de">Empfehlung</span><span class="lang-en" lang="en">Recommendation</span><span><span class="lang-de" lang="de">microsoft/mai-transcribe-1.5 + gemini-3.5-flash:nitro</span><span class="lang-en" lang="en">microsoft/mai-transcribe-1.5 + gemini-3.5-flash:nitro</span></span></li>
+        <li><span class="lang-de" lang="de">Status</span><span class="lang-en" lang="en">Status</span><span><span class="lang-de" lang="de">Abgeschlossen</span><span class="lang-en" lang="en">Completed</span></span></li>
+        <li><span class="lang-de" lang="de">Zuletzt aktualisiert</span><span class="lang-en" lang="en">Last updated</span><span><time datetime="2026-08-24"><span class="lang-de" lang="de">24.08.2026</span><span class="lang-en" lang="en">24 Aug 2026</span></time></span></li>
+      </ul>
+    </div>
+
+    <div class="detail-nav">
+      <a href="../projects.html">← <span class="lang-de" lang="de">Alle Projekte</span><span class="lang-en" lang="en">All projects</span></a>
+      <a href="ai-plywood-quality-assistant.html"><span class="lang-de" lang="de">Nächstes Projekt</span><span class="lang-en" lang="en">Next project</span> →</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap footer-grid">
+    <span class="footer-note">© 2026 Ralf Hörhager</span>
+    <ul class="footer-links">
+      <li><a href="../index.html"><span class="lang-de" lang="de">Start</span><span class="lang-en" lang="en">Home</span></a></li>
+      <li><a href="../projects.html"><span class="lang-de" lang="de">Projekte</span><span class="lang-en" lang="en">Projects</span></a></li>
+      <li><a href="../index.html#kontakt"><span class="lang-de" lang="de">Kontakt</span><span class="lang-en" lang="en">Contact</span></a></li>
+      <li><a href="../gallery.html"><span class="lang-de" lang="de">Galerie</span><span class="lang-en" lang="en">Gallery</span></a></li>
+      <li><a href="https://github.com/RatgebenderWolf" rel="me noopener">GitHub</a></li>
+    </ul>
+  </div>
+  <div class="wrap footer-legal">
+    <a href="../impressum.html"><span class="lang-de" lang="de">Impressum</span><span class="lang-en" lang="en">Legal notice</span></a>
+    <a href="../datenschutz.html"><span class="lang-de" lang="de">Datenschutz</span><span class="lang-en" lang="en">Privacy</span></a>
+    <span class="footer-updated"><span class="lang-de" lang="de">Zuletzt aktualisiert</span><span class="lang-en" lang="en">Last updated</span> <time datetime="2026-08-24"><span class="lang-de" lang="de">24.08.2026</span><span class="lang-en" lang="en">24 Aug 2026</span></time></span>
+  </div>
+</footer>
+
+</body>
+</html>

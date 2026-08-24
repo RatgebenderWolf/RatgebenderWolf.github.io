@@ -2,33 +2,54 @@
 
 Portfolio-Website von Ralf Hörhager — <https://ratgebenderwolf.github.io/>
 
-Statisches HTML/CSS/JS ohne Build-Schritt. Wird von GitHub Pages direkt aus `main` ausgeliefert.
+Statisches HTML/CSS/JS. Wird von GitHub Pages direkt aus `main` ausgeliefert.
+
+Die Seite gibt es zweisprachig unter getrennten Adressen. Gepflegt wird **je
+Seite eine zweisprachige Quelle in `_src/`**, daraus schreibt
+`tools/build-pages.py` beide Fassungen:
+
+```
+_src/projects.html   ←  hier bearbeitest du
+      │
+      ├──►  projects.html        https://ralfhoerhager.com/projects.html
+      └──►  en/projects.html     https://ralfhoerhager.com/en/projects.html
+```
 
 ## Struktur
 
 ```
-index.html          Startseite: Hero, Lebenslauf, Projekt-Previews, Kontakt
-projekte.md         Quelle aller Projektinhalte — siehe unten
-projects.html       Zeitleiste aller Projekte
-projects/           Detailseite je Projekt
-gallery.html        Fotogalerie — wird aus photos.json gebaut, nicht von Hand
-photos.json         Bilddaten: Datum, Ort, Tags, Beschreibungen
+_src/               QUELLEN — nur hier von Hand bearbeiten
+_src/index.html     Startseite: Hero, Lebenslauf, Projekt-Previews, Kontakt
+_src/projects.html  Zeitleiste aller Projekte
+_src/projects/      Detailseite je Projekt
+_src/gallery.html   Fotogalerie — Bildliste wird eingesetzt, nicht getippt
+_src/404.html       Fehlerseite, zeigt beide Sprachen (siehe unten)
+
+tools/build-pages.py    Quellen -> deutsche und englische Seiten + sitemap.xml
 tools/build-gallery.py  Galerie bauen (Vorschaubilder + Bildliste)
-impressum.html      Offenlegung nach § 25 Mediengesetz
-datenschutz.html    Datenschutzerklärung (DSGVO)
-404.html            Fehlerseite (GitHub Pages nutzt sie automatisch)
+tools/tag-photos.py     Oberfläche zum Verschlagworten
+
+index.html, projects.html, gallery.html, …   ERZEUGT — nicht bearbeiten
+en/…                                          ERZEUGT — nicht bearbeiten
+sitemap.xml, robots.txt                       ERZEUGT
+
+projekte.md         Quelle aller Projektinhalte — siehe unten
+photos.json         Bilddaten: Datum, Ort, Tags, Beschreibungen
 styles.css          gesamtes Layout
 fonts.css           @font-face-Definitionen für die selbst gehosteten Schriften
 fonts/              Archivo, Inter, IBM Plex Mono als woff2 (kein Google-CDN)
-script.js           Sprachumschaltung DE/EN
-gallery.js          Filter, Suche und Lightbox (nur auf gallery.html)
+gallery.js          Filter, Suche und Lightbox (nur auf der Galerie)
 images/             profile.jpg
 images/gallery/thumb/   800 px, für das Raster        (im Repo)
 images/gallery/large/   1800 px, für die Lightbox     (im Repo)
 originals/          Bild-Originale — NICHT im Repo, siehe .gitignore
-tools/tag-photos.py Oberfläche zum Verschlagworten
 cv-*.pdf            Lebenslauf — NICHT im Repo (enthält private Daten)
+CNAME               eigene Domain für GitHub Pages
 ```
+
+> **Die Dateien im Wurzelverzeichnis und in `en/` sind Ausgabe.** Änderungen
+> dort überschreibt der nächste Lauf von `build-pages.py`. Alles Inhaltliche
+> gehört nach `_src/`.
 
 ## Neue Fotos in die Galerie
 
@@ -36,7 +57,8 @@ cv-*.pdf            Lebenslauf — NICHT im Repo (enthält private Daten)
 cp ~/fotos/*.jpg originals/       # 1. Originale ablegen
 python3 tools/build-gallery.py    # 2. Ableitungen + EXIF
 python3 tools/tag-photos.py       # 3. Ort, Tags, Beschreibung ergänzen
-python3 tools/build-gallery.py    # 4. Seite neu schreiben
+python3 tools/build-gallery.py    # 4. Bildliste in _src/gallery.html
+python3 tools/build-pages.py      # 5. beide Sprachfassungen schreiben
 ```
 
 ### `originals/` liegt bewusst außerhalb von Git
@@ -75,7 +97,7 @@ EXIF, bleiben die Felder leer und lassen sich in `tag-photos.py` eintragen.
 - schreibt die Bildliste in `gallery.html` zwischen die `GALLERY`-Marker
 - listet auf, wo noch Angaben fehlen
 
-**Wichtig:** `gallery.html` zwischen den `GALLERY`-Markern nicht von Hand
+**Wichtig:** `_src/gallery.html` zwischen den `GALLERY`-Markern nicht von Hand
 bearbeiten, der nächste Lauf überschreibt das. Inhalte gehören in `photos.json`.
 
 ### Verschlagworten mit `tag-photos.py`
@@ -217,22 +239,70 @@ Datei. Fehlt sie, warnt das Build-Skript und zeigt den Tag-Namen unübersetzt an
 
 ## Zweisprachigkeit
 
-Deutsche und englische Texte stehen beide im HTML, je in einem `<span>`:
+In der Quelle stehen beide Sprachen nebeneinander, je in einem `<span>`:
 
 ```html
 <span class="lang-de" lang="de">Projekte</span><span class="lang-en" lang="en">Projects</span>
 ```
 
-`script.js` setzt das Attribut `data-lang` auf `<html>` und merkt sich die Wahl im
-`localStorage`. Ein kleines Inline-Script im `<head>` jeder Seite setzt es bereits
-vor dem ersten Rendern, damit nichts aufblitzt.
+`build-pages.py` schreibt daraus zwei Seiten: in der deutschen bleibt der
+Inhalt der `lang-de`-Hülle und die `lang-en`-Hülle verschwindet samt Text,
+in der englischen umgekehrt. **Die Hülle selbst fällt weg** — im Ergebnis steht
+nur noch `Projekte` bzw. `Projects`.
 
-Bewusst ein Attribut und **keine** Klasse: die Regel `.lang-en { display:none }`
-würde bei einer Klasse auch das `<html>`-Element selbst treffen und damit die
-ganze Seite ausblenden.
+Trägt die Hülle weitere Klassen (`class="tag mono lang-de"`), bleibt das
+Element erhalten und verliert nur die `lang-de`-Klasse.
 
-**Beim Ergänzen von Inhalten immer beide Sprachen pflegen** — sonst ist der Text
-in einer der beiden Sprachversionen unsichtbar.
+**Beim Ergänzen von Inhalten immer beide Sprachen pflegen** — sonst fehlt der
+Text in einer der beiden Fassungen ersatzlos.
+
+### Angaben, die kein Element umschließen kann
+
+`<title>` und `<meta>` haben keinen Inhalt zum Umhüllen. Dort steht die
+Übersetzung in `data-en`:
+
+```html
+<title data-en="Projects — Ralf Hörhager">Projekte — Ralf Hörhager</title>
+<meta name="description" content="Projekte von …" data-en="Projects by …">
+```
+
+Fehlt `data-en`, meldet das Build-Skript die Datei am Ende seines Laufs. Ohne
+die Angabe bekäme die englische Seite einen deutschen Suchmaschinen-Text.
+
+Dasselbe Muster für Attribute in der Galerie: `data-alt-de`/`data-alt-en` und
+`data-ph-de`/`data-ph-en` werden beim Bauen zu `alt` bzw. `placeholder`
+zusammengezogen.
+
+### Warum getrennte Adressen
+
+Früher lagen beide Sprachen in derselben Datei und ein Umschalter blendete eine
+davon per CSS aus, gemerkt im `localStorage`. Das hatte drei Nachteile:
+
+- **Suchmaschinen sahen nur Deutsch.** Die englische Fassung hatte keine eigene
+  Adresse und war damit nicht auffindbar.
+- **Nicht teilbar.** Ein Link führte immer zur deutschen Ansicht.
+- **Über `file://` kaputt.** Beim Öffnen per Doppelklick gibt der Browser jeder
+  Datei einen eigenen `localStorage`, die Sprachwahl galt also nur für die
+  eine Seite.
+
+Jetzt steht die Sprache in der Adresse, `<html lang>` stimmt, und beide
+Fassungen verweisen per `hreflang` aufeinander. Es gibt kein JavaScript für
+die Sprachwahl mehr und **nichts wird auf dem Gerät gespeichert** — weder
+Cookie noch `localStorage`.
+
+### Verweise
+
+Der Generator macht alle internen Verweise site-absolut: aus `../fonts.css`
+wird `/fonts.css`, aus `projects.html` wird `/projects.html` bzw.
+`/en/projects.html`. So muss niemand nachrechnen, dass die englischen Seiten
+eine Ebene tiefer liegen. Gemeinsame Dateien (CSS, Bilder, PDF) bekommen nie
+ein `/en` davor.
+
+### `404.html`
+
+GitHub Pages nutzt für die gesamte Website nur die eine Datei im
+Wurzelverzeichnis — ein `en/404.html` würde nie ausgeliefert. Diese Seite wird
+deshalb einmal gebaut und zeigt beide Sprachen untereinander, ohne Umschalter.
 
 ## Projekte
 
@@ -252,13 +322,14 @@ Reihenfolge auf der Zeitleiste = Reihenfolge in `projekte.md` (neueste zuerst).
 ### Neues Projekt hinzufügen
 
 1. Abschnitt in `projekte.md` ergänzen — an der chronologisch richtigen Stelle.
-2. Eine bestehende Datei in `projects/` als Vorlage kopieren.
-3. `<title>`, `meta description`, `og:*` und `canonical` anpassen.
-4. Eintrag in der Zeitleiste in `projects.html` ergänzen (neueste zuerst).
+2. Eine bestehende Datei in `_src/projects/` als Vorlage kopieren.
+3. `<title>` und `meta description` anpassen — **beide Sprachen**, englisch über
+   `data-en`. `canonical`, `og:url` und `hreflang` setzt das Build-Skript selbst.
+4. Eintrag in der Zeitleiste in `_src/projects.html` ergänzen (neueste zuerst).
 5. `detail-nav` (vorheriges/nächstes Projekt) der **beiden** Nachbarseiten anpassen.
-6. Gegebenenfalls eine Preview-Karte in `index.html` ergänzen — dort stehen die
-   drei neuesten Projekte.
-7. URL in `sitemap.xml` eintragen.
+6. Gegebenenfalls eine Preview-Karte in `_src/index.html` ergänzen — dort stehen
+   die drei neuesten Projekte.
+7. `python3 tools/build-pages.py` — schreibt die Seiten und die `sitemap.xml`.
 
 Englische Texte sind Übersetzungen der deutschen Angaben aus `projekte.md` —
 beim Ergänzen also immer beide Sprachen schreiben, siehe *Zweisprachigkeit*.
@@ -268,25 +339,30 @@ beim Ergänzen also immer beide Sprachen schreiben, siehe *Zweisprachigkeit*.
 Jede Seite zeigt im Fuß, wann sie zuletzt aktualisiert wurde. Zusätzlich steht
 das Datum dort, wo es am ehesten jemanden interessiert:
 
-| Seite | zusätzlich |
+| Quelle | zusätzlich |
 |---|---|
-| `index.html` | Zeile „Stand …" unter der Überschrift *Lebenslauf* |
-| `projects.html` | Zeile „Stand …" unter *Zeitleiste* |
-| `projects/*.html` | Zeile *Zuletzt aktualisiert* in der Angabenliste |
-| `datenschutz.html` | „Stand …" am Ende des Textes |
+| `_src/index.html` | Zeile „Stand …" unter der Überschrift *Lebenslauf* |
+| `_src/projects.html` | Zeile „Stand …" unter *Zeitleiste* |
+| `_src/projects/*.html` | Zeile *Zuletzt aktualisiert* in der Angabenliste |
+| `_src/datenschutz.html` | „Stand …" am Ende des Textes |
 
 Das Datum wird **von Hand** gepflegt — es gibt kein Skript dafür. Beim Ändern
 einer Seite also das `<time datetime="JJJJ-MM-TT">` mitziehen; es steht in jeder
 Datei einmal im Fuß und gegebenenfalls einmal im Inhalt. Alle Stellen finden:
 
 ```bash
-grep -rn 'datetime="20' *.html projects/*.html
+grep -rn 'datetime="20' _src/
 ```
 
 ## Lokal ansehen
 
 ```bash
+python3 tools/build-pages.py
 python3 -m http.server 8000
 ```
 
-Dann <http://localhost:8000> öffnen.
+Dann <http://localhost:8000> öffnen — die englische Fassung unter
+<http://localhost:8000/en/>.
+
+**Nicht per Doppelklick öffnen.** Über `file://` funktionieren die
+site-absoluten Verweise (`/styles.css`) nicht, die Seite käme ohne Layout.
