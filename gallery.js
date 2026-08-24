@@ -13,7 +13,8 @@
 
   /* ---------- Lightbox --------------------------------------------------- */
   var img = document.getElementById('lbImg');
-  var cap = document.getElementById('lbCap');
+  var capExif  = document.getElementById('lbExif');
+  var capCount = document.getElementById('lbCount');
   var bClose = document.getElementById('lbClose');
   var bPrev  = document.getElementById('lbPrev');
   var bNext  = document.getElementById('lbNext');
@@ -25,13 +26,16 @@
     if (!visible.length) return;
     idx = (i + visible.length) % visible.length;
     var btn = visible[idx].querySelector('.shot');
-    var text = altOf(btn);
     img.src = btn.dataset.large;
-    img.alt = text;
-    // Kamera nur in der Unterschrift, nicht im alt-Text: sie beschreibt
-    // nicht den Bildinhalt und gehoert damit nicht in die Screenreader-Ausgabe.
-    var cam = btn.dataset.cam ? '  ·  ' + btn.dataset.cam : '';
-    cap.textContent = text + cam + '  ·  ' + (idx + 1) + '/' + visible.length;
+    // Die Beschreibung bleibt im alt-Text — sichtbar steht sie im Raster unter
+    // dem Bild. Die Unterschrift hat zwei Zeilen: oben Kamera und Aufnahme-
+    // daten, darunter die Position im Durchlauf.
+    img.alt = altOf(btn);
+    var zeile = [];
+    if (btn.dataset.cam)  zeile.push(btn.dataset.cam);
+    if (btn.dataset.exif) zeile.push(btn.dataset.exif);
+    capExif.textContent  = zeile.join('  ·  ');
+    capCount.textContent = (idx + 1) + '/' + visible.length;
   }
   function open(item){
     var i = visible.indexOf(item);

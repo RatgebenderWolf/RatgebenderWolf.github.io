@@ -64,6 +64,30 @@ def stamm(name):
     return os.path.splitext(name)[0]
 
 
+def einstellungen(ex):
+    """Aufnahmedaten als eine Zeile:  ƒ/5,6 · 1/400 · 194 mm · ISO 200
+
+    Schreibweise wie im Info-Feld gaengiger Foto-Programme: Blende mit dem
+    ƒ-Zeichen, Belichtungszeit ohne Einheit. Die Zeile wird nicht uebersetzt —
+    sie besteht nur aus Zahlen und Einheiten. Fehlt ein Wert, faellt er weg;
+    ohne EXIF bleibt die Zeile leer und die Lightbox zeigt nur die Kamera.
+    """
+    teile = []
+    blende = (ex.get("blende") or "").strip()
+    if blende:
+        teile.append("ƒ/" + blende.replace("f/", "").replace(".", ","))
+    zeit = (ex.get("belichtung") or "").strip()
+    if zeit:
+        teile.append(zeit[:-2] if zeit.endswith(" s") else zeit)
+    weite = (ex.get("brennweite") or "").strip()
+    if weite:
+        teile.append(weite.replace(".", ","))
+    iso = (ex.get("iso") or "").strip()
+    if iso:
+        teile.append("ISO " + iso)
+    return " · ".join(teile)
+
+
 def beschriftung(p, tags_def, sprache):
     """Alt-Text und Bildunterschrift.
 
@@ -320,16 +344,18 @@ def main():
         if kamera:
             chips += f'<span class="shot-cam">{esc(kamera)}</span>'
 
+        aufnahme = einstellungen(ex)
+
         such = " ".join([de, en, ort, " ".join(tags),
                          " ".join(tags_def.get(t, {}).get("de", "") for t in tags),
                          " ".join(tags_def.get(t, {}).get("en", "") for t in tags),
-                         kamera, ex.get("objektiv", ""), datum]).lower()
+                         kamera, ex.get("objektiv", ""), aufnahme, datum]).lower()
 
         zeilen.append(
 f'''        <li class="shot-item" data-date="{esc(datum)}" data-year="{esc(datum[:4])}"
             data-place="{esc(ort)}" data-tags="{esc(' '.join(tags))}" data-search="{esc(such)}">
           <button type="button" class="shot" data-large="images/gallery/large/{bild}"
-                  data-cam="{esc(kamera)}"
+                  data-cam="{esc(kamera)}" data-exif="{esc(aufnahme)}"
                   data-alt-de="{esc(de)}" data-alt-en="{esc(en)}">
             <img src="{thumb}" width="{w}" height="{h}" loading="lazy" decoding="async"
                  alt="{esc(de)}" data-alt-de="{esc(de)}" data-alt-en="{esc(en)}">

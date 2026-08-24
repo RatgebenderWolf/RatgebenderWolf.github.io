@@ -8,6 +8,7 @@ Statisches HTML/CSS/JS ohne Build-Schritt. Wird von GitHub Pages direkt aus `mai
 
 ```
 index.html          Startseite: Hero, Lebenslauf, Projekt-Previews, Kontakt
+projekte.md         Quelle aller Projektinhalte — siehe unten
 projects.html       Zeitleiste aller Projekte
 projects/           Detailseite je Projekt
 gallery.html        Fotogalerie — wird aus photos.json gebaut, nicht von Hand
@@ -69,6 +70,8 @@ EXIF, bleiben die Felder leer und lassen sich in `tag-photos.py` eintragen.
   und trägt sie ein — **immer nur in leere Felder**, eigene Angaben bleiben stehen
 - ordnet über den Dateistamm zu: ersetzt du `foo.webp` durch `foo.png`, behält
   das Bild seine Tags und Beschreibungen
+- schreibt Kamera und Aufnahmedaten als `data-cam` / `data-exif` ins Markup —
+  daraus baut die Lightbox ihre Unterschrift
 - schreibt die Bildliste in `gallery.html` zwischen die `GALLERY`-Marker
 - listet auf, wo noch Angaben fehlen
 
@@ -115,6 +118,30 @@ ohne:              alt="Donau, HDR, Landschaft, Sonnenuntergang · Ybbs · 22.08
 Die Oberfläche zeigt unter den Feldern an, welcher Rückfalltext greifen würde.
 Die Kamera steht nur in der sichtbaren Unterschrift, nicht im Alt-Text — sie
 beschreibt nicht den Bildinhalt.
+
+### Wo welcher Text erscheint
+
+| | Raster | Lightbox |
+|---|---|---|
+| Datum und Ort | ✓ | — |
+| Tags | ✓ | — |
+| Kamera | ✓ | Zeile 1 |
+| Blende, Zeit, Brennweite, ISO | — | Zeile 1 |
+| Position (z. B. `6/31`) | — | Zeile 2 |
+| Beschreibung | Alt-Text | Alt-Text |
+
+Die Unterschrift im geöffneten Bild hat also zwei Zeilen:
+
+```
+Canon EOS 2000D · ƒ/5,6 · 1/400 · 194 mm · ISO 200
+6/31
+```
+
+Aufbau der ersten Zeile wie im Info-Feld gängiger Foto-Programme: ƒ-Zeichen,
+Belichtungszeit ohne Einheit, Dezimalkomma. Sie wird **nicht** übersetzt — sie
+besteht nur aus Zahlen und Einheiten. Fehlt das EXIF (etwa bei einem
+GIMP-PNG-Export), bleibt nur die Kamera stehen; fehlt auch die, entfällt die
+Zeile ganz.
 
 ### Bilder entfernen
 
@@ -207,14 +234,54 @@ ganze Seite ausblenden.
 **Beim Ergänzen von Inhalten immer beide Sprachen pflegen** — sonst ist der Text
 in einer der beiden Sprachversionen unsichtbar.
 
-## Neues Projekt hinzufügen
+## Projekte
 
-1. Eine bestehende Datei in `projects/` als Vorlage kopieren.
-2. `<title>`, `meta description`, `og:*` und `canonical` anpassen.
-3. Eintrag in der Zeitleiste in `projects.html` ergänzen (neueste zuerst).
-4. `detail-nav` (vorheriges/nächstes Projekt) der Nachbarseiten anpassen.
-5. Gegebenenfalls eine Preview-Karte in `index.html` ergänzen.
-6. URL in `sitemap.xml` eintragen.
+`projekte.md` ist die Quelle der Projektinhalte. Die Regel dahinter:
+
+> **Auf den Projektseiten steht nur, was in `projekte.md` steht.**
+
+Damit gibt es genau eine Stelle, an der entschieden wird, was öffentlich ist —
+gerade bei Arbeiten mit Sperrfrist oder Firmenbezug. Alles, was dort fehlt
+(Zahlen, Werkzeuge, Firmennamen, Zeitpunkte), gehört auch nicht auf die Seite.
+Anders als bei der Galerie gibt es dafür **kein Skript**: `projects/*.html` wird
+von Hand gepflegt, `projekte.md` ist die inhaltliche Vorgabe, nicht der Input
+eines Generators.
+
+Reihenfolge auf der Zeitleiste = Reihenfolge in `projekte.md` (neueste zuerst).
+
+### Neues Projekt hinzufügen
+
+1. Abschnitt in `projekte.md` ergänzen — an der chronologisch richtigen Stelle.
+2. Eine bestehende Datei in `projects/` als Vorlage kopieren.
+3. `<title>`, `meta description`, `og:*` und `canonical` anpassen.
+4. Eintrag in der Zeitleiste in `projects.html` ergänzen (neueste zuerst).
+5. `detail-nav` (vorheriges/nächstes Projekt) der **beiden** Nachbarseiten anpassen.
+6. Gegebenenfalls eine Preview-Karte in `index.html` ergänzen — dort stehen die
+   drei neuesten Projekte.
+7. URL in `sitemap.xml` eintragen.
+
+Englische Texte sind Übersetzungen der deutschen Angaben aus `projekte.md` —
+beim Ergänzen also immer beide Sprachen schreiben, siehe *Zweisprachigkeit*.
+
+## Aktualitätsstempel
+
+Jede Seite zeigt im Fuß, wann sie zuletzt aktualisiert wurde. Zusätzlich steht
+das Datum dort, wo es am ehesten jemanden interessiert:
+
+| Seite | zusätzlich |
+|---|---|
+| `index.html` | Zeile „Stand …" unter der Überschrift *Lebenslauf* |
+| `projects.html` | Zeile „Stand …" unter *Zeitleiste* |
+| `projects/*.html` | Zeile *Zuletzt aktualisiert* in der Angabenliste |
+| `datenschutz.html` | „Stand …" am Ende des Textes |
+
+Das Datum wird **von Hand** gepflegt — es gibt kein Skript dafür. Beim Ändern
+einer Seite also das `<time datetime="JJJJ-MM-TT">` mitziehen; es steht in jeder
+Datei einmal im Fuß und gegebenenfalls einmal im Inhalt. Alle Stellen finden:
+
+```bash
+grep -rn 'datetime="20' *.html projects/*.html
+```
 
 ## Lokal ansehen
 

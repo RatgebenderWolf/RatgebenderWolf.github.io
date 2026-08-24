@@ -29,6 +29,9 @@ h1,h2,h3,h4{
   letter-spacing:-0.01em;
   line-height:1.1;
   margin:0 0 0.5em;
+  /* deutsche Komposita ("Bachelorstudienprojekt") sind laenger als eine
+     schmale Spalte — lieber umbrechen als seitlich hinausragen */
+  overflow-wrap:break-word;
 }
 
 p{ margin:0 0 1em; color:var(--ink-soft); }
@@ -287,6 +290,36 @@ section.alt{ background:var(--paper-alt); border-top:1px solid var(--line); bord
 .detail-body ul:not(.spec-list){ color:var(--ink-soft); padding-left:1.2rem; margin:0 0 1em; }
 .detail-body ul:not(.spec-list) li{ margin-bottom:0.5em; }
 
+/* result tables on project pages ------------------------------------------ */
+/* Der Rahmen scrollt, nicht die Seite — sonst schiebt eine breite Tabelle auf
+   dem Handy das ganze Layout seitlich weg. */
+.table-scroll{ overflow-x:auto; margin:1.5rem 0; }
+.data-table{
+  border-collapse:collapse; width:100%; min-width:520px; font-size:0.86rem;
+}
+.data-table caption{
+  font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:0.74rem;
+  color:var(--ink-soft); text-align:left; margin-bottom:0.7rem; line-height:1.5;
+}
+.data-table th, .data-table td{
+  padding:0.55rem 0.8rem; text-align:right; border-bottom:1px solid var(--line);
+  font-variant-numeric:tabular-nums; white-space:nowrap;
+}
+.data-table th:first-child, .data-table td:first-child{ text-align:left; }
+.data-table thead th{
+  font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:0.7rem;
+  letter-spacing:0.07em; text-transform:uppercase; font-weight:500;
+  color:var(--ink-soft); border-bottom:1px solid var(--ink-soft);
+}
+.data-table tbody td{ color:var(--ink-soft); }
+.data-table tbody td:first-child{
+  font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:0.8rem; color:var(--ink);
+}
+.data-table tbody tr.best td{ color:var(--ink); font-weight:600; }
+.data-table tbody tr.best td:first-child{ box-shadow:inset 3px 0 0 var(--blue); padding-left:0.65rem; }
+/* Ausgangswert ohne LLM — abgesetzt, weil er die Vergleichsbasis ist */
+.data-table tbody tr.baseline td{ border-top:1px solid var(--ink-soft); font-style:italic; }
+
 /* key figures on project pages -------------------------------------------- */
 .figures{
   display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
@@ -442,6 +475,11 @@ body.lb-open header.site{ display:none; }
   font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:0.78rem;
   color:#d6d7d0; text-align:center; max-width:70ch; margin:0 auto; line-height:1.5;
 }
+/* Zwei Zeilen: oben Kamera und Aufnahmedaten, darunter die Position.
+   Tags und Beschreibung stehen im Raster unter dem Bild, nicht hier. */
+.lb-exif, .lb-count{ display:block; }
+.lb-exif:empty{ display:none; }
+.lb-count{ color:#9a9c95; letter-spacing:0.06em; }
 .lightbox button{
   position:absolute; background:transparent; border:1px solid rgba(237,237,230,0.45);
   color:#edede6; cursor:pointer; line-height:1;
@@ -466,6 +504,17 @@ body.lb-open header.site{ display:none; }
 }
 .footer-legal a:hover{ color:var(--blue); }
 .footer-legal a[aria-current="page"]{ color:var(--blue); }
+/* Aktualitaetsstempel — rechts weg von den Rechtslinks */
+.footer-updated{
+  margin-left:auto; font-family:'IBM Plex Mono', ui-monospace, monospace;
+  font-size:0.75rem; color:var(--ink-soft);
+}
+
+/* Stand-Angabe im Inhalt (Lebenslauf, Zeitleiste) -------------------------- */
+.stand{
+  font-size:0.75rem; letter-spacing:0.06em; text-transform:uppercase;
+  color:var(--ink-soft); margin:-0.2em 0 1.6em;
+}
 
 /* 404 ------------------------------------------------------------------------- */
 .notfound{ text-align:center; padding:6rem 0; }
@@ -484,10 +533,13 @@ body.lb-open header.site{ display:none; }
   .nav{ flex-wrap:wrap; }
   .nav-links{ gap:1.2rem; }
   .timeline::before{ left:14px; }
-  .timeline-item{ flex-direction:column; gap:0.4rem; }
+  /* align-items:stretch hebt das flex-start der Grundregel auf. Sonst bemisst
+     sich die Karte in der Spaltenrichtung nach ihrem Inhalt, und ein langes
+     Wort ("Bachelorstudienprojekt") schiebt sie ueber den Bildschirmrand. */
+  .timeline-item{ flex-direction:column; align-items:stretch; gap:0.4rem; }
   .timeline-date{ width:auto; text-align:left; padding-top:0; padding-left:34px; order:1; }
   .timeline-node{ left:8px; top:2px; }
-  .timeline-card{ margin-left:34px; order:2; }
+  .timeline-card{ margin-left:34px; order:2; min-width:0; }
   .spec-list li{ grid-template-columns:1fr; gap:0.2rem; }
   .detail-nav{ flex-direction:column; gap:0.8rem; }
   .shot-grid{ grid-template-columns:repeat(auto-fill, minmax(140px, 1fr)); gap:1.1rem 0.6rem; }
@@ -498,8 +550,37 @@ body.lb-open header.site{ display:none; }
   .lb-prev, .lb-next{ top:auto; bottom:1rem; transform:none; height:2.6rem; }
   .lb-figure img{ max-height:calc(100vh - 11rem); }
 }
+/* Touch: Bedienelemente auf mindestens ~32-40 px Hoehe bringen.
+   WCAG 2.2 verlangt auf AA-Niveau 24 px; Fuss- und Navilinks lagen mit
+   17-20 px darunter. Fliesstext-Links im Satz bleiben bewusst klein. */
+@media (max-width: 780px){
+  .nav-links a{ display:inline-block; padding:0.55rem 0 0.4rem; }
+  .lang-toggle button{ padding:0.6em 0.95em; }
+  .footer-links a, .footer-legal a{ display:inline-block; padding:0.45rem 0; }
+  .footer-links{ gap:1.1rem; }
+  .tag-chip{ padding:0.5em 0.85em; }
+  .filter-field input, .filter-field select{ padding:0.6em 0.65em; }
+  .detail-nav a{ display:inline-block; padding:0.4rem 0; }
+  .back-link{ padding:0.35rem 0; }
+}
+
+/* Navigation auf schmalen Geraeten: Marke und Sprachschalter in die erste
+   Zeile, die Links darunter ueber die volle Breite. Vorher quetschten sich
+   alle vier Links neben die Marke, "Kontakt" endete 12 px vor der Kante. */
+@media (max-width: 560px){
+  .nav{
+    display:grid; grid-template-columns:1fr auto;
+    row-gap:0.35rem; padding:0.9rem 0 0.6rem;
+  }
+  .nav-brand{ grid-column:1; grid-row:1; align-self:center; }
+  .lang-toggle{ grid-column:2; grid-row:1; justify-self:end; }
+  .nav-links{ grid-column:1 / -1; grid-row:2; gap:1.5rem; }
+  .footer-legal{ gap:1.1rem; }
+  .footer-updated{ margin-left:0; flex-basis:100%; }
+}
+
 @media (max-width: 480px){
-  .nav-links{ gap:0.9rem; font-size:0.85rem; }
+  .nav-links{ gap:1.2rem; font-size:0.85rem; }
   .nav-brand{ font-size:0.95rem; }
 }
 
