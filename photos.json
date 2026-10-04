@@ -96,9 +96,687 @@
     "gebaeude": {
       "de": "Gebäude",
       "en": "Building"
+    },
+    "mond": {
+      "de": "Mond",
+      "en": "Moon"
+    },
+    "blume": {
+      "de": "Blume",
+      "en": "Flower"
+    },
+    "wald": {
+      "de": "Wald",
+      "en": "Forest"
     }
   },
   "photos": [
+    {
+      "datei": "IMG_7910.JPG",
+      "datum": "2026-10-03",
+      "ort": "Emmersdorf",
+      "tags": [
+        "baum",
+        "donau",
+        "gebaeude",
+        "landschaft",
+        "wasser"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "Stift Melk",
+      "en": "Stift Melk",
+      "exif": {
+        "datum": "2026-10-03",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "84 mm",
+        "blende": "f/11",
+        "belichtung": "1/60 s",
+        "iso": "100"
+      }
+    },
+    {
+      "datei": "IMG_7919.JPG",
+      "datum": "2026-10-03",
+      "ort": "Emmersdorf",
+      "tags": [
+        "baum",
+        "boot",
+        "donau",
+        "wasser"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-10-03",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "169 mm",
+        "blende": "f/25",
+        "belichtung": "1/15 s",
+        "iso": "100"
+      }
+    },
+    {
+      "datei": "IMG_7929.JPG",
+      "datum": "2026-10-03",
+      "ort": "Emmersdorf",
+      "tags": [
+        "baum",
+        "boot",
+        "donau",
+        "gebaeude",
+        "wasser"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "Stift Melk",
+      "en": "Stift Melk",
+      "exif": {
+        "datum": "2026-10-03",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S18-55mm f/3.5-5.6 IS II",
+        "brennweite": "46 mm",
+        "blende": "f/5.6",
+        "belichtung": "1/200 s",
+        "iso": "100"
+      }
+    },
+    {
+      "datei": "IMG_7961.JPG",
+      "datum": "2026-10-03",
+      "ort": "Emmersdorf",
+      "tags": [
+        "baum",
+        "boot",
+        "donau",
+        "gebaeude",
+        "wasser"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "Stift Melk",
+      "en": "Stift Melk",
+      "exif": {
+        "datum": "2026-10-03",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "55 mm",
+        "blende": "f/9",
+        "belichtung": "1/320 s",
+        "iso": "800"
+      }
+    },
+    {
+      "datei": "IMG_7963.JPG",
+      "datum": "2026-10-03",
+      "ort": "Emmersdorf",
+      "tags": [
+        "baum",
+        "boot",
+        "donau",
+        "wasser"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-10-03",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "55 mm",
+        "blende": "f/9",
+        "belichtung": "1/400 s",
+        "iso": "800"
+      }
+    },
+    {
+      "datei": "IMG_7997.JPG",
+      "datum": "2026-10-03",
+      "ort": "Emmersdorf",
+      "tags": [
+        "baum",
+        "donau",
+        "gebaeude",
+        "wasser"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "Stift Melk",
+      "en": "Stift Melk",
+      "exif": {
+        "datum": "2026-10-03",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF50mm f/1.8 STM",
+        "brennweite": "50 mm",
+        "blende": "f/2.5",
+        "belichtung": "1/1000 s",
+        "iso": "800"
+      }
+    },
+    {
+      "datei": "IMG_8008.JPG",
+      "datum": "2026-10-03",
+      "ort": "Emmersdorf",
+      "tags": [
+        "baum",
+        "gebaeude",
+        "ortschaft"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-10-03",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF50mm f/1.8 STM",
+        "brennweite": "50 mm",
+        "blende": "f/5",
+        "belichtung": "1/60 s",
+        "iso": "800"
+      }
+    },
+    {
+      "datei": "IMG_8011.JPG",
+      "datum": "2026-10-03",
+      "ort": "Emmersdorf",
+      "tags": [
+        "baum",
+        "boot",
+        "donau",
+        "gebaeude",
+        "ortschaft",
+        "wasser"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "Stift Melk",
+      "en": "Stift Melk",
+      "exif": {
+        "datum": "2026-10-03",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF50mm f/1.8 STM",
+        "brennweite": "50 mm",
+        "blende": "f/3.5",
+        "belichtung": "1/640 s",
+        "iso": "800"
+      }
+    },
+    {
+      "datei": "IMG_8015.JPG",
+      "datum": "2026-10-03",
+      "ort": "Emmersdorf",
+      "tags": [
+        "baum",
+        "gebaeude",
+        "ortschaft"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-10-03",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF50mm f/1.8 STM",
+        "brennweite": "50 mm",
+        "blende": "f/3.5",
+        "belichtung": "1/200 s",
+        "iso": "800"
+      }
+    },
+    {
+      "datei": "IMG_8017.JPG",
+      "datum": "2026-10-03",
+      "ort": "Emmersdorf",
+      "tags": [
+        "baum",
+        "gebaeude",
+        "ortschaft"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "Stift Melk",
+      "en": "Stift Melk",
+      "exif": {
+        "datum": "2026-10-03",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF50mm f/1.8 STM",
+        "brennweite": "50 mm",
+        "blende": "f/1.8",
+        "belichtung": "1/320 s",
+        "iso": "1600"
+      }
+    },
+    {
+      "datei": "IMG_7900.JPG",
+      "datum": "2026-09-26",
+      "ort": "Leiben",
+      "tags": [
+        "astro",
+        "mond"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-09-26",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "250 mm",
+        "blende": "f/13",
+        "belichtung": "1/400 s",
+        "iso": "400"
+      }
+    },
+    {
+      "datei": "IMG_7874.JPG",
+      "datum": "2026-09-20",
+      "ort": "Weitenegg",
+      "tags": [
+        "baum",
+        "donau",
+        "gebaeude",
+        "wasser"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-09-20",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S10-18mm f/4.5-5.6 IS STM",
+        "brennweite": "10 mm",
+        "blende": "f/13",
+        "belichtung": "1/400 s",
+        "iso": "400"
+      }
+    },
+    {
+      "datei": "IMG_7897.JPG",
+      "datum": "2026-09-20",
+      "ort": "Weitenegg",
+      "tags": [
+        "baum",
+        "gebaeude"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-09-20",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S10-18mm f/4.5-5.6 IS STM",
+        "brennweite": "18 mm",
+        "blende": "f/13",
+        "belichtung": "1/500 s",
+        "iso": "400"
+      }
+    },
+    {
+      "datei": "IMG_7787.JPG",
+      "datum": "2026-09-11",
+      "ort": "Leiben",
+      "tags": [
+        "blume"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-09-11",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF50mm f/1.8 STM",
+        "brennweite": "50 mm",
+        "blende": "f/3.5",
+        "belichtung": "1/1000 s",
+        "iso": "400"
+      }
+    },
+    {
+      "datei": "IMG_7796.JPG",
+      "datum": "2026-09-11",
+      "ort": "Leiben",
+      "tags": [
+        "wald"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-09-11",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF50mm f/1.8 STM",
+        "brennweite": "50 mm",
+        "blende": "f/5",
+        "belichtung": "1/200 s",
+        "iso": "1600"
+      }
+    },
+    {
+      "datei": "IMG_7856.JPG",
+      "datum": "2026-09-11",
+      "ort": "Hain",
+      "tags": [
+        "baum",
+        "blume"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-09-11",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF50mm f/1.8 STM",
+        "brennweite": "50 mm",
+        "blende": "f/5",
+        "belichtung": "1/125 s",
+        "iso": "400"
+      }
+    },
+    {
+      "datei": "IMG_7858.JPG",
+      "datum": "2026-09-11",
+      "ort": "Hain",
+      "tags": [
+        "blume"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-09-11",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF50mm f/1.8 STM",
+        "brennweite": "50 mm",
+        "blende": "f/5",
+        "belichtung": "1/250 s",
+        "iso": "400"
+      }
+    },
+    {
+      "datei": "IMG_7859.JPG",
+      "datum": "2026-09-11",
+      "ort": "Hain",
+      "tags": [
+        "blume"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-09-11",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF50mm f/1.8 STM",
+        "brennweite": "50 mm",
+        "blende": "f/2.8",
+        "belichtung": "1/500 s",
+        "iso": "400"
+      }
+    },
+    {
+      "datei": "IMG_7712.JPG",
+      "datum": "2026-09-09",
+      "ort": "Leiben",
+      "tags": [
+        "naesse",
+        "wasser"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-09-09",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF50mm f/1.8 STM",
+        "brennweite": "50 mm",
+        "blende": "f/1.8",
+        "belichtung": "1/320 s",
+        "iso": "800"
+      }
+    },
+    {
+      "datei": "IMG_7658.JPG",
+      "datum": "2026-09-07",
+      "ort": "Leiben",
+      "tags": [
+        "baum"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-09-07",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "135 mm",
+        "blende": "f/5.6",
+        "belichtung": "1/250 s",
+        "iso": "400"
+      }
+    },
+    {
+      "datei": "IMG_7692.JPG",
+      "datum": "2026-09-07",
+      "ort": "Leiben",
+      "tags": [
+        "blume",
+        "insekt",
+        "tier"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-09-07",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "250 mm",
+        "blende": "f/5.6",
+        "belichtung": "1/1250 s",
+        "iso": "400"
+      }
+    },
+    {
+      "datei": "IMG_7702.JPG",
+      "datum": "2026-09-07",
+      "ort": "Leiben",
+      "tags": [
+        "katze",
+        "tier"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-09-07",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "55 mm",
+        "blende": "f/5",
+        "belichtung": "1/1250 s",
+        "iso": "800"
+      }
+    },
+    {
+      "datei": "IMG_7590.JPG",
+      "datum": "2026-09-06",
+      "ort": "Pömling",
+      "tags": [
+        "tier"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-09-06",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "250 mm",
+        "blende": "f/5.6",
+        "belichtung": "1/200 s",
+        "iso": "100"
+      }
+    },
+    {
+      "datei": "IMG_7591.JPG",
+      "datum": "2026-09-06",
+      "ort": "Pömling",
+      "tags": [
+        "tier"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-09-06",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "155 mm",
+        "blende": "f/5.6",
+        "belichtung": "1/200 s",
+        "iso": "100"
+      }
+    },
+    {
+      "datei": "IMG_7610.JPG",
+      "datum": "2026-09-06",
+      "ort": "Pömling",
+      "tags": [
+        "tier"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-09-06",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "175 mm",
+        "blende": "f/5.6",
+        "belichtung": "1/125 s",
+        "iso": "100"
+      }
+    },
+    {
+      "datei": "IMG_7513.JPG",
+      "datum": "2026-09-05",
+      "ort": "Luberegg",
+      "tags": [
+        "baum",
+        "donau",
+        "gebaeude",
+        "wasser"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-09-05",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "89 mm",
+        "blende": "f/5.6",
+        "belichtung": "1/500 s",
+        "iso": "100"
+      }
+    },
+    {
+      "datei": "IMG_7255.JPG",
+      "datum": "2026-09-04",
+      "ort": "Leiben",
+      "tags": [
+        "gebaeude"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-09-04",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "135 mm",
+        "blende": "f/7.1",
+        "belichtung": "1/400 s",
+        "iso": "200"
+      }
+    },
+    {
+      "datei": "IMG_7255_01_crop.jpeg",
+      "datum": "2026-09-04",
+      "ort": "Leiben",
+      "tags": [
+        "gebaeude"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-09-04",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "135 mm",
+        "blende": "f/7.1",
+        "belichtung": "1/400 s",
+        "iso": "200"
+      }
+    },
+    {
+      "datei": "IMG_7270_01_crop.jpeg",
+      "datum": "2026-09-04",
+      "ort": "Leiben",
+      "tags": [
+        "landschaft",
+        "ortschaft"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-09-04",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S10-18mm f/4.5-5.6 IS STM",
+        "brennweite": "18 mm",
+        "blende": "f/5.6",
+        "belichtung": "1/1000 s",
+        "iso": "200"
+      }
+    },
+    {
+      "datei": "IMG_7310_02_crop.jpeg",
+      "datum": "2026-09-04",
+      "ort": "Leiben",
+      "tags": [
+        "wasser"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-09-04",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S10-18mm f/4.5-5.6 IS STM",
+        "brennweite": "11 mm",
+        "blende": "f/5",
+        "belichtung": "1/40 s",
+        "iso": "800"
+      }
+    },
+    {
+      "datei": "IMG_7333.JPG",
+      "datum": "2026-09-04",
+      "ort": "Leiben",
+      "tags": [
+        "wasser"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-09-04",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF50mm f/1.8 STM",
+        "brennweite": "50 mm",
+        "blende": "f/1.8",
+        "belichtung": "1/400 s",
+        "iso": "100"
+      }
+    },
     {
       "datei": "hdr_01_02_gimp.png",
       "datum": "2026-08-22",
@@ -266,6 +944,28 @@
       "kamera": "Canon EOS 2000D",
       "de": "",
       "en": ""
+    },
+    {
+      "datei": "IMG_7199.JPG",
+      "datum": "2026-08-15",
+      "ort": "Melk",
+      "tags": [
+        "auto",
+        "driften",
+        "naesse"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-08-15",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "250 mm",
+        "blende": "f/5.6",
+        "belichtung": "1/400 s",
+        "iso": "200"
+      }
     },
     {
       "datei": "result_444s.jpg",
