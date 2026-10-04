@@ -344,20 +344,20 @@ figure figcaption{
 .spec-list li{
   display:grid; grid-template-columns:160px 1fr; gap:1rem;
   padding:0.7rem 0; border-bottom:1px solid var(--line); font-size:0.92rem;
-  /* Die Beschriftung ist nach dem Bauen ein reiner Textknoten — build-pages.py
-     entfernt die lang-Huelle. Als anonymes Grid-Item ist sie per Selektor nicht
-     erreichbar; ihre Optik und die Umbruchregeln stehen deshalb hier und
-     werden vererbt. Ohne den Umbruch sprengt ein langes Wort
-     ("Unternehmensgegenstand", "Wirtschaftlichkeitsbetrachtung") die feste
-     160-px-Spalte und laeuft in die Wertspalte. */
-  font-family:'IBM Plex Mono', ui-monospace, monospace;
-  font-size:0.8rem; color:var(--ink-soft);
-  overflow-wrap:break-word; hyphens:auto;
 }
-/* Der Wert holt sich den Fliesstext zurueck und wird nicht getrennt. */
-.spec-list li > span{
-  font-family:'Inter', system-ui, sans-serif;
-  font-size:0.92rem; color:var(--ink); hyphens:manual;
+/* Die Beschriftung braucht eine eigene Klasse, um den Bauvorgang zu ueberleben:
+   build-pages.py entfernt eine Huelle, die nur lang-de/lang-en traegt, und die
+   Beschriftung waere danach ein anonymes Grid-Item, das kein Selektor erreicht.
+
+   min-width:0 ist der entscheidende Teil. Grid-Items haben als Mindestbreite
+   ihre min-content-Breite; ein langes Wort wie "Unternehmensgegenstand" ist
+   breiter als die feste 160-px-Spalte und laeuft sonst in die Wertspalte.
+   overflow-wrap allein genuegt nicht — es veraendert die min-content-Breite
+   laut Spezifikation nicht, Firefox ist da nachsichtiger als Chrome. */
+.spec-list li > .spec-key{
+  font-family:'IBM Plex Mono', ui-monospace, monospace;
+  color:var(--ink-soft); font-size:0.8rem;
+  min-width:0; overflow-wrap:break-word; hyphens:auto;
 }
 .detail-nav{
   display:flex; justify-content:space-between; gap:1rem; padding-top:2.5rem; margin-top:3rem;
