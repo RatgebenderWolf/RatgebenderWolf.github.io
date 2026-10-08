@@ -19,7 +19,7 @@
   var bClose = document.getElementById('lbClose');
   var bPrev  = document.getElementById('lbPrev');
   var bNext  = document.getElementById('lbNext');
-  var visible = [];      // aktuell sichtbare Items — die Lightbox blaettert nur durch diese
+  var visible = [];      // alle Treffer des Filters, ueber alle Seiten — die Lightbox blaettert durch diese
   var idx = 0;
   var opener = null;
 
@@ -51,7 +51,16 @@
     box.hidden = true;
     document.body.classList.remove('lb-open');
     img.src = '';
-    if (opener) opener.focus();
+    // In der Lightbox kann man ueber die Seitengrenze hinaus blaettern. Dann
+    // beim Schliessen auf die Seite des zuletzt gezeigten Bildes wechseln,
+    // sonst laege der Fokus auf einem ausgeblendeten Bild.
+    var cur = visible[idx];
+    var p = cur ? Math.floor(idx / PER_PAGE) + 1 : page;
+    if (p !== page) {
+      setPage(p, true);
+      cur.querySelector('.shot').focus();
+      cur.scrollIntoView({ block: 'center' });
+    } else if (opener) opener.focus();
   }
 
   grid.addEventListener('click', function(e){
@@ -87,7 +96,25 @@
   var emptyEl= document.getElementById('fEmpty');
   var resetEl= document.getElementById('fReset');
 
+  var pagerEl= document.getElementById('fPager');
+
+  pagerEl.setAttribute('aria-label', t('Seiten', 'Pages'));
+
   var activeTags = [];
+
+  /* ---------- Seiten ----------------------------------------------------- */
+  /* Nur die Bilder der aktuellen Seite sind sichtbar. Die Vorschaubilder
+     haben loading="lazy" — ausgeblendete laedt der Browser gar nicht erst.
+     Die Seite steht in der Adresse (#seite-2 bzw. #page-2), damit Zurueck-
+     Taste, Neuladen und geteilte Links funktionieren. */
+  var PER_PAGE = 27;
+  var HASH = EN ? 'page-' : 'seite-';
+  var page = 1;
+
+  function pageFromHash(){
+    var m = location.hash.match(/^#(?:seite|page)-(\d+)$/);
+    return m ? parseInt(m[1], 10) : 1;
+  }
 
   // Auswahllisten aus den vorhandenen Bildern aufbauen
   var years  = [], places = [], tagIds = [], tagLabels = {};
@@ -149,7 +176,7 @@
         var i = activeTags.indexOf(id);
         if (i >= 0) activeTags.splice(i, 1); else activeTags.push(id);
         b.setAttribute('aria-pressed', activeTags.indexOf(id) >= 0 ? 'true' : 'false');
-        apply();
+        refilter();
       });
       tagsEl.appendChild(b);
     });
@@ -193,28 +220,102 @@
                             Array.prototype.indexOf.call(grid.children, b);
                    });
 
-    var n = visible.length, total = items.length;
-    countEl.textContent = (n === total)
-      ? t(total + ' Bilder', total + ' images')
-      : t(n + ' von ' + total + ' Bildern', n + ' of ' + total + ' images');
-    emptyEl.hidden = n > 0;
+    emptyEl.hidden = visible.length > 0;
   }
 
-  qEl.addEventListener('input', apply);
-  yearEl.addEventListener('change', apply);
-  placeEl.addEventListener('change', apply);
-  sortEl.addEventListener('change', apply);
+  function pageCount(){ return Math.max(1, Math.ceil(visible.length / PER_PAGE)); }
+
+  function render(){
+    var pages = pageCount();
+    if (page > pages) page = pages;
+    if (page < 1) page = 1;
+    var from = (page - 1) * PER_PAGE, to = from + PER_PAGE;
+    visible.forEach(function(it, i){ it.hidden = i < from || i >= to; });
+
+    var n = visible.length, total = items.length;
+    var txt = (n === total)
+      ? t(total + ' Bilder', total + ' images')
+      : t(n + ' von ' + total + ' Bildern', n + ' of ' + total + ' images');
+    if (pages > 1) txt += t(' · Seite ' + page + ' von ' + pages, ' · page ' + page + ' of ' + pages);
+    countEl.textContent = txt;
+
+    buildPager(pages);
+  }
+
+  function pagerButton(label, target, opts){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'pager-btn' + (opts.cls ? ' ' + opts.cls : '');
+    b.textContent = label;
+    if (opts.aria) b.setAttribute('aria-label', opts.aria);
+    if (opts.current) b.setAttribute('aria-current', 'page');
+    if (opts.disabled) b.disabled = true;
+    else b.addEventListener('click', function(){ goTo(target); });
+    return b;
+  }
+
+  function buildPager(pages){
+    pagerEl.innerHTML = '';
+    pagerEl.hidden = pages < 2;
+    if (pages < 2) return;
+    pagerEl.appendChild(pagerButton('←', page - 1, {
+      cls: 'pager-step', aria: t('Vorherige Seite', 'Previous page'), disabled: page === 1 }));
+    for (var p = 1; p <= pages; p++) {
+      pagerEl.appendChild(pagerButton(String(p), p, {
+        aria: t('Seite ', 'Page ') + p, current: p === page }));
+    }
+    pagerEl.appendChild(pagerButton('→', page + 1, {
+      cls: 'pager-step', aria: t('Nächste Seite', 'Next page'), disabled: page === pages }));
+  }
+
+  // Seite wechseln: ueber die Adresse, damit ein Eintrag in der History entsteht
+  function goTo(p){
+    if (p === page) return;
+    location.hash = p > 1 ? HASH + p : '';
+  }
+
+  function setPage(p, quiet){
+    page = p;
+    render();
+    if (p > 1) history.replaceState(null, '', '#' + HASH + p);
+    else if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+    if (!quiet) {
+      // zum Anfang des Rasters, unter den fixierten Kopf
+      var head = document.querySelector('header.site');
+      var y = grid.getBoundingClientRect().top + window.pageYOffset -
+              (head ? head.offsetHeight : 0) - 16;
+      window.scrollTo(0, Math.max(0, y));
+    }
+  }
+
+  window.addEventListener('hashchange', function(){
+    var p = pageFromHash();
+    if (p !== page) setPage(p);
+  });
+
+  // Filter geaendert: zurueck auf Seite 1
+  function refilter(){
+    apply();
+    setPage(1, true);
+  }
+
+  qEl.addEventListener('input', refilter);
+  yearEl.addEventListener('change', refilter);
+  placeEl.addEventListener('change', refilter);
+  sortEl.addEventListener('change', refilter);
   form.addEventListener('submit', function(e){ e.preventDefault(); });
   resetEl.addEventListener('click', function(){
     qEl.value = ''; yearEl.value = ''; placeEl.value = ''; sortEl.value = 'new';
     activeTags = [];
     tagsEl.querySelectorAll('.tag-chip').forEach(function(b){ b.setAttribute('aria-pressed','false'); });
-    apply();
+    refilter();
     qEl.focus();
   });
 
   fillSelects();
   buildTagChips();
   apply();
+  page = pageFromHash();
+  render();
   form.hidden = false;   // erst jetzt einblenden — ohne JS bleibt die Leiste weg
 })();

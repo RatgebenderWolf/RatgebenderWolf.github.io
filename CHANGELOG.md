@@ -11,6 +11,23 @@ im Browser getestet), die Änderung nach `_src/` übernehmen und neu bauen.
 
 ## 2026-10-08
 
+### Galerie: Seiten mit je 27 Bildern
+Bei 75 Bildern wurden alle Vorschaubilder auf einmal geladen.
+
+- `gallery.js`: nach Filter und Sortierung werden nur 27 Treffer je Seite
+  angezeigt (`PER_PAGE`). Ausgeblendete Bilder haben `loading="lazy"` und
+  werden deshalb gar nicht geladen
+- Seite steht in der Adresse: `#seite-2` (DE) bzw. `#page-2` (EN) —
+  Zurück-Taste, Neuladen und Links funktionieren; Seite 1 ohne Hash
+- Filter/Suche/Sortierung ändern → zurück auf Seite 1; Zähler zeigt
+  „75 Bilder · Seite 2 von 3“
+- Lightbox blättert weiter durch **alle** Treffer, über Seitengrenzen
+  hinweg; beim Schließen springt das Raster auf die Seite des letzten Bildes
+- `_src/gallery.html`: `<nav class="pager" id="fPager">` nach der Bildliste
+  (außerhalb der `GALLERY`-Marker, `build-gallery.py` überschreibt sie also
+  nicht); ohne JavaScript bleibt sie leer und alle Bilder stehen untereinander
+- `styles.css`: Abschnitt `gallery pages` (`.pager`, `.pager-btn`)
+
 ### Startseite und 404 überarbeitet
 Die Änderungen wurden zuerst direkt in `index.html` / `404.html` gemacht und
 dann nach `_src/` übernommen, mit englischer Übersetzung.

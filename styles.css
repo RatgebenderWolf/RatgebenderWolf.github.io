@@ -464,6 +464,22 @@ footer.site{ border-top:1px solid var(--line); padding:2.6rem 0; margin-top:2rem
 }
 .shot:hover img, .shot:focus-visible img{ transform:scale(1.04); opacity:0.92; }
 
+/* gallery pages ------------------------------------------------------------ */
+.pager{
+  display:flex; flex-wrap:wrap; justify-content:center; gap:0.4rem;
+  margin:-2rem 0 4rem;
+}
+.pager[hidden]{ display:none; }
+.pager-btn{
+  font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:0.82rem;
+  min-width:2.6rem; padding:0.6em 0.8em; border:1px solid var(--line);
+  background:var(--paper); color:var(--ink-soft); cursor:pointer; border-radius:0;
+  transition:background .12s, color .12s, border-color .12s;
+}
+.pager-btn:hover:not(:disabled){ border-color:var(--ink); color:var(--ink); }
+.pager-btn[aria-current="page"]{ background:var(--ink); border-color:var(--ink); color:var(--paper); }
+.pager-btn:disabled{ opacity:0.4; cursor:default; }
+
 /* lightbox ---------------------------------------------------------------- */
 body.lb-open{ overflow:hidden; }
 /* der sticky Header wuerde sonst ueber der Lightbox stehen bleiben */

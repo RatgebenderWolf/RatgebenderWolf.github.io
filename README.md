@@ -38,7 +38,7 @@ photos.json         Bilddaten: Datum, Ort, Tags, Beschreibungen
 styles.css          gesamtes Layout
 fonts.css           @font-face-Definitionen für die selbst gehosteten Schriften
 fonts/              Archivo, Inter, IBM Plex Mono als woff2 (kein Google-CDN)
-gallery.js          Filter, Suche und Lightbox (nur auf der Galerie)
+gallery.js          Filter, Suche, Seiten (27 Bilder) und Lightbox (nur auf der Galerie)
 images/             profile.jpg
 images/gallery/thumb/   800 px, für das Raster        (im Repo)
 images/gallery/large/   1800 px, für die Lightbox     (im Repo)
