@@ -108,6 +108,30 @@
     "wald": {
       "de": "Wald",
       "en": "Forest"
+    },
+    "reh": {
+      "de": "Reh",
+      "en": "Deer"
+    },
+    "sonnenblume": {
+      "de": "Sonnenblume",
+      "en": "Sunflower"
+    },
+    "biene": {
+      "de": "Biene",
+      "en": "Bee"
+    },
+    "fluss": {
+      "de": "Fluss",
+      "en": "River"
+    },
+    "schloss": {
+      "de": "Schloss",
+      "en": "Castle"
+    },
+    "luftaufnahme": {
+      "de": "Luftaufnahme",
+      "en": "Aerial view"
     }
   },
   "photos": [
@@ -118,6 +142,8 @@
       "tags": [
         "donau",
         "gebaeude",
+        "himmel",
+        "landschaft",
         "wasser"
       ],
       "kamera": "Canon EOS 2000D",
@@ -725,7 +751,8 @@
       "ort": "Hain",
       "tags": [
         "baum",
-        "blume"
+        "blume",
+        "sonnenblume"
       ],
       "kamera": "Canon EOS 2000D",
       "de": "",
@@ -745,7 +772,8 @@
       "datum": "2026-09-11",
       "ort": "Hain",
       "tags": [
-        "blume"
+        "blume",
+        "sonnenblume"
       ],
       "kamera": "Canon EOS 2000D",
       "de": "",
@@ -765,7 +793,8 @@
       "datum": "2026-09-11",
       "ort": "Hain",
       "tags": [
-        "blume"
+        "blume",
+        "sonnenblume"
       ],
       "kamera": "Canon EOS 2000D",
       "de": "",
@@ -826,6 +855,7 @@
       "datum": "2026-09-07",
       "ort": "Leiben",
       "tags": [
+        "biene",
         "blume",
         "insekt",
         "tier"
@@ -869,6 +899,7 @@
       "datum": "2026-09-06",
       "ort": "Pömling",
       "tags": [
+        "reh",
         "tier"
       ],
       "kamera": "Canon EOS 2000D",
@@ -889,6 +920,7 @@
       "datum": "2026-09-06",
       "ort": "Pömling",
       "tags": [
+        "reh",
         "tier"
       ],
       "kamera": "Canon EOS 2000D",
@@ -909,6 +941,7 @@
       "datum": "2026-09-06",
       "ort": "Pömling",
       "tags": [
+        "reh",
         "tier"
       ],
       "kamera": "Canon EOS 2000D",
@@ -921,6 +954,27 @@
         "brennweite": "175 mm",
         "blende": "f/5.6",
         "belichtung": "1/125 s",
+        "iso": "100"
+      }
+    },
+    {
+      "datei": "IMG_7623.JPG",
+      "datum": "2026-09-06",
+      "ort": "Pömling",
+      "tags": [
+        "reh",
+        "tier"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-09-06",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "55 mm",
+        "blende": "f/4",
+        "belichtung": "1/200 s",
         "iso": "100"
       }
     },
@@ -1033,6 +1087,7 @@
       "datum": "2026-09-04",
       "ort": "Leiben",
       "tags": [
+        "fluss",
         "wasser"
       ],
       "kamera": "Canon EOS 2000D",
@@ -1733,9 +1788,13 @@
       "datum": "2025-05-25",
       "ort": "Melk",
       "tags": [
-        "donau",
+        "fluss",
         "gebaeude",
-        "ortschaft"
+        "luftaufnahme",
+        "ortschaft",
+        "schloss",
+        "wald",
+        "wasser"
       ],
       "exif": {
         "datum": "2025-05-25",
@@ -1756,8 +1815,12 @@
       "ort": "Melk",
       "tags": [
         "donau",
+        "fluss",
         "gebaeude",
-        "ortschaft"
+        "landschaft",
+        "luftaufnahme",
+        "ortschaft",
+        "wasser"
       ],
       "exif": {
         "datum": "2025-05-25",
@@ -1771,6 +1834,162 @@
       "kamera": "Canon EOS 2000D",
       "de": "",
       "en": ""
+    },
+    {
+      "datei": "IMG_3920_bearbeitet.JPG",
+      "datum": "2025-05-25",
+      "ort": "Leiben",
+      "tags": [
+        "gebaeude",
+        "landschaft",
+        "luftaufnahme",
+        "ortschaft",
+        "schloss",
+        "wald"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2025-05-25",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S18-55mm f/3.5-5.6 IS II",
+        "brennweite": "32 mm",
+        "blende": "f/7.1",
+        "belichtung": "1/200 s",
+        "iso": "100"
+      }
+    },
+    {
+      "datei": "IMG_3923_bearbeitet.JPG",
+      "datum": "2025-05-25",
+      "ort": "Leiben",
+      "tags": [
+        "gebaeude",
+        "landschaft",
+        "luftaufnahme",
+        "ortschaft",
+        "schloss",
+        "wald"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2025-05-25",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S18-55mm f/3.5-5.6 IS II",
+        "brennweite": "18 mm",
+        "blende": "f/6.3",
+        "belichtung": "1/200 s",
+        "iso": "100"
+      }
+    },
+    {
+      "datei": "IMG_4005_bearbeitet.JPG",
+      "datum": "2025-05-25",
+      "ort": "Melk",
+      "tags": [
+        "donau",
+        "fluss",
+        "gebaeude",
+        "landschaft",
+        "luftaufnahme",
+        "ortschaft",
+        "wald",
+        "wasser"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2025-05-25",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S18-55mm f/3.5-5.6 IS II",
+        "brennweite": "18 mm",
+        "blende": "f/7.1",
+        "belichtung": "1/250 s",
+        "iso": "100"
+      }
+    },
+    {
+      "datei": "IMG_4011_bearbeitet.JPG",
+      "datum": "2025-05-25",
+      "ort": "Emmersdorf",
+      "tags": [
+        "donau",
+        "fluss",
+        "gebaeude",
+        "landschaft",
+        "luftaufnahme",
+        "ortschaft",
+        "wald",
+        "wasser"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2025-05-25",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S18-55mm f/3.5-5.6 IS II",
+        "brennweite": "51 mm",
+        "blende": "f/9",
+        "belichtung": "1/200 s",
+        "iso": "100"
+      }
+    },
+    {
+      "datei": "IMG_4014_bearbeitet.JPG",
+      "datum": "2025-05-25",
+      "ort": "Melk",
+      "tags": [
+        "fluss",
+        "gebaeude",
+        "landschaft",
+        "luftaufnahme",
+        "ortschaft",
+        "wald",
+        "wasser"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2025-05-25",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S18-55mm f/3.5-5.6 IS II",
+        "brennweite": "37 mm",
+        "blende": "f/10",
+        "belichtung": "1/250 s",
+        "iso": "100"
+      }
+    },
+    {
+      "datei": "IMG_4018_bearbeitet.JPG",
+      "datum": "",
+      "ort": "Emmersdorf",
+      "tags": [
+        "fluss",
+        "gebaeude",
+        "landschaft",
+        "luftaufnahme",
+        "ortschaft",
+        "wald",
+        "wasser"
+      ],
+      "kamera": "",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "",
+        "kamera": "",
+        "objektiv": "",
+        "brennweite": "",
+        "blende": "",
+        "belichtung": "",
+        "iso": ""
+      }
     }
   ]
 }
