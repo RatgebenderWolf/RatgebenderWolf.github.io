@@ -214,7 +214,7 @@ section.alt{ background:var(--paper-alt); border-top:1px solid var(--line); bord
 .preview-card .status{ margin-bottom:0.9rem; align-self:flex-start; }
 .preview-card h3{ font-size:1.05rem; }
 .preview-card p{ font-size:0.9rem; margin-bottom:0; }
-.preview-card:hover h3{ color:var(--blue); }
+a.preview-card:hover h3{ color:var(--blue); }
 
 /* status badges ------------------------------------------------------------ */
 .status{
@@ -256,8 +256,8 @@ section.alt{ background:var(--paper-alt); border-top:1px solid var(--line); bord
   background:var(--paper); border:2px solid var(--blue);
 }
 .timeline-card{ flex:1; margin-left:28px; transition:transform .15s; }
-.timeline-item:hover .timeline-card{ transform:translateX(4px); }
-.timeline-item:hover .timeline-card h3{ color:var(--blue); }
+a.timeline-item:hover .timeline-card{ transform:translateX(4px); }
+a.timeline-item:hover .timeline-card h3{ color:var(--blue); }
 .timeline-card h3{ font-size:1.25rem; margin:0.7rem 0 0.5rem; }
 .timeline-card p{ font-size:0.92rem; margin-bottom:0.6rem; }
 .timeline-card .kicker{

@@ -7,5 +7,7 @@ exclude:
   - tools
   - projekte.md
   - README.md
+  - CHANGELOG.md
+  - CLAUDE.md
   - photos.json
   - originals
