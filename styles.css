@@ -87,6 +87,9 @@ img{ max-width:100%; height:auto; display:block; }
    auseinandergeschrieben — zur Laufzeit gibt es nichts mehr umzuschalten. */
 
 /* Hinweisbanner: Seite im Aufbau ------------------------------------------ */
+/* Derzeit abgeschaltet (2026-10-08): das Markup ist aus _src/ entfernt.
+   Wieder einschalten: <div class="disclaimer" role="note"> … </div> direkt
+   nach dem Skip-Link in jede Quelle setzen — siehe CHANGELOG.md. */
 .disclaimer{
   background:#f3e7cd;
   border-bottom:1px solid #d8c396;

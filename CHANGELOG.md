@@ -11,6 +11,62 @@ im Browser getestet), die Änderung nach `_src/` übernehmen und neu bauen.
 
 ## 2026-10-08
 
+### Hinweisbanner „Seite im Aufbau“ abgeschaltet
+- Block `<div class="disclaimer" role="note">` aus allen 15 Quellen in
+  `_src/` entfernt, Seiten neu gebaut
+- CSS `.disclaimer` in `styles.css` bleibt (mit Kommentar), damit das Banner
+  sich schnell wieder einschalten lässt. Markup zum Wiedereinsetzen, direkt
+  nach dem Skip-Link:
+  ```html
+  <div class="disclaimer" role="note">
+    <span class="lang-de" lang="de"><strong>Hinweis</strong> Diese Website befindet sich im Aufbau. Angaben können unvollständig, veraltet oder fehlerhaft sein.</span>
+    <span class="lang-en" lang="en"><strong>Note</strong> This website is still under construction. Information may be incomplete, outdated or incorrect.</span>
+  </div>
+  ```
+
+### Galerie-Werkzeug: Tag-Feld statt Ankreuzliste, KI nur auf Knopfdruck
+Rückmeldung des Nutzers nach dem ersten Test.
+
+- „Bilder hinzufügen …“ fragt die KI **nicht** mehr automatisch (vorher
+  Rückfrage + Versand) — nur noch Hinweis in der Statuszeile
+- Tag-Ankreuzliste (alle 27+ Tags) ersetzt durch ein **Tag-Feld**: gesetzte
+  Tags als Kästchen mit ×, dahinter Eingabe mit Vorschlagsliste
+  (Präfix-Treffer zuerst, nach Häufigkeit), Tab/Enter übernimmt, ↑/↓ wählt,
+  Rücktaste im leeren Feld entfernt den letzten Tag, unbekannter Text →
+  „+ neuen Tag anlegen“ (Dialog, Fokus gleich auf Englisch)
+  Technik: `tk.Text` mit eingebetteten Frames (bricht von selbst um);
+  beim Neuzeichnen nur bis zum Eingabefeld löschen, sonst zerstört Tk es.
+  Zustand in `self.gesetzt` statt `self.tag_vars`
+- Eingabezeile „Tag anlegen“ entfällt; „Tags verwalten …“ sitzt jetzt neben
+  dem Tag-Feld
+- `ki_tags.py`: Anweisung verlangt **mindestens 3 Tags** (`MIN_TAGS`),
+  notfalls mit neuen ergänzt
+
+### Galerie-Werkzeug: KI-Tags und Werkzeugleiste
+Ziel: Tags per KI vorschlagen lassen und kein Terminal mehr für die Galerie.
+Entscheidungen des Nutzers: Cloud erlaubt, Anbieter **OpenRouter**, KI darf
+neue Tags vorschlagen (jeder Tag DE/EN), Oberfläche bleibt Tkinter, Commit
+und Push bleiben **manuell** (nicht ins Werkzeug).
+
+- `tools/ki_tags.py` (neu): OpenRouter-Aufruf nur mit Standardbibliothek
+  (`urllib`). Schickt das 800-px-Vorschaubild + Tag-Liste + Ort + EXIF-Zeile,
+  erwartet JSON `{"tags": [...], "neue_tags": [{"de","en"}]}`. Filtert
+  unbekannte Kennungen, max. 3 neue Tags, liest `usage.cost`.
+  Konfiguration: `~/.config/ralf-galerie/openrouter.json` (chmod 600) oder
+  `OPENROUTER_API_KEY`. Standardmodell `google/gemini-2.5-flash-lite`
+- `tools/tag-photos.py`: Werkzeugleiste (Bilder hinzufügen, Galerie bauen,
+  Vorschau, KI für alle ohne Tags, KI-Einstellungen), Knopf „✦ KI-Vorschlag“
+  (Strg+K), ✦-Markierung, Knöpfe für neue Tag-Vorschläge,
+  Protokollfenster. KI und Skripte laufen in Threads; während eines Builds
+  ist das Fenster gesperrt (`grab_set`), danach wird `photos.json` neu
+  geladen. KI ergänzt Tags nur, wählt nie ab; gespeichert wird nur per Knopf
+- `tools/serve.py` (neu): lokaler Server mit `Cache-Control: no-store`
+- Startmenü-Eintrag `~/.local/share/applications/galerie-werkzeug.desktop`
+  (außerhalb des Repos)
+- Getestet: KI-Ablauf mit simulierter API-Antwort auf einer Kopie von
+  `photos.json`, „Galerie bauen“ aus dem Fenster. **Noch nicht** gegen die
+  echte OpenRouter-API getestet (Schlüssel lag nicht vor)
+
 ### Galerie: Seiten mit je 27 Bildern
 Bei 75 Bildern wurden alle Vorschaubilder auf einmal geladen.
 
