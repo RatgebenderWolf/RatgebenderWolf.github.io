@@ -199,7 +199,8 @@ class Umbau(HTMLParser):
             if tag == "span" and set(klassen) == {"lang-" + self.sprache}:
                 self.unwrap.append(True)
                 return
-            self.unwrap.append(False)
+            if tag == "span":
+                self.unwrap.append(False)
             self.out.append("<%s%s>" % (tag, self._attrs_bauen(tag, attrs)))
             return
 
@@ -216,6 +217,11 @@ class Umbau(HTMLParser):
             self.out.append("<title>")
             return
 
+        # Jedes <span> kommt auf den Stapel, nicht nur die Huellen — sonst
+        # schliesst das </span> eines inneren <span class="mono"> die Huelle
+        # und die Verschachtelung geraet durcheinander.
+        if tag == "span":
+            self.unwrap.append(False)
         self.out.append("<%s%s>" % (tag, self._attrs_bauen(tag, attrs)))
 
     def handle_endtag(self, tag):

@@ -11,6 +11,21 @@ im Browser getestet), die Änderung nach `_src/` übernehmen und neu bauen.
 
 ## 2026-10-08
 
+### Datenschutzerklärung geprüft, Fehler im Build-Skript behoben
+- Datenschutzerklärung gegen den aktuellen Stand geprüft — alle Aussagen
+  stimmen weiter, **kein Textänderungsbedarf**: keine Ressourcen von fremden
+  Hosts (Schriften liegen unter `fonts/`), keine Cookies / kein
+  `localStorage` (die Galerie-Seiten stehen nur im URL-Hash), kein
+  Kontaktformular (das `<form>` der Galerie ist nur die Filterleiste),
+  Domain zeigt auf GitHub Pages (185.199.108–111.153), veröffentlichte
+  Bilder ohne EXIF. Die KI-Verschlagwortung betrifft nur eigene Fotos auf
+  dem eigenen Rechner, keine Besucherdaten
+- `tools/build-pages.py`: verschachtelte `<span>` in Sprach-Hüllen wurden
+  falsch geschlossen — das `</span>` eines inneren `<span class="mono">`
+  schloss die Hülle, der Folgetext lief in Mono weiter. Jetzt kommt jedes
+  `<span>` auf den `unwrap`-Stapel. Betroffen waren `datenschutz.html` und
+  `projects/arcta-funkprotokoll.html` (je DE/EN)
+
 ### Hinweisbanner „Seite im Aufbau“ abgeschaltet
 - Block `<div class="disclaimer" role="note">` aus allen 15 Quellen in
   `_src/` entfernt, Seiten neu gebaut
