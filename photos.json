@@ -112,6 +112,277 @@
   },
   "photos": [
     {
+      "datei": "IMG_8020.JPG",
+      "datum": "2026-10-07",
+      "ort": "Klein-Pöchlarn",
+      "tags": [
+        "donau",
+        "gebaeude",
+        "wasser"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-10-07",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "55 mm",
+        "blende": "f/4",
+        "belichtung": "1/400 s",
+        "iso": "100"
+      }
+    },
+    {
+      "datei": "IMG_8033.JPG",
+      "datum": "2026-10-07",
+      "ort": "Klein-Pöchlarn",
+      "tags": [
+        "donau",
+        "tier",
+        "vogel",
+        "wasser"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-10-07",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "250 mm",
+        "blende": "f/5.6",
+        "belichtung": "1/100 s",
+        "iso": "100"
+      }
+    },
+    {
+      "datei": "IMG_8041.JPG",
+      "datum": "2026-10-07",
+      "ort": "Klein-Pöchlarn",
+      "tags": [
+        "donau",
+        "tier",
+        "vogel",
+        "wasser"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-10-07",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "250 mm",
+        "blende": "f/5.6",
+        "belichtung": "1/640 s",
+        "iso": "800"
+      }
+    },
+    {
+      "datei": "IMG_8042.JPG",
+      "datum": "2026-10-07",
+      "ort": "Klein-Pöchlarn",
+      "tags": [
+        "donau",
+        "tier",
+        "vogel",
+        "wasser"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-10-07",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "250 mm",
+        "blende": "f/5.6",
+        "belichtung": "1/640 s",
+        "iso": "800"
+      }
+    },
+    {
+      "datei": "IMG_8043.JPG",
+      "datum": "2026-10-07",
+      "ort": "Klein-Pöchlarn",
+      "tags": [
+        "donau",
+        "tier",
+        "vogel",
+        "wasser"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-10-07",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "250 mm",
+        "blende": "f/5.6",
+        "belichtung": "1/640 s",
+        "iso": "800"
+      }
+    },
+    {
+      "datei": "IMG_8054.JPG",
+      "datum": "2026-10-07",
+      "ort": "Klein-Pöchlarn",
+      "tags": [
+        "donau",
+        "tier",
+        "vogel",
+        "wasser"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-10-07",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "250 mm",
+        "blende": "f/5.6",
+        "belichtung": "1/1000 s",
+        "iso": "800"
+      }
+    },
+    {
+      "datei": "IMG_8055.JPG",
+      "datum": "2026-10-07",
+      "ort": "Klein-Pöchlarn",
+      "tags": [
+        "donau",
+        "tier",
+        "vogel",
+        "wasser"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-10-07",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "250 mm",
+        "blende": "f/5.6",
+        "belichtung": "1/1000 s",
+        "iso": "800"
+      }
+    },
+    {
+      "datei": "IMG_8069.JPG",
+      "datum": "2026-10-07",
+      "ort": "Klein-Pöchlarn",
+      "tags": [
+        "donau",
+        "tier",
+        "vogel",
+        "wasser"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-10-07",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "250 mm",
+        "blende": "f/5.6",
+        "belichtung": "1/400 s",
+        "iso": "800"
+      }
+    },
+    {
+      "datei": "IMG_8073.JPG",
+      "datum": "2026-10-07",
+      "ort": "Klein-Pöchlarn",
+      "tags": [
+        "donau",
+        "tier",
+        "vogel",
+        "wasser"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-10-07",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "250 mm",
+        "blende": "f/6.3",
+        "belichtung": "1/400 s",
+        "iso": "800"
+      }
+    },
+    {
+      "datei": "IMG_8074.JPG",
+      "datum": "2026-10-07",
+      "ort": "Klein-Pöchlarn",
+      "tags": [
+        "donau",
+        "tier",
+        "vogel",
+        "wasser"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-10-07",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "250 mm",
+        "blende": "f/6.3",
+        "belichtung": "1/400 s",
+        "iso": "800"
+      }
+    },
+    {
+      "datei": "IMG_8089.JPG",
+      "datum": "2026-10-07",
+      "ort": "Klein-Pöchlarn",
+      "tags": [
+        "boot",
+        "donau",
+        "wasser"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-10-07",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF-S55-250mm f/4-5.6 IS STM",
+        "brennweite": "89 mm",
+        "blende": "f/6.3",
+        "belichtung": "1/640 s",
+        "iso": "800"
+      }
+    },
+    {
+      "datei": "IMG_8127.JPG",
+      "datum": "2026-10-07",
+      "ort": "Klein-Pöchlarn",
+      "tags": [
+        "blume"
+      ],
+      "kamera": "Canon EOS 2000D",
+      "de": "",
+      "en": "",
+      "exif": {
+        "datum": "2026-10-07",
+        "kamera": "Canon EOS 2000D",
+        "objektiv": "EF50mm f/1.8 STM",
+        "brennweite": "50 mm",
+        "blende": "f/2.2",
+        "belichtung": "1/320 s",
+        "iso": "800"
+      }
+    },
+    {
       "datei": "IMG_7910.JPG",
       "datum": "2026-10-03",
       "ort": "Emmersdorf",
