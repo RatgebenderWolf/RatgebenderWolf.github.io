@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Bilder verschlagworten.
+Galerie-Werkzeug: Bilder aufnehmen, verschlagworten, Galerie bauen.
 
     python3 tools/tag-photos.py
 
@@ -8,20 +8,35 @@ Geht die Bilder aus photos.json der Reihe nach durch und laesst Datum, Ort,
 Tags und die Beschreibungen ergaenzen. Die Vorschau kommt aus
 images/gallery/thumb/, deshalb laedt auch eine 20-MB-Originaldatei sofort.
 
-Voraussetzung: einmal  python3 tools/build-gallery.py  laufen lassen, damit
-die Eintraege und die Vorschaubilder existieren.
+Oben eine Werkzeugleiste, damit kein Terminal noetig ist:
+    Bilder hinzufuegen …   kopiert nach originals/ und baut die Galerie
+    Galerie bauen          build-gallery.py + build-pages.py, danach neu laden
+    Vorschau im Browser    startet tools/serve.py und oeffnet die Galerie
+    KI-Einstellungen …     OpenRouter-Schluessel und Modell
+
+KI-Vorschlaege (tools/ki_tags.py): die KI setzt passende Tags (markiert mit ✦)
+und schlaegt neue vor — die erscheinen als Knopf und werden erst beim
+Anklicken angelegt. Gespeichert wird wie immer nur auf Knopfdruck.
 
 Tasten:  Bild-hoch/runter oder Alt+Links/Rechts  blaettern
          Strg+S  speichern      Strg+D  Ort, Tags und Beschreibung vom vorherigen Bild uebernehmen
                  (das Datum bleibt stehen, es stammt aus dem EXIF)
+         Strg+K  KI-Vorschlag fuer das aktuelle Bild
 """
 
 import json
 import os
 import re
+import shutil
+import socket
+import subprocess
 import sys
+import threading
 import tkinter as tk
-from tkinter import ttk, messagebox
+import webbrowser
+from tkinter import ttk, messagebox, filedialog
+
+import ki_tags
 
 try:
     from PIL import Image, ImageTk
@@ -34,11 +49,22 @@ THUMB = os.path.join(ROOT, "images", "gallery", "thumb")
 LARGE = os.path.join(ROOT, "images", "gallery", "large")
 ORIG  = os.path.join(ROOT, "originals")
 AUSGEBLENDET = "_ausgeblendet"
+TOOLS = os.path.dirname(os.path.abspath(__file__))
+BUILD_GALLERY = os.path.join(TOOLS, "build-gallery.py")
+BUILD_PAGES   = os.path.join(TOOLS, "build-pages.py")
+SERVE         = os.path.join(TOOLS, "serve.py")
+PORT = 8000
+BILDTYPEN = (".jpg", ".jpeg", ".png", ".tif", ".tiff", ".webp")   # wie build-gallery.py
 
 PAPER, PAPER_ALT, INK, INK_SOFT, LINE, BLUE = (
     "#edede6", "#e2e3da", "#191c1f", "#565b5e", "#c7cabf", "#2b4c7e")
 VORSCHAU = 640
 DATUM_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
+
+def cent(usd, stellen=2):
+    """0.00021 USD -> '0,021' (Cent, mit Dezimalkomma)"""
+    return f"{usd * 100:.{stellen}f}".replace(".", ",")
 
 
 class Tagger(tk.Tk):
@@ -60,10 +86,17 @@ class Tagger(tk.Tk):
             return
 
         self.nur_offene = tk.BooleanVar(value=False)
-        self.tag_vars   = {}
+        self.gesetzt    = []            # Tags des aktuellen Bildes, wie im Tag-Feld
+        self.treffer    = []            # Eintraege der Vorschlagsliste: (kennung oder None, text)
         self.idx        = 0
         self.foto       = None          # haelt die Referenz aufs Bild
         self.schmutzig  = False
+        self.ki         = {}            # datei -> letzter KI-Vorschlag
+        self.ki_kosten  = 0.0
+        self.ki_laeuft  = False
+        self.laeuft     = False         # Build-Prozess aktiv
+        self.server     = None          # von uns gestarteter Vorschau-Server
+        self.protokoll  = None
 
         self._bauen()
         self._liste_aktualisieren()
@@ -76,6 +109,7 @@ class Tagger(tk.Tk):
         self.bind("<Prior>",     lambda e: self._blaettern(-1))
         self.bind("<Alt-Right>", lambda e: self._blaettern(1))
         self.bind("<Alt-Left>",  lambda e: self._blaettern(-1))
+        self.bind("<Control-k>", lambda e: self._ki_vorschlag())
 
     # ------------------------------------------------------------ Aufbau ---
     def _bauen(self):
@@ -99,7 +133,17 @@ class Tagger(tk.Tk):
         st.configure("Dirty.TLabel",  background=PAPER, foreground="#a03d18",
                      font=("TkDefaultFont", 9, "bold"))
         st.configure("TCheckbutton",  background=PAPER)
+        st.configure("KI.TCheckbutton", background=PAPER, foreground=BLUE)
         st.configure("TButton",       padding=5)
+        st.configure("Leiste.TFrame", background=PAPER_ALT)
+
+        leiste = ttk.Frame(self, style="Leiste.TFrame", padding=(14, 8))
+        leiste.pack(fill="x")
+        ttk.Button(leiste, text="Bilder hinzufügen …", command=self._bilder_hinzufuegen).pack(side="left")
+        ttk.Button(leiste, text="Galerie bauen", command=self._galerie_bauen).pack(side="left", padx=6)
+        ttk.Button(leiste, text="Vorschau im Browser", command=self._vorschau).pack(side="left")
+        ttk.Button(leiste, text="KI-Einstellungen …", command=self._ki_einstellungen).pack(side="right")
+        ttk.Button(leiste, text="KI für alle ohne Tags …", command=self._ki_alle).pack(side="right", padx=6)
 
         kopf = ttk.Frame(self, padding=(14, 12, 14, 6))
         kopf.pack(fill="x")
@@ -160,9 +204,42 @@ class Tagger(tk.Tk):
                                            command=self._kamera_zuruecksetzen)
         self.e_kamera.bind("<KeyRelease>", lambda e: self._hinweise_aktualisieren())
 
-        kopfzeile("TAGS  (häufigste zuerst)")
-        self.f_tags = ttk.Frame(rechts)
-        self.f_tags.pack(anchor="w", fill="x")
+        f_tagkopf = ttk.Frame(rechts)
+        f_tagkopf.pack(anchor="w", fill="x", pady=(10, 2))
+        ttk.Label(f_tagkopf, text="TAGS  (tippen · Tab/Enter übernimmt · ✦ = KI)",
+                  style="Head.TLabel").pack(side="left")
+        ttk.Button(f_tagkopf, text="Tags verwalten …", command=self._tags_verwalten).pack(side="right")
+        self.btn_ki = ttk.Button(f_tagkopf, text="✦ KI-Vorschlag  (Strg+K)", command=self._ki_vorschlag)
+        self.btn_ki.pack(side="right", padx=6)
+
+        # Tag-Feld: gesetzte Tags als Kaestchen mit x, dahinter das Eingabefeld.
+        # Ein Text-Widget bricht die eingebetteten Kaestchen von selbst um.
+        self.t_tags = tk.Text(rechts, height=3, width=52, wrap="char", bg="white", fg=INK,
+                              relief="solid", bd=1, highlightthickness=0, padx=4, pady=4,
+                              cursor="xterm", spacing1=2, spacing3=2)
+        self.t_tags.pack(anchor="w", fill="x")
+        self.t_tags.bind("<Button-1>", lambda e: (self.e_tag.focus_set(), "break")[1])
+        self.t_tags.bind("<Key>", lambda e: "break")
+        self.e_tag = tk.Entry(self.t_tags, width=22, relief="flat", bd=0, bg="white", fg=INK,
+                              insertbackground=INK, highlightthickness=0)
+        self.t_tags.window_create("end", window=self.e_tag, padx=2)
+        self.e_tag.bind("<KeyRelease>", self._tag_tippen)
+        self.e_tag.bind("<Tab>",        self._tag_bestaetigen)
+        self.e_tag.bind("<Return>",     self._tag_bestaetigen)
+        self.e_tag.bind("<Down>",       lambda e: self._treffer_wandern(1))
+        self.e_tag.bind("<Up>",         lambda e: self._treffer_wandern(-1))
+        self.e_tag.bind("<Escape>",     lambda e: self._treffer_schliessen())
+        self.e_tag.bind("<BackSpace>",  self._tag_ruecktaste)
+        self.e_tag.bind("<FocusOut>",   lambda e: self.after(150, self._treffer_schliessen))
+
+        # Vorschlagsliste schwebt unter dem Tag-Feld (place statt pack)
+        self.lb_treffer = tk.Listbox(self, height=6, bg="white", fg=INK, relief="solid", bd=1,
+                                     highlightthickness=0, activestyle="none", exportselection=False,
+                                     selectbackground=BLUE, selectforeground=PAPER)
+        self.lb_treffer.bind("<ButtonRelease-1>", lambda e: self._tag_bestaetigen())
+
+        self.f_ki_neu = ttk.Frame(rechts)
+        self.f_ki_neu.pack(anchor="w", fill="x")
 
         kopfzeile("BESCHREIBUNG DEUTSCH  (optional)")
         self.t_de = tk.Text(rechts, height=2, width=52, wrap="word",
@@ -179,13 +256,6 @@ class Tagger(tk.Tk):
 
         self.lbl_rueckfall = ttk.Label(rechts, text="", style="Orig.TLabel", wraplength=430)
         self.lbl_rueckfall.pack(anchor="w", pady=(4, 0))
-
-        f_neu = ttk.Frame(rechts)
-        f_neu.pack(anchor="w", fill="x", pady=(6, 0))
-        self.e_neuer_tag = ttk.Entry(f_neu, width=22)
-        self.e_neuer_tag.pack(side="left")
-        ttk.Button(f_neu, text="Tag anlegen", command=self._tag_anlegen).pack(side="left", padx=6)
-        ttk.Button(f_neu, text="Tags verwalten …", command=self._tags_verwalten).pack(side="left")
 
         fuss = ttk.Frame(self, padding=(14, 4, 14, 14))
         fuss.pack(fill="x")
@@ -309,21 +379,134 @@ class Tagger(tk.Tk):
         self._hinweise_aktualisieren()
         self.lbl_status.config(text="Kamera auf EXIF-Wert zurückgesetzt")
 
-    def _tags_zeichnen(self, p):
-        for w in self.f_tags.winfo_children():
+    def _tags_zeichnen(self, p, gesetzt=None):
+        """Tag-Feld neu fuellen. gesetzt: Kennungen (Standard: die des Bildes)."""
+        self.gesetzt = list(p.get("tags", []) if gesetzt is None else gesetzt)
+        self._chips_zeichnen()
+        self.e_tag.delete(0, "end")
+        self._treffer_schliessen()
+        self._ki_neu_zeichnen(p)
+
+    def _chips_zeichnen(self):
+        # nur die Kaestchen vor dem Eingabefeld loeschen — das Feld selbst
+        # wuerde Tk beim Loeschen aus dem Text-Widget mit zerstoeren
+        self.t_tags.delete("1.0", str(self.e_tag))
+        ki = set(self.ki.get(self.liste[self.idx]["datei"], {}).get("tags", []))
+        for t in self.gesetzt:
+            von_ki = t in ki
+            chip = tk.Frame(self.t_tags, bg=PAPER_ALT, highlightthickness=1,
+                            highlightbackground=BLUE if von_ki else LINE)
+            name = self.tags_def.get(t, {}).get("de", t)
+            tk.Label(chip, text=("✦ " if von_ki else "") + name, bg=PAPER_ALT,
+                     fg=BLUE if von_ki else INK, padx=5, pady=1).pack(side="left")
+            x = tk.Label(chip, text="×", bg=PAPER_ALT, fg=INK_SOFT, padx=4, cursor="hand2")
+            x.pack(side="left")
+            x.bind("<Button-1>", lambda e, t=t: self._tag_entfernen(t))
+            self.t_tags.window_create(str(self.e_tag), window=chip, padx=2, pady=1)
+
+    def _tag_setzen(self, t):
+        if t not in self.gesetzt:
+            self.gesetzt.append(t)
+            self._chips_zeichnen()
+        self.e_tag.delete(0, "end")
+        self._treffer_schliessen()
+        self.e_tag.focus_set()
+
+    def _tag_entfernen(self, t):
+        if t in self.gesetzt:
+            self.gesetzt.remove(t)
+            self._chips_zeichnen()
+        self.e_tag.focus_set()
+
+    # --- Vorschlagsliste beim Tippen
+    def _tag_tippen(self, e):
+        if e.keysym in ("Tab", "Return", "Up", "Down", "Escape", "BackSpace") and e.keysym != "BackSpace":
+            return
+        text = self.e_tag.get().strip()
+        if not text:
+            self._treffer_schliessen()
+            return
+        q = text.lower()
+        _, zahl = self._tag_haeufigkeit()
+        anfang, mitte = [], []
+        for t, v in self.tags_def.items():
+            if t in self.gesetzt:
+                continue
+            name = v.get("de", t)
+            n, en = name.lower(), v.get("en", "").lower()
+            if n.startswith(q):
+                anfang.append(t)
+            elif q in n or en.startswith(q):
+                mitte.append(t)
+        sortiert = lambda l: sorted(l, key=lambda t: (-zahl.get(t, 0), self.tags_def[t].get("de", t)))
+        self.treffer = [(t, f"{self.tags_def[t].get('de', t)}   ({zahl.get(t, 0)})")
+                        for t in (sortiert(anfang) + sortiert(mitte))[:8]]
+        if not any(self.tags_def[t].get("de", t).lower() == q for t, _ in self.treffer) \
+                and ki_tags.kennung(text) not in self.tags_def:
+            self.treffer.append((None, f"+ neuen Tag „{text}“ anlegen"))
+        self.lb_treffer.delete(0, "end")
+        for _, zeile in self.treffer:
+            self.lb_treffer.insert("end", zeile)
+        self.lb_treffer.selection_clear(0, "end")
+        self.lb_treffer.selection_set(0)
+        self.lb_treffer.config(height=len(self.treffer))
+        x = self.t_tags.winfo_rootx() - self.winfo_rootx()
+        y = self.t_tags.winfo_rooty() - self.winfo_rooty() + self.t_tags.winfo_height()
+        self.lb_treffer.place(x=x, y=y, width=self.t_tags.winfo_width())
+        self.lb_treffer.lift()
+
+    def _treffer_wandern(self, schritt):
+        if not self.lb_treffer.winfo_ismapped():
+            return "break"
+        sel = self.lb_treffer.curselection()
+        i = max(0, min(len(self.treffer) - 1, (sel[0] if sel else -1) + schritt))
+        self.lb_treffer.selection_clear(0, "end")
+        self.lb_treffer.selection_set(i)
+        self.lb_treffer.see(i)
+        return "break"
+
+    def _treffer_schliessen(self):
+        self.lb_treffer.place_forget()
+
+    def _tag_bestaetigen(self, e=None):
+        """Tab/Enter/Klick: markierten Vorschlag uebernehmen oder neuen Tag anlegen."""
+        text = self.e_tag.get().strip()
+        if not text:
+            return None if e is not None and e.keysym == "Tab" else "break"   # leeres Feld: Tab springt weiter
+        sel = self.lb_treffer.curselection() if self.lb_treffer.winfo_ismapped() else ()
+        if sel and self.treffer[sel[0]][0]:
+            self._tag_setzen(self.treffer[sel[0]][0])
+            return "break"
+        k = ki_tags.kennung(text)
+        if k in self.tags_def:                       # exakt getippt
+            self._tag_setzen(k)
+            return "break"
+        self._treffer_schliessen()
+        self._tag_anlegen({"de": text[:1].upper() + text[1:], "en": ""})
+        return "break"
+
+    def _tag_ruecktaste(self, e):
+        # Ruecktaste im leeren Feld entfernt das letzte Kaestchen
+        if not self.e_tag.get() and self.gesetzt:
+            self._tag_entfernen(self.gesetzt[-1])
+            return "break"
+        self.after(1, lambda: self._tag_tippen(e))
+        return None
+
+    def _ki_neu_zeichnen(self, p):
+        """Neue Tags, die die KI vorschlaegt: als Knopf, angelegt erst beim Klick."""
+        for w in self.f_ki_neu.winfo_children():
             w.destroy()
-        self.tag_vars = {}
-        reihenfolge, zahl = self._tag_haeufigkeit()
-        gesetzt = set(p.get("tags", []))
-        spalten = 3
-        for i, t in enumerate(reihenfolge):
-            v = tk.BooleanVar(value=t in gesetzt)
-            self.tag_vars[t] = v
-            beschriftung = self.tags_def.get(t, {}).get("de", t)
-            if zahl[t]:
-                beschriftung += f"  ({zahl[t]})"
-            ttk.Checkbutton(self.f_tags, text=beschriftung, variable=v).grid(
-                row=i // spalten, column=i % spalten, sticky="w", padx=(0, 14))
+        offen = [n for n in self.ki.get(p["datei"], {}).get("neu", [])
+                 if ki_tags.kennung(n["de"]) not in self.tags_def]
+        if not offen:
+            return
+        ttk.Label(self.f_ki_neu, text="✦ neu vorgeschlagen:", style="Hint.TLabel").pack(
+            side="left", pady=(6, 0))
+        for n in offen:
+            ttk.Button(self.f_ki_neu, text=f"+ {n['de']}",
+                       command=lambda n=n: self._tag_anlegen(vorgabe=n)).pack(
+                side="left", padx=(6, 0), pady=(6, 0))
 
     # --------------------------------------------------------- Bearbeiten --
     def _felder_uebernehmen(self):
@@ -338,7 +521,7 @@ class Tagger(tk.Tk):
         neu = {
             "datum":  datum,
             "ort":    self.cb_ort.get().strip(),
-            "tags":   sorted(t for t, v in self.tag_vars.items() if v.get()),
+            "tags":   sorted(self.gesetzt),
             "kamera": self.e_kamera.get().strip(),
             "de":     self.t_de.get("1.0", "end").strip(),
             "en":     self.t_en.get("1.0", "end").strip(),
@@ -381,9 +564,8 @@ class Tagger(tk.Tk):
             return
         vor = self.liste[self.idx - 1]
         self.cb_ort.set(vor.get("ort", ""))
-        gesetzt = set(vor.get("tags", []))
-        for t, v in self.tag_vars.items():
-            v.set(t in gesetzt)
+        self.gesetzt = list(vor.get("tags", []))
+        self._chips_zeichnen()
         self.t_de.delete("1.0", "end"); self.t_de.insert("1.0", vor.get("de", ""))
         self.t_en.delete("1.0", "end"); self.t_en.insert("1.0", vor.get("en", ""))
         self._rueckfall_anzeigen()
@@ -603,17 +785,14 @@ class Tagger(tk.Tk):
         if zustand.get("ids"):
             liste.selection_set(0); waehlen()
 
-    def _tag_anlegen(self):
-        roh = self.e_neuer_tag.get().strip().lower()
-        kennung = re.sub(r"[^a-z0-9]+", "", roh.replace("ä", "ae").replace("ö", "oe")
-                                              .replace("ü", "ue").replace("ß", "ss"))
+    def _tag_anlegen(self, vorgabe):
+        """Neuen Tag anlegen und setzen. vorgabe = {"de", "en"} — getippt oder von der KI."""
+        roh = vorgabe["de"].strip()
+        kennung = ki_tags.kennung(roh)
         if not kennung:
-            messagebox.showwarning("Kein Name", "Bitte einen Tag-Namen eingeben.")
             return
         if kennung in self.tags_def:
-            self.tag_vars[kennung].set(True)
-            self.e_neuer_tag.delete(0, "end")
-            self.lbl_status.config(text=f"'{kennung}' gibt es schon — gesetzt")
+            self._tag_setzen(kennung)
             return
 
         dlg = tk.Toplevel(self)
@@ -623,9 +802,11 @@ class Tagger(tk.Tk):
         dlg.grab_set()
         ttk.Label(dlg, text=f"Kennung:  {kennung}").pack(padx=16, pady=(14, 8), anchor="w")
         ttk.Label(dlg, text="Bezeichnung deutsch:").pack(padx=16, anchor="w")
-        e_de = ttk.Entry(dlg, width=34); e_de.pack(padx=16, pady=(0, 8)); e_de.insert(0, roh.capitalize())
+        e_de = ttk.Entry(dlg, width=34); e_de.pack(padx=16, pady=(0, 8))
+        e_de.insert(0, roh)
         ttk.Label(dlg, text="Bezeichnung englisch:").pack(padx=16, anchor="w")
         e_en = ttk.Entry(dlg, width=34); e_en.pack(padx=16, pady=(0, 12))
+        e_en.insert(0, vorgabe.get("en", ""))
 
         def anlegen():
             de = e_de.get().strip() or kennung
@@ -636,14 +817,17 @@ class Tagger(tk.Tk):
                 return
             self.liste[self.idx].setdefault("tags", []).append(kennung)
             self.schmutzig = True
-            self.e_neuer_tag.delete(0, "end")
+            self._dirty_anzeigen()
             dlg.destroy()
             self._anzeigen()
             self.lbl_status.config(text=f"Tag '{de}' angelegt und gesetzt")
 
         ttk.Button(dlg, text="Anlegen", command=anlegen).pack(pady=(0, 14))
         e_en.bind("<Return>", lambda e: anlegen())
-        e_de.focus_set()
+        e_de.bind("<Return>", lambda e: e_en.focus_set())
+        dlg.bind("<Escape>", lambda e: dlg.destroy())
+        # Deutsch steht meist schon da (getippt oder von der KI) -> gleich Englisch
+        (e_en if not vorgabe.get("en") else e_de).focus_set()
 
     # --------------------------------------------------------- Speichern ---
     def _speichern(self, sichtbar=False):
@@ -672,6 +856,317 @@ class Tagger(tk.Tk):
         self._liste_aktualisieren()
         self._anzeigen()
 
+    # ------------------------------------------------------- KI-Vorschlaege --
+    def _ki_einstellungen(self):
+        cfg = ki_tags.konfig_laden()
+        dlg = tk.Toplevel(self)
+        dlg.title("KI-Einstellungen")
+        dlg.configure(bg=PAPER)
+        dlg.transient(self); dlg.grab_set()
+
+        ttk.Label(dlg, text="OPENROUTER-SCHLÜSSEL", style="Head.TLabel").pack(padx=16, pady=(14, 2), anchor="w")
+        e_key = ttk.Entry(dlg, width=52, show="•"); e_key.pack(padx=16, anchor="w")
+        e_key.insert(0, cfg.get("api_key", ""))
+        ttk.Label(dlg, text="Anlegen unter  openrouter.ai/keys  ·  gespeichert in\n" + ki_tags.KONFIG,
+                  style="Orig.TLabel").pack(padx=16, pady=(2, 0), anchor="w")
+        if os.environ.get("OPENROUTER_API_KEY"):
+            ttk.Label(dlg, text="Hinweis: OPENROUTER_API_KEY ist gesetzt und hat Vorrang.",
+                      style="Geaendert.TLabel").pack(padx=16, anchor="w")
+
+        ttk.Label(dlg, text="MODELL", style="Head.TLabel").pack(padx=16, pady=(12, 2), anchor="w")
+        cb = ttk.Combobox(dlg, width=40, values=ki_tags.MODELLE); cb.pack(padx=16, anchor="w")
+        cb.set(cfg.get("modell") or ki_tags.STANDARD_MODELL)
+        ttk.Label(dlg, text="Jedes Modell von openrouter.ai/models mit Bildeingabe geht.\n"
+                            f"Standard: {ki_tags.STANDARD_MODELL} (rund 0,02 Cent pro Bild)",
+                  style="Orig.TLabel").pack(padx=16, pady=(2, 0), anchor="w")
+
+        def speichern():
+            cfg["api_key"] = e_key.get().strip()
+            cfg["modell"] = cb.get().strip() or ki_tags.STANDARD_MODELL
+            ki_tags.konfig_speichern(cfg)
+            dlg.destroy()
+            self.lbl_status.config(text=f"KI-Einstellungen gespeichert · {cfg['modell']}")
+
+        f = ttk.Frame(dlg); f.pack(padx=16, pady=(14, 16), anchor="w")
+        ttk.Button(f, text="Speichern", command=speichern).pack(side="left")
+        ttk.Button(f, text="Abbrechen", command=dlg.destroy).pack(side="left", padx=6)
+        e_key.focus_set()
+
+    def _ki_anfrage(self, p):
+        """Laeuft im Hintergrund-Thread — hier keine Tk-Aufrufe."""
+        bild = os.path.join(THUMB, os.path.splitext(p["datei"])[0] + ".webp")
+        return ki_tags.vorschlagen(bild, dict(self.tags_def), p.get("ort", ""), p.get("exif"))
+
+    def _ki_vorschlag(self):
+        """KI-Vorschlag fuer das aktuelle Bild."""
+        if self.ki_laeuft:
+            self.lbl_status.config(text="KI arbeitet noch …")
+            return
+        p = self.liste[self.idx]
+        self.ki_laeuft = True
+        self.btn_ki.state(["disabled"])
+        self.lbl_status.config(text="KI schaut sich das Bild an …")
+
+        def arbeit():
+            try:
+                res = self._ki_anfrage(p)
+                self.after(0, lambda: self._ki_einzeln_fertig(p, res, None))
+            except ki_tags.KIFehler as e:
+                self.after(0, lambda e=e: self._ki_einzeln_fertig(p, None, str(e)))
+            except Exception as e:                       # nie still im Thread sterben
+                self.after(0, lambda e=e: self._ki_einzeln_fertig(p, None, repr(e)))
+        threading.Thread(target=arbeit, daemon=True).start()
+
+    def _ki_einzeln_fertig(self, p, res, fehler):
+        self.ki_laeuft = False
+        self.btn_ki.state(["!disabled"])
+        if fehler:
+            self.lbl_status.config(text="KI-Vorschlag fehlgeschlagen")
+            messagebox.showerror("KI-Vorschlag", fehler)
+            return
+        self._ki_merken(p, res)
+        if p is self.liste[self.idx]:
+            # Vorschlaege zu den angehakten Tags dazu — nie etwas abwaehlen
+            gesetzt = self.gesetzt + [t for t in res["tags"] if t not in self.gesetzt]
+            self._tags_zeichnen(p, gesetzt)
+        else:                                            # inzwischen weitergeblaettert
+            neu = sorted(set(p.get("tags", [])) | set(res["tags"]))
+            if neu != p.get("tags"):
+                p["tags"] = neu
+                self.schmutzig = True
+                self._dirty_anzeigen()
+        self.lbl_status.config(text=self._ki_zusammenfassung(res))
+
+    def _ki_merken(self, p, res):
+        self.ki[p["datei"]] = res
+        if res.get("kosten"):
+            self.ki_kosten += res["kosten"]
+
+    def _ki_zusammenfassung(self, res):
+        teile = [f"KI: {len(res['tags'])} Tags"]
+        if res["neu"]:
+            teile.append(f"{len(res['neu'])} neue vorgeschlagen")
+        if res.get("kosten") is not None:
+            teile.append(f"{cent(res['kosten'], 3)} Cent · Sitzung {cent(self.ki_kosten)} Cent")
+        return "  ·  ".join(teile) + "  —  bitte prüfen"
+
+    def _ki_alle(self, ziel=None):
+        """KI-Vorschlaege fuer mehrere Bilder. Ohne Angabe: alle ohne Tags."""
+        if self.ki_laeuft:
+            self.lbl_status.config(text="KI arbeitet noch …")
+            return
+        if not self._felder_uebernehmen():
+            return
+        if ziel is None:
+            ziel = [p for p in self.alle if not p.get("tags")]
+            if not ziel:
+                messagebox.showinfo("KI-Vorschläge", "Alle Bilder haben schon Tags.\n\n"
+                                    "Für ein einzelnes Bild: „✦ KI-Vorschlag“ (Strg+K).")
+                return
+        modell = ki_tags.konfig_laden().get("modell")
+        if not messagebox.askyesno(
+                "KI-Vorschläge",
+                f"{len(ziel)} Bild(er) an {modell} schicken?\n\n"
+                "Die vorgeschlagenen Tags werden gesetzt und mit ✦ markiert.\n"
+                "Bitte danach durchsehen — gespeichert wird erst mit „Speichern“."):
+            return
+        self.ki_laeuft = True
+        self.btn_ki.state(["disabled"])
+
+        def arbeit():
+            for n, p in enumerate(ziel, 1):
+                self.after(0, lambda n=n: self.lbl_status.config(
+                    text=f"KI: Bild {n} von {len(ziel)} …"))
+                try:
+                    res = self._ki_anfrage(p)
+                except ki_tags.KIFehler as e:
+                    self.after(0, lambda e=e, n=n: self._ki_stapel_ende(n - 1, len(ziel), str(e)))
+                    return
+                except Exception as e:
+                    self.after(0, lambda e=e, n=n: self._ki_stapel_ende(n - 1, len(ziel), repr(e)))
+                    return
+                self.after(0, lambda p=p, res=res: self._ki_stapel_ergebnis(p, res))
+            self.after(0, lambda: self._ki_stapel_ende(len(ziel), len(ziel), None))
+        threading.Thread(target=arbeit, daemon=True).start()
+
+    def _ki_stapel_ergebnis(self, p, res):
+        self._ki_merken(p, res)
+        aktuell = p is self.liste[self.idx]
+        if aktuell:
+            self._felder_uebernehmen()
+        # nur ergaenzen — eigene Tags bleiben immer stehen
+        neu = sorted(set(p.get("tags", [])) | set(res["tags"]))
+        if neu != p.get("tags"):
+            p["tags"] = neu
+            self.schmutzig = True
+            self._dirty_anzeigen()
+        if aktuell:
+            self._anzeigen()
+
+    def _ki_stapel_ende(self, fertig, gesamt, fehler):
+        self.ki_laeuft = False
+        self.btn_ki.state(["!disabled"])
+        kosten = f" · {cent(self.ki_kosten)} Cent in dieser Sitzung" if self.ki_kosten else ""
+        self.lbl_status.config(text=f"KI: {fertig} von {gesamt} Bildern{kosten} — bitte prüfen, dann speichern")
+        if fehler:
+            messagebox.showerror("KI-Vorschläge", f"Abgebrochen nach {fertig} von {gesamt} Bildern.\n\n{fehler}")
+
+    # ----------------------------------------------------- Werkzeugleiste --
+    def _protokoll_fenster(self):
+        if self.protokoll and self.protokoll.winfo_exists():
+            self.protokoll.deiconify(); self.protokoll.lift()
+            return self.protokoll
+        dlg = tk.Toplevel(self)
+        dlg.title("Protokoll")
+        dlg.configure(bg=PAPER)
+        dlg.geometry("760x420")
+        text = tk.Text(dlg, wrap="word", bg="white", fg=INK, relief="solid", bd=1,
+                       font=("TkFixedFont", 9), highlightthickness=0)
+        roller = ttk.Scrollbar(dlg, orient="vertical", command=text.yview)
+        text.configure(yscrollcommand=roller.set, state="disabled")
+        roller.pack(side="right", fill="y", pady=10, padx=(0, 10))
+        text.pack(side="left", fill="both", expand=True, padx=(10, 0), pady=10)
+        dlg.text = text
+        self.protokoll = dlg
+        return dlg
+
+    def _protokoll_schreiben(self, zeile):
+        t = self._protokoll_fenster().text
+        t.configure(state="normal"); t.insert("end", zeile); t.see("end"); t.configure(state="disabled")
+
+    def _skripte_ausfuehren(self, titel, befehle, danach):
+        """Skripte nacheinander im Hintergrund, Ausgabe ins Protokoll.
+
+        Solange sie laufen, ist das Hauptfenster gesperrt: build-gallery.py
+        schreibt photos.json, Eingaben in der Zwischenzeit gingen beim
+        anschliessenden Neuladen verloren.
+        """
+        if self.laeuft:
+            return
+        self.laeuft = True
+        dlg = self._protokoll_fenster()
+        t = dlg.text
+        t.configure(state="normal"); t.delete("1.0", "end"); t.configure(state="disabled")
+        self._protokoll_schreiben(f"── {titel} ──\n")
+        dlg.grab_set()
+        umgebung = dict(os.environ, PYTHONUNBUFFERED="1")
+
+        def arbeit():
+            ok = True
+            for befehl in befehle:
+                self.after(0, self._protokoll_schreiben, f"\n$ python3 tools/{os.path.basename(befehl[-1])}\n")
+                try:
+                    proc = subprocess.Popen([sys.executable] + befehl, cwd=ROOT, env=umgebung,
+                                            stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+                    for zeile in proc.stdout:
+                        self.after(0, self._protokoll_schreiben, zeile)
+                    ok = proc.wait() == 0
+                except OSError as e:
+                    self.after(0, self._protokoll_schreiben, f"{e}\n")
+                    ok = False
+                if not ok:
+                    break
+            self.after(0, fertig, ok)
+
+        def fertig(ok):
+            self.laeuft = False
+            dlg.grab_release()
+            self._protokoll_schreiben("\n✔ fertig\n" if ok else "\n✘ abgebrochen — siehe oben\n")
+            danach(ok)
+        threading.Thread(target=arbeit, daemon=True).start()
+
+    def _galerie_bauen(self, danach=None):
+        """build-gallery.py und build-pages.py. Ungespeichertes wird vorher gespeichert."""
+        if self.laeuft or not self._felder_uebernehmen():
+            return
+        if self.ki_laeuft:
+            messagebox.showinfo("Galerie bauen", "Die KI arbeitet noch — bitte kurz warten.")
+            return
+        gespeichert = self.schmutzig
+        if self.schmutzig:
+            self._speichern()
+
+        def nach_bauen(ok):
+            self._neu_laden()
+            if gespeichert:
+                self._protokoll_schreiben("(ungespeicherte Änderungen wurden vorher gespeichert)\n")
+            if ok:
+                self.lbl_status.config(text="Galerie gebaut — „Vorschau im Browser“ zeigt das Ergebnis")
+            if danach:
+                danach(ok)
+        self._skripte_ausfuehren("Galerie bauen", [[BUILD_GALLERY], [BUILD_PAGES]], nach_bauen)
+
+    def _neu_laden(self):
+        """photos.json nach dem Bauen neu einlesen, beim selben Bild bleiben."""
+        datei = self.liste[self.idx]["datei"] if self.liste else None
+        with open(DATA, encoding="utf-8") as fh:
+            self.daten = json.load(fh)
+        self.tags_def = self.daten.setdefault("tags", {})
+        self.alle = self.daten.get("photos", [])
+        self.schmutzig = False
+        self._dirty_anzeigen()
+        if not self.alle:
+            return
+        self._liste_aktualisieren()
+        for i, p in enumerate(self.liste):
+            if p["datei"] == datei:
+                self.idx = i
+                break
+        self._anzeigen()
+
+    def _bilder_hinzufuegen(self):
+        if self.laeuft:
+            return
+        wahl = filedialog.askopenfilenames(
+            parent=self, title="Bilder für die Galerie auswählen",
+            filetypes=[("Bilder", " ".join("*" + e + " *" + e.upper() for e in BILDTYPEN)),
+                       ("Alle Dateien", "*")])
+        if not wahl:
+            return
+        os.makedirs(ORIG, exist_ok=True)
+        vorhanden = {os.path.splitext(f)[0] for f in os.listdir(ORIG)}
+        kopiert, uebersprungen = [], []
+        for quelle in wahl:
+            name = os.path.basename(quelle)
+            if not name.lower().endswith(BILDTYPEN):
+                uebersprungen.append(f"{name}  (kein unterstütztes Format)")
+            elif os.path.splitext(name)[0] in vorhanden:
+                # gleicher Stamm hiesse fuer build-gallery.py: dieses Bild ersetzen
+                uebersprungen.append(f"{name}  (gleichnamiges Bild gibt es schon)")
+            else:
+                shutil.copy2(quelle, os.path.join(ORIG, name))
+                vorhanden.add(os.path.splitext(name)[0])
+                kopiert.append(name)
+        if uebersprungen:
+            messagebox.showwarning("Nicht übernommen", "\n".join(uebersprungen))
+        if not kopiert:
+            return
+
+        def danach(ok):
+            if not ok:
+                return
+            neu = [p for p in self.alle if p["datei"] in kopiert]
+            if neu:                                 # zum ersten neuen Bild springen
+                self.nur_offene.set(False)
+                self._liste_aktualisieren()
+                self.idx = self.liste.index(neu[0])
+                self._anzeigen()
+                # KI erst auf Knopfdruck — nichts geht ungefragt raus
+                self.lbl_status.config(text=f"{len(neu)} Bild(er) aufgenommen — "
+                                            "KI-Vorschlag mit Strg+K oder „KI für alle ohne Tags …“")
+        self._galerie_bauen(danach)
+
+    def _vorschau(self):
+        """Lokalen Server starten (falls noch keiner laeuft) und die Galerie oeffnen."""
+        with socket.socket() as s:
+            belegt = s.connect_ex(("127.0.0.1", PORT)) == 0
+        if not belegt:
+            self.server = subprocess.Popen([sys.executable, SERVE, str(PORT)], cwd=ROOT,
+                                           stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        self.after(0 if belegt else 600,
+                   lambda: webbrowser.open(f"http://localhost:{PORT}/gallery.html"))
+        self.lbl_status.config(text=f"Vorschau: http://localhost:{PORT}/gallery.html")
+
     def _beenden(self):
         self._felder_uebernehmen()
         if self.schmutzig:
@@ -687,7 +1182,8 @@ class Tagger(tk.Tk):
                 print("Änderungen verworfen.")
         offen = sum(1 for p in self.alle if self._unvollstaendig(p))
         print(f"Noch unvollständig: {offen}")
-        print("Weiter mit:  python3 tools/build-gallery.py")
+        if self.server and self.server.poll() is None:
+            self.server.terminate()
         self.destroy()
 
 

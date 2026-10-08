@@ -27,7 +27,9 @@ _src/404.html       Fehlerseite, zeigt beide Sprachen (siehe unten)
 
 tools/build-pages.py    Quellen -> deutsche und englische Seiten + sitemap.xml
 tools/build-gallery.py  Galerie bauen (Vorschaubilder + Bildliste)
-tools/tag-photos.py     Oberfläche zum Verschlagworten
+tools/tag-photos.py     Galerie-Werkzeug: aufnehmen, verschlagworten, bauen
+tools/ki_tags.py        KI-Vorschläge für Tags über OpenRouter
+tools/serve.py          lokaler Server ohne Browser-Cache
 
 index.html, projects.html, gallery.html, …   ERZEUGT — nicht bearbeiten
 en/…                                          ERZEUGT — nicht bearbeiten
@@ -53,6 +55,20 @@ CNAME               eigene Domain für GitHub Pages
 
 ## Neue Fotos in die Galerie
 
+Alles läuft über das **Galerie-Werkzeug** (`tools/tag-photos.py`, im Startmenü
+als „Galerie-Werkzeug“). Ein Terminal ist nicht nötig:
+
+1. **Bilder hinzufügen …** — Dateien wählen; sie werden nach `originals/`
+   kopiert, danach baut das Werkzeug die Galerie und springt zum ersten neuen
+   Bild. Die KI wird dabei **nicht** gefragt — erst per Knopf.
+2. Ort, Tags, Beschreibung prüfen bzw. ergänzen, **Speichern**.
+3. **Galerie bauen** — `build-gallery.py` + `build-pages.py`, Ausgabe im
+   Protokollfenster. Ungespeichertes wird vorher gespeichert.
+4. **Vorschau im Browser** — startet `tools/serve.py` und öffnet die Galerie.
+5. Commit und Push von Hand.
+
+Dasselbe von Hand:
+
 ```bash
 cp ~/fotos/*.jpg originals/       # 1. Originale ablegen
 python3 tools/build-gallery.py    # 2. Ableitungen + EXIF
@@ -60,6 +76,41 @@ python3 tools/tag-photos.py       # 3. Ort, Tags, Beschreibung ergänzen
 python3 tools/build-gallery.py    # 4. Bildliste in _src/gallery.html
 python3 tools/build-pages.py      # 5. beide Sprachfassungen schreiben
 ```
+
+### Tag-Feld
+
+Die Tags eines Bildes stehen als Kästchen in einem Eingabefeld:
+
+- tippen → darunter erscheinen passende Tags („bau“ → „Baum (19)“), häufigste
+  zuerst; gesucht wird in der deutschen Bezeichnung, am Wortanfang auch in der
+  englischen
+- **Tab** oder **Enter** übernimmt den markierten Vorschlag, **↑/↓** wählt
+- passt keiner: „+ neuen Tag … anlegen“ — öffnet den Dialog, Deutsch ist
+  ausgefüllt, nur noch die englische Bezeichnung eintragen
+- **×** am Kästchen oder **Rücktaste** im leeren Feld entfernt einen Tag
+- alle Tags umbenennen, übersetzen oder löschen: **Tags verwalten …**
+
+### KI-Vorschläge für Tags
+
+`tools/ki_tags.py` schickt das **Vorschaubild** (800 px, ohne Metadaten — die
+Datei, die ohnehin online steht) mit der Tag-Liste, dem Ort und den
+Aufnahmedaten an ein Bildmodell über [OpenRouter](https://openrouter.ai).
+
+- **✦ KI-Vorschlag (Strg+K)** — für das aktuelle Bild. Passende vorhandene
+  Tags kommen ins Tag-Feld, blau mit ✦ markiert; eigene Tags bleiben stehen.
+  Die KI soll mindestens drei Tags liefern (vorhandene + neue).
+- **Neue Tags** erscheinen als Knopf „+ Brücke“. Erst der Klick legt sie an —
+  im gewohnten Dialog, deutsche und englische Bezeichnung schon ausgefüllt.
+- **KI für alle ohne Tags …** — geht alle Bilder ohne Tags durch.
+- Gespeichert wird wie immer erst mit **Speichern**. Die Statuszeile zeigt
+  die Kosten (Standardmodell `google/gemini-2.5-flash-lite`: rund 0,02 Cent
+  pro Bild).
+
+Schlüssel und Modell unter **KI-Einstellungen …**; abgelegt in
+`~/.config/ralf-galerie/openrouter.json` (außerhalb des Repos, nur für den
+eigenen Benutzer lesbar). Die Umgebungsvariable `OPENROUTER_API_KEY` hat
+Vorrang. Zum Ausprobieren ohne Oberfläche:
+`python3 tools/ki_tags.py images/gallery/thumb/<bild>.webp`
 
 ### `originals/` liegt bewusst außerhalb von Git
 
@@ -358,7 +409,7 @@ grep -rn 'datetime="20' _src/
 
 ```bash
 python3 tools/build-pages.py
-python3 -m http.server 8000
+python3 tools/serve.py
 ```
 
 Dann <http://localhost:8000> öffnen — die englische Fassung unter
